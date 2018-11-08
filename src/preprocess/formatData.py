@@ -213,8 +213,10 @@ def determineOriginalDataType(path, checkNum = 5, readfileModel = 'buf10000', de
         elif buf[0][1] == 2 and not tagAtTail:
             return 'type4'
         else:
+            print("Error: determineOriginalDataType: unseen type")
             return 'other type'
 
+# format all files with chosen suffixes
 if __name__=='__main__':
     pathFiles = '../../data/'
     files = glob.iglob(pathFiles + '/**', recursive=True)
