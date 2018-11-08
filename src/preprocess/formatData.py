@@ -119,7 +119,7 @@ def formatAndSaveAs(path, type, outFilePath = 'NULL',
         tagFormat： format of tag
         debug: print debug information
     Returns:
-        String: the type
+        no returns
     """
     if debug:
         print('dealing: ' + path)
