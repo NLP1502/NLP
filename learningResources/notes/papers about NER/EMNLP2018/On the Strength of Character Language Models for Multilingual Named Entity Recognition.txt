@@ -1,0 +1,12 @@
+
+
+数据：
+
+Entity and Non-entity word lists（已下载）
+These lists were collected from Wikipedia using Freebase entries/types to identify names vs. non-names. They were used to train character language models (CLMs) for an EMNLP 2018 paper on CLMs for NER in multiple languages.
+
+LDC LORELEI Language Pack Data Splits（未下载）
+Information allowing users to recreate train/dev/test splits  used in Cogcomp research.  Users will need to acquire the source data from LDC.
+
+LDC主页（不清楚应该下哪一个）
+https://catalog.ldc.upenn.edu/byyear.jsp
