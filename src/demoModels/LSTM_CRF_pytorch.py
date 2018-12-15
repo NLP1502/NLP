@@ -1,7 +1,7 @@
 # environment: python 2.7, torch 0.4
 # Copyright 2017-YuejiaXiang, NLP Lab., Northeastern university
 # reffered to Bi-LSTM CRF model provided by pytorch tutorial file
-# you can read the README file in the root directory to learn more
+# you can read the NOTE file in the root directory to learn more
 # details.
 #
 
