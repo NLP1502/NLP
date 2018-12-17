@@ -6,19 +6,19 @@ Thanks to contributers: K.L. Zeng
 This demo is a varant of LSTM_CRF_pytorch_demo in which the task it's facing is no longer NER but CET(College English Test).
 
 ## How to run:
-environment: python 2.7, torch 0.4
+environment: python 2.7, torch 0.4  
 use "python trainCET.py" to run this demo.
  
 ## Objectives: 
-Guess the answer of a question from the answers of two questions before it and two after. 
+Guess the answer of a question from the answers of two questions before it and two after.   
 (dataset: CET-6 multiple choice questions) 
  
 ## Methods: 
-- Use the listening comprehension question's answers of CET-6 as the original dataset, and then extract every 5-consecutive answers to establish the final dataset.
+- Use the listening comprehension question's answers of CET-6 as the original dataset, and then extract every 5-consecutive answers to establish the final dataset.  
 Input data format: A B X B D  
 Output data format: A B D B D  
 ABCD are the answers of questions, and X is the answer need to be predicted.  
-- Using the LSTM_CRF_pytorch_demo as baseline model.
+- Using the LSTM_CRF_pytorch_demo as baseline model.  
 And then I make some modifications to the baseline model.
 Firstly, I add save & load function which allows our model rollback to the present optimal solution when the performance degrades after updating.   
 Secondly, I modify the scoring function by stage that only consider the prediction accuracy of X at prediction stage.
