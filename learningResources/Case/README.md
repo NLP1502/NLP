@@ -1,5 +1,6 @@
 # Case
 Here are some cases for learning. 
+
 Each case can be run independently.
 ## Estimator_example
 This demo shows the basic usage of Estinater frame of tensorflow which is important for us to understand high-level encapsulated framework.
