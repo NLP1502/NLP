@@ -24,7 +24,7 @@ Firstly, I add save & load function which allows our model rollback to the prese
 Secondly, I modify the scoring function by stage that only consider the prediction accuracy of X at prediction stage.
  
 ## Effect: 
-The accuracy is 0.72 for the CET-6 problem in June.2018
+The accuracy is 0.72 for the CET-6 problem in June 2018
  
 ## Defects: 
 1. The scoring system in the training phase should be redesigned.
