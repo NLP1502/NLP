@@ -1,0 +1,27 @@
+xml_file_name = "train.release.xml"  # 存储句对和正确标签的xml文件
+
+Building prefix dict from the default dictionary ...
+Loading model from cache C:\Users\MAC\AppData\Local\Temp\jieba.cache
+Loading model cost 1.240 seconds.
+Prefix dict has been built succesfully.
+[Finished in 15.7s]
+
+总句子数:10449 判错完全正确的句子数:6791 0.6499186525026318
+类型S判断正确8367 类型S验证11584 0.722289364640884
+类型R判断正确5165 类型R验证5848 0.8832079343365253
+类型M判断正确5843 类型M验证7008 0.8337614155251142
+类型W判断正确1538 类型W验证1993 0.7717009533366783
+
+xml_file_name = "2016_CGED_TrainingSet.txt"  # 存储句对和正确标签的xml文件
+
+Building prefix dict from the default dictionary ...
+Loading model from cache C:\Users\MAC\AppData\Local\Temp\jieba.cache
+Loading model cost 1.140 seconds.
+Prefix dict has been built succesfully.
+[Finished in 14.9s]
+
+总句子数:9593 判错完全正确的句子数:6194 0.645679141040342
+类型S判断正确7371 类型S验证10400 0.70875
+类型R判断正确4609 类型R验证5271 0.8744071333712768
+类型M判断正确5089 类型M验证6195 0.8214689265536723
+类型W判断正确1031 类型W验证1620 0.6364197530864197
