@@ -12,11 +12,11 @@
 > 已完成：  
 18.12.15-19.1.2: 整理18年顶会NER论文  
 18.1.3-19.1.6：用NER模型和CRF++工具做纠错  
-19.1.7-19.1.11：生成随机伪数据验证NER模型在纠错任务上的潜力
-19.1.11-19.1.17：选择基线模型并初步复现
-19.1.18：列实验计划
-19.1.19-19.1.20：调整基线模型
-19.1.20-19.1.23：基线模型调参
+19.1.7-19.1.11：生成随机伪数据验证NER模型在纠错任务上的潜力  
+19.1.11-19.1.17：选择基线模型并初步复现  
+19.1.18：列实验计划  
+19.1.19-19.1.20：调整基线模型  
+19.1.20-19.1.23：基线模型调参  
   
 ## 实验方案
 > 由于时间很紧，优先选择对模型改动较小的方案
@@ -48,13 +48,13 @@
 > 动机：NER任务中实体标签较稀疏且和POS强相关，提出一种更适合该任务的特征提取结构  
 >> 方法：动态链接的多层lstm实现任两词的直连、或用POS做attention  
 
-<img src="https://github.com/ApricotXingyaYJ/markdownImages/blob/master/ner-experiments/3.png?raw=true" width="40%" height="40%">  
+<img src="https://github.com/ApricotXingyaYJ/markdownImages/blob/master/ner-experiments/4.png?raw=true" width="100%" height="40%">  
 
 ### 决策层模型融合
 > 动机：不仅仅考虑最优预测结果，较次的预测结果也许可以对提高性能有帮助
 >> 方法：用模型融合的方法、结合其他附加信息
 
-<img src="https://github.com/ApricotXingyaYJ/markdownImages/blob/master/ner-experiments/4.png?raw=true" width="100%" height="40%">  
+<img src="https://github.com/ApricotXingyaYJ/markdownImages/blob/master/ner-experiments/3.png?raw=true" width="40%" height="40%">  
 
 ### 特征的引入时机与方法
 > 动机：不同的外部信息本身的抽象级别不同，应在不同的位置加入到模型中
