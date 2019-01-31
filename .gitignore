@@ -20,3 +20,11 @@ learningResources/papers/papers_recommend/
 learningResources/papers/papers_recovery/
 learningResources/papers/papers_classification/
 learningResources/papers/papers_sequenceLabeling/
+src/Experiment-NER/experiments/
+src/Experiment-NER/correct/CGED_train_2017
+src/Experiment-NER/correct/m2scorer-master.zip
+src/Experiment-NER/correct/data.txt
+learningResources/papers/论文梳理19.1.5.old.xls
+learningResources/papers/论文梳理19.1.16.xls
+2019-1-11中英词典过滤.rar
+src/Experiment-NER/correct/zh-en-pair/

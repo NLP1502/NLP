@@ -1,0 +1,65 @@
+base: lrner_new
+是作者在git更新后的代码
+
+base1: 对base的修改
+特征中默認包含了POS
+改写了initial_feature_alphabets的实现，使输入数据无需[name]标签
+剥离出预训练
+配置文件控制是否保存模型
+配置文件支持clip
+存储预测出的test集
+打印分数时同时输出当前最高分和其epoch
+评价时输出各类别的P\R\F1
+把会报警告的volatile=False改为了requires_grad=True
+添加了state_training_name用来管理模型文件的名字
+arg支持全部base可调参数
+
+注意：  在read_arg中加参数和移版本时要确保主arg中的参数的默认值和config文件中一致，
+        需要警惕config中允许是None，但config中不是None的变量的arg默认值，
+        如：seed_num、clip，目前版本这两个的config值都是None,无需处理该问题
+
+
+默认的optimizer=SGD？？？不是adam?
+class 的读模型、测试模型、模型融合
+class 存模型的频率更高一些
+目前使用的是，wiki在30个语种上对齐的单语词向量，而不是单语学习的，也许对齐的更合适，那么英语的应该也用对齐的
+目前的read_arg中只加入了config中未被注释的变量
+-DOCSTART- -DOCSTART- O 可以从三个集合中都删了，全是O,完全可以预处理熬了，不过赶紧可能没有影响
+动态学习率
+decode的代码还没有修改
+
+
+！！！！！
+label_seq_tensor = autograd.Variable(torch.zeros((batch_size, label_class)), requires_grad=requires_grad_flag).long()
+是否意味着对label也求梯度
+
+内部ensemble没有用，好像在过拟合。试试每epoch保存。试试限制一下参数的上下限
+
+ensembel 只考虑各个类别生成的第一个
+在norm时没有考虑句子中不同子句的分数大小的含义，也许表明对某些位置更有把握，目前是对各个字句都归一化为1
+neg_punishment_rate_weight 不应该为1，其他几个中，应该是O的比重大一些，但会不会影响其他类别的判断
+不选最大二选显著性
+切分的substring文件中没有对数字进行0替换
+应该对特殊符号也做一下替换
+
+
+!!!!真实标签打到了6
+!!!!在ensembel中用data.substring.test的预处理好的数据和data.test编号对不上
+    (初步分析是生成数据时有错)
+    ，放弃使用substring做，改为在generate时就用data.test生成
+
+
+现在 NLPCC_GEC 的valid集文件句子数太少了，没有分割对
+
+子字符串分类器直接综合的效果不好：因为类别不均衡，因为基判别器差，因为P过低
+     改进：需要各个类别的判别器数量平衡、不是评价分布概率而是偏向中间集中
+     另外的思路：不由他生成句子成句，而是对现有的多个序列（或多序列的多子序列）用多分类器打分
+
+分别用准确率和召回率做为目标来学习分类器，并分别用他们来做知道
+准确率和召回率分别使用
+用统计的方法计算每个字或子字符串的类别概率，并作为特征输入到子模型中看看效果
+
+用的dev集上与最高分融合看提升的方法来判断是否留下其模型
+最后再测试集上选ensemble最高的模型留下来
+
+给长度和ans给出额外的惩罚
