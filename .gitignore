@@ -12,7 +12,6 @@ learningResources/notes/notes/~$ytorch.docx
 learningResources/notes/notes/~$python.docx
 learningResources/OutOfDate/笔记_v18.11.doc
 learningResources/OutOfDate/
-learningResources/notes/
 learningResources/papers_about_NER/original_papers/
 learningResources/reports/notPublic/
 learningResources/papers/papers_about_NER/
@@ -30,3 +29,5 @@ learningResources/papers/论文梳理19.1.16.xls
 src/Experiment-NER/correct/zh-en-pair/
 src/Experiment-NER/correct/NSMT/NSMT.70w.labeled.xmlformat
 *.pyc
+*.docx
+*.doc
