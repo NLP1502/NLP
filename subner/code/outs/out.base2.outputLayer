@@ -1,0 +1,79 @@
+]0;IPython: xiangyuejia/lrner-baseSeed num: None
+Random Seed num: 3002
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Tag          scheme: BIO
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 34691
+     Char  alphabet size: 91
+     Label alphabet size: 10
+     Trans alphabet size: 82214
+     Word embedding  dir: data/wiki.nl.vec
+     Char embedding  dir: None
+     Tran embedding  dir: data/glove.6B.100d.txt
+     Word embedding size: 300
+     Char embedding size: 30
+     Tran embedding size: 100
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Norm   tran     emb: False
+   Data bin file directory: data/data.base2.substring.pickle
+     Train  file directory: data/ned.train
+     Dev    file directory: data/ned.testa
+     Test   file directory: data/ned.testb
+     Raw    file directory: None
+     Model  file directory: save-substring/
+     Loadmodel   directory: None
+     Decode file directory: None
+     Train instance number: 15802
+     Dev   instance number: 2895
+     Test  instance number: 5194
+     Raw   instance number: 0
+     FEATURE num: 1
+         Fe: feature_1  alphabet  size: 15
+         Fe: feature_1  embedding  dir: data/ned_pos.vector30
+         Fe: feature_1  embedding size: 30
+         Fe: feature_1  norm       emb: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: LSTM
+     Model       use_char: True
+     Model char_seq_feature: LSTM
+     Model char_hidden_dim: 50
+     Model trans_hidden_dim: 200
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     show_loss_per_batch: 100
+     save_model: False
+     state_training_name: default
+     Optimizer: SGD
+     Iteration: 600
+     BatchSize: 16
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper        seed_num: 3002
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper            clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 2
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      substring dir : data/substring/
+    bpe_emb_dir dir : None
+    pos_emb_dir dir : None
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      circul time   : 4
+      circul deepth : 2
+ gather output mode : concat
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

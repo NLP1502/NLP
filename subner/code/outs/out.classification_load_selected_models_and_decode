@@ -1,0 +1,1851 @@
+]0;IPython: xiangyuejia/lrner-baseSeed num: None
+Random Seed num: 63926
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Tag          scheme: BIO
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 34691
+     Char  alphabet size: 91
+     Label alphabet size: 10
+     Trans alphabet size: 82214
+     Word embedding  dir: data/wiki.nl.vec
+     Char embedding  dir: None
+     Tran embedding  dir: data/glove.6B.100d.txt
+     Word embedding size: 300
+     Char embedding size: 30
+     Tran embedding size: 100
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Norm   tran     emb: False
+   Data bin file directory: data/data.base2.substring.pickle
+     Train  file directory: data/ned.train
+     Dev    file directory: data/ned.testa
+     Test   file directory: data/ned.testb
+     Raw    file directory: None
+     Model  file directory: save-substring/
+     Loadmodel   directory: None
+     Decode file directory: None
+     Train instance number: 15802
+     Dev   instance number: 2895
+     Test  instance number: 5194
+     Raw   instance number: 0
+     FEATURE num: 1
+         Fe: feature_1  alphabet  size: 15
+         Fe: feature_1  embedding  dir: data/ned_pos.vector30
+         Fe: feature_1  embedding size: 30
+         Fe: feature_1  norm       emb: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: LSTM
+     Model       use_char: True
+     Model char_seq_feature: LSTM
+     Model char_hidden_dim: 50
+     Model trans_hidden_dim: 200
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     show_loss_per_batch: 100
+     save_model: False
+     state_training_name: default
+     Optimizer: SGD
+     Iteration: 600
+     BatchSize: 16
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper        seed_num: 63926
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper            clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 2
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      substring dir : data/substring/
+    bpe_emb_dir dir : None
+    pos_emb_dir dir : None
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      circul time   : 4
+      circul deepth : 2
+ gather output mode : concat
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+MODEL: classification_load_selected_models_and_decode
+Load Models from dir:  save-substring/
+rankin:  ['p', 'r', 'f']
+********** ('word', 2, (3, 5))
+********** ['base2.substr.wordlen2.ans3-5.score62729233632', 0.8665, 0.487, 0.6236]
+	Test: time: 18.22s, speed: 3501.65st/s; acc: 0.9641, p: 0.8665, r: 0.4870, f: 0.6236
+	Ensemble Test: time: 18.22s, speed: 3501.65st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans3-5.score62729233632', 0.8665, 0.487, 0.6236]
+********** ['base2.substr.wordlen2.ans3-5.score73602826981', 0.7644, 0.6764, 0.7178]
+	Test: time: 28.52s, speed: 2236.68st/s; acc: 0.9676, p: 0.7644, r: 0.6764, f: 0.7178
+	Ensemble Test: time: 28.52s, speed: 2236.68st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans3-5.score73602826981', 0.7644, 0.6764, 0.7178]
+********** ['base2.substr.wordlen2.ans3-5.score72841516844', 0.8195, 0.6407, 0.7192]
+	Test: time: 38.92s, speed: 1639.29st/s; acc: 0.9695, p: 0.8195, r: 0.6407, f: 0.7192
+	Ensemble Test: time: 38.92s, speed: 1639.29st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans3-5.score72841516844', 0.8195, 0.6407, 0.7192]
+********** ['base2.substr.wordlen2.ans3-5.score72841516844', 0.8195, 0.6407, 0.7192]
+	Test: time: 48.98s, speed: 1302.64st/s; acc: 0.9695, p: 0.8195, r: 0.6407, f: 0.7192
+	Ensemble Test: time: 48.98s, speed: 1302.64st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans3-5.score72841516844', 0.8195, 0.6407, 0.7192]
+********** ('word', 7, (2, 3))
+********** ['base2.substr.wordlen7.ans2-3.score73025871281', 0.9101, 0.6413, 0.7524]
+	Test: time: 8.97s, speed: 4987.72st/s; acc: 0.9268, p: 0.9101, r: 0.6413, f: 0.7524
+	Ensemble Test: time: 8.97s, speed: 4987.72st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-3.score73025871281', 0.9101, 0.6413, 0.7524]
+********** ['base2.substr.wordlen7.ans2-3.score51270468268', 0.3052, 0.9496, 0.4619]
+	Test: time: 17.92s, speed: 2496.85st/s; acc: 0.6160, p: 0.3052, r: 0.9496, f: 0.4619
+	Ensemble Test: time: 17.92s, speed: 2496.85st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-3.score51270468268', 0.3052, 0.9496, 0.4619]
+********** ['base2.substr.wordlen7.ans2-3.score7578318169', 0.8383, 0.7129, 0.7705]
+	Test: time: 26.86s, speed: 1665.42st/s; acc: 0.9263, p: 0.8383, r: 0.7129, f: 0.7705
+	Ensemble Test: time: 26.86s, speed: 1665.42st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-3.score7578318169', 0.8383, 0.7129, 0.7705]
+********** ['base2.substr.wordlen7.ans2-3.score7578318169', 0.8383, 0.7129, 0.7705]
+	Test: time: 35.46s, speed: 1261.71st/s; acc: 0.9263, p: 0.8383, r: 0.7129, f: 0.7705
+	Ensemble Test: time: 35.46s, speed: 1261.71st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-3.score7578318169', 0.8383, 0.7129, 0.7705]
+********** ('word', 1, (2,))
+********** ['base2.substr.wordlen1.ans2.score58899296958', 0.8068, 0.4459, 0.5744]
+	Test: time: 10.55s, speed: 6539.53st/s; acc: 0.9863, p: 0.8068, r: 0.4459, f: 0.5744
+	Ensemble Test: time: 10.55s, speed: 6539.53st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2.score58899296958', 0.8068, 0.4459, 0.5744]
+********** ['base2.substr.wordlen1.ans2.score57236571871', 0.4591, 0.6622, 0.5423]
+	Test: time: 21.23s, speed: 3250.30st/s; acc: 0.9768, p: 0.4591, r: 0.6622, f: 0.5423
+	Ensemble Test: time: 21.23s, speed: 3250.30st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2.score57236571871', 0.4591, 0.6622, 0.5423]
+********** ['base2.substr.wordlen1.ans2.score64065040164', 0.7061, 0.5129, 0.5942]
+	Test: time: 31.86s, speed: 2165.40st/s; acc: 0.9854, p: 0.7061, r: 0.5129, f: 0.5942
+	Ensemble Test: time: 31.86s, speed: 2165.40st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2.score64065040164', 0.7061, 0.5129, 0.5942]
+********** ['base2.substr.wordlen1.ans2.score64065040164', 0.7061, 0.5129, 0.5942]
+	Test: time: 42.10s, speed: 1638.62st/s; acc: 0.9854, p: 0.7061, r: 0.5129, f: 0.5942
+	Ensemble Test: time: 42.10s, speed: 1638.62st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2.score64065040164', 0.7061, 0.5129, 0.5942]
+********** ('word', 5, (5,))
+********** ['base2.substr.wordlen5.ans5.score79377162133', 0.8816, 0.7773, 0.8262]
+	Test: time: 9.72s, speed: 5342.82st/s; acc: 0.9831, p: 0.8816, r: 0.7773, f: 0.8262
+	Ensemble Test: time: 9.72s, speed: 5342.82st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans5.score79377162133', 0.8816, 0.7773, 0.8262]
+********** ['base2.substr.wordlen5.ans5.score7444413895', 0.6816, 0.8784, 0.7676]
+	Test: time: 19.46s, speed: 2669.58st/s; acc: 0.9725, p: 0.6816, r: 0.8784, f: 0.7676
+	Ensemble Test: time: 19.46s, speed: 2669.58st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans5.score7444413895', 0.6816, 0.8784, 0.7676]
+********** ['base2.substr.wordlen5.ans5.score79289543737', 0.8548, 0.8146, 0.8342]
+	Test: time: 29.10s, speed: 1785.19st/s; acc: 0.9833, p: 0.8548, r: 0.8146, f: 0.8342
+	Ensemble Test: time: 29.10s, speed: 1785.19st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans5.score79289543737', 0.8548, 0.8146, 0.8342]
+********** ['base2.substr.wordlen5.ans5.score79289543737', 0.8548, 0.8146, 0.8342]
+	Test: time: 38.49s, speed: 1349.59st/s; acc: 0.9833, p: 0.8548, r: 0.8146, f: 0.8342
+	Ensemble Test: time: 38.49s, speed: 1349.59st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans5.score79289543737', 0.8548, 0.8146, 0.8342]
+********** ('word', 1, (3, 4, 5))
+********** ['base2.substr.wordlen1.ans4-3-5.score77494099486', 0.9027, 0.6846, 0.7787]
+	Test: time: 10.46s, speed: 6595.89st/s; acc: 0.9756, p: 0.9027, r: 0.6846, f: 0.7787
+	Ensemble Test: time: 10.46s, speed: 6595.89st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans4-3-5.score77494099486', 0.9027, 0.6846, 0.7787]
+********** ['base2.substr.wordlen1.ans4-3-5.score63739920198', 0.4804, 0.9306, 0.6337]
+	Test: time: 21.14s, speed: 3263.31st/s; acc: 0.9325, p: 0.4804, r: 0.9306, f: 0.6337
+	Ensemble Test: time: 21.14s, speed: 3263.31st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans4-3-5.score63739920198', 0.4804, 0.9306, 0.6337]
+********** ['base2.substr.wordlen1.ans4-3-5.score79699857542', 0.8666, 0.7498, 0.804]
+	Test: time: 31.71s, speed: 2175.59st/s; acc: 0.9771, p: 0.8666, r: 0.7498, f: 0.8040
+	Ensemble Test: time: 31.71s, speed: 2175.59st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans4-3-5.score79699857542', 0.8666, 0.7498, 0.804]
+********** ['base2.substr.wordlen1.ans4-3-5.score79699857542', 0.8666, 0.7498, 0.804]
+	Test: time: 42.07s, speed: 1639.95st/s; acc: 0.9771, p: 0.8666, r: 0.7498, f: 0.8040
+	Ensemble Test: time: 42.07s, speed: 1639.95st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans4-3-5.score79699857542', 0.8666, 0.7498, 0.804]
+********** ('word', 5, (2, 4, 5))
+********** ['base2.substr.wordlen5.ans2-4-5.score82154432299', 0.9293, 0.7825, 0.8496]
+	Test: time: 9.83s, speed: 5281.98st/s; acc: 0.9540, p: 0.9293, r: 0.7825, f: 0.8496
+	Ensemble Test: time: 9.83s, speed: 5281.98st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-4-5.score82154432299', 0.9293, 0.7825, 0.8496]
+********** ['base2.substr.wordlen5.ans2-4-5.score87058823029', 0.8896, 0.8829, 0.8862]
+	Test: time: 19.49s, speed: 2665.54st/s; acc: 0.9623, p: 0.8896, r: 0.8829, f: 0.8862
+	Ensemble Test: time: 19.49s, speed: 2665.54st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-4-5.score87058823029', 0.8896, 0.8829, 0.8862]
+********** ['base2.substr.wordlen5.ans2-4-5.score86601072846', 0.9039, 0.8708, 0.8871]
+	Test: time: 29.12s, speed: 1783.61st/s; acc: 0.9632, p: 0.9039, r: 0.8708, f: 0.8871
+	Ensemble Test: time: 29.12s, speed: 1783.61st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-4-5.score86601072846', 0.9039, 0.8708, 0.8871]
+********** ['base2.substr.wordlen5.ans2-4-5.score86601072846', 0.9039, 0.8708, 0.8871]
+	Test: time: 38.56s, speed: 1346.99st/s; acc: 0.9632, p: 0.9039, r: 0.8708, f: 0.8871
+	Ensemble Test: time: 38.56s, speed: 1346.99st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-4-5.score86601072846', 0.9039, 0.8708, 0.8871]
+********** ('word', 3, (4, 5))
+********** ['base2.substr.wordlen3.ans4-5.score83980412232', 0.8953, 0.8691, 0.882]
+	Test: time: 10.27s, speed: 5800.54st/s; acc: 0.9812, p: 0.8953, r: 0.8691, f: 0.8820
+	Ensemble Test: time: 10.27s, speed: 5800.54st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans4-5.score83980412232', 0.8953, 0.8691, 0.882]
+********** ['base2.substr.wordlen3.ans4-5.score83468394962', 0.828, 0.9128, 0.8683]
+	Test: time: 20.83s, speed: 2860.98st/s; acc: 0.9776, p: 0.8280, r: 0.9128, f: 0.8683
+	Ensemble Test: time: 20.83s, speed: 2860.98st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans4-5.score83468394962', 0.828, 0.9128, 0.8683]
+********** ['base2.substr.wordlen3.ans4-5.score840952541', 0.8921, 0.8801, 0.886]
+	Test: time: 31.16s, speed: 1912.28st/s; acc: 0.9817, p: 0.8921, r: 0.8801, f: 0.8860
+	Ensemble Test: time: 31.16s, speed: 1912.28st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans4-5.score840952541', 0.8921, 0.8801, 0.886]
+********** ['base2.substr.wordlen3.ans4-5.score840952541', 0.8921, 0.8801, 0.886]
+	Test: time: 41.08s, speed: 1450.41st/s; acc: 0.9817, p: 0.8921, r: 0.8801, f: 0.8860
+	Ensemble Test: time: 41.08s, speed: 1450.41st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans4-5.score840952541', 0.8921, 0.8801, 0.886]
+********** ('word', 7, (2, 3, 4))
+********** ['base2.substr.wordlen7.ans2-4-3.score63830974984', 0.9787, 0.5249, 0.6834]
+	Test: time: 8.85s, speed: 5052.97st/s; acc: 0.8801, p: 0.9787, r: 0.5249, f: 0.6834
+	Ensemble Test: time: 8.85s, speed: 5052.97st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-4-3.score63830974984', 0.9787, 0.5249, 0.6834]
+********** ['base2.substr.wordlen7.ans2-4-3.score83531384932', 0.8474, 0.85, 0.8487]
+	Test: time: 17.79s, speed: 2514.90st/s; acc: 0.9253, p: 0.8474, r: 0.8500, f: 0.8487
+	Ensemble Test: time: 17.79s, speed: 2514.90st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-4-3.score83531384932', 0.8474, 0.85, 0.8487]
+********** ['base2.substr.wordlen7.ans2-4-3.score83700953129', 0.8935, 0.8268, 0.8588]
+	Test: time: 26.79s, speed: 1669.74st/s; acc: 0.9330, p: 0.8935, r: 0.8268, f: 0.8588
+	Ensemble Test: time: 26.79s, speed: 1669.74st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-4-3.score83700953129', 0.8935, 0.8268, 0.8588]
+********** ['base2.substr.wordlen7.ans2-4-3.score83700953129', 0.8935, 0.8268, 0.8588]
+	Test: time: 35.44s, speed: 1262.55st/s; acc: 0.9330, p: 0.8935, r: 0.8268, f: 0.8588
+	Ensemble Test: time: 35.44s, speed: 1262.55st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-4-3.score83700953129', 0.8935, 0.8268, 0.8588]
+********** ('word', 5, (2, 3))
+********** ['base2.substr.wordlen5.ans2-3.score70784640589', 0.9004, 0.5924, 0.7146]
+	Test: time: 9.78s, speed: 5310.47st/s; acc: 0.9372, p: 0.9004, r: 0.5924, f: 0.7146
+	Ensemble Test: time: 9.78s, speed: 5310.47st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-3.score70784640589', 0.9004, 0.5924, 0.7146]
+********** ['base2.substr.wordlen5.ans2-3.score74936764044', 0.7856, 0.7172, 0.7498]
+	Test: time: 19.68s, speed: 2638.84st/s; acc: 0.9365, p: 0.7856, r: 0.7172, f: 0.7498
+	Ensemble Test: time: 19.68s, speed: 2638.84st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-3.score74936764044', 0.7856, 0.7172, 0.7498]
+********** ['base2.substr.wordlen5.ans2-3.score74936764044', 0.7856, 0.7172, 0.7498]
+	Test: time: 29.11s, speed: 1784.53st/s; acc: 0.9365, p: 0.7856, r: 0.7172, f: 0.7498
+	Ensemble Test: time: 29.11s, speed: 1784.53st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-3.score74936764044', 0.7856, 0.7172, 0.7498]
+********** ['base2.substr.wordlen5.ans2-3.score74936764044', 0.7856, 0.7172, 0.7498]
+	Test: time: 38.58s, speed: 1346.23st/s; acc: 0.9365, p: 0.7856, r: 0.7172, f: 0.7498
+	Ensemble Test: time: 38.58s, speed: 1346.23st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-3.score74936764044', 0.7856, 0.7172, 0.7498]
+********** ('word', 7, (5,))
+********** ['base2.substr.wordlen7.ans5.score79076478577', 0.8713, 0.7989, 0.8335]
+	Test: time: 8.91s, speed: 5018.73st/s; acc: 0.9776, p: 0.8713, r: 0.7989, f: 0.8335
+	Ensemble Test: time: 8.91s, speed: 5018.73st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans5.score79076478577', 0.8713, 0.7989, 0.8335]
+********** ['base2.substr.wordlen7.ans5.score75945293144', 0.7903, 0.825, 0.8073]
+	Test: time: 17.95s, speed: 2492.27st/s; acc: 0.9723, p: 0.7903, r: 0.8250, f: 0.8073
+	Ensemble Test: time: 17.95s, speed: 2492.27st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans5.score75945293144', 0.7903, 0.825, 0.8073]
+********** ['base2.substr.wordlen7.ans5.score79076478577', 0.8713, 0.7989, 0.8335]
+	Test: time: 26.60s, speed: 1682.13st/s; acc: 0.9776, p: 0.8713, r: 0.7989, f: 0.8335
+	Ensemble Test: time: 26.60s, speed: 1682.13st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans5.score79076478577', 0.8713, 0.7989, 0.8335]
+********** ['base2.substr.wordlen7.ans5.score79076478577', 0.8713, 0.7989, 0.8335]
+	Test: time: 35.22s, speed: 1270.19st/s; acc: 0.9776, p: 0.8713, r: 0.7989, f: 0.8335
+	Ensemble Test: time: 35.22s, speed: 1270.19st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans5.score79076478577', 0.8713, 0.7989, 0.8335]
+********** ('word', 3, (2, 3, 5))
+********** ['base2.substr.wordlen3.ans2-3-5.score79670974830', 0.9016, 0.7174, 0.799]
+	Test: time: 10.06s, speed: 5921.06st/s; acc: 0.9562, p: 0.9016, r: 0.7174, f: 0.7990
+	Ensemble Test: time: 10.06s, speed: 5921.06st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-3-5.score79670974830', 0.9016, 0.7174, 0.799]
+********** ['base2.substr.wordlen3.ans2-3-5.score8014371713', 0.8001, 0.793, 0.7965]
+	Test: time: 20.33s, speed: 2931.62st/s; acc: 0.9509, p: 0.8001, r: 0.7930, f: 0.7965
+	Ensemble Test: time: 20.33s, speed: 2931.62st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-3-5.score8014371713', 0.8001, 0.793, 0.7965]
+********** ['base2.substr.wordlen3.ans2-3-5.score8000450045', 0.8615, 0.7551, 0.8048]
+	Test: time: 30.52s, speed: 1952.44st/s; acc: 0.9556, p: 0.8615, r: 0.7551, f: 0.8048
+	Ensemble Test: time: 30.52s, speed: 1952.44st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-3-5.score8000450045', 0.8615, 0.7551, 0.8048]
+********** ['base2.substr.wordlen3.ans2-3-5.score8000450045', 0.8615, 0.7551, 0.8048]
+	Test: time: 40.47s, speed: 1472.48st/s; acc: 0.9556, p: 0.8615, r: 0.7551, f: 0.8048
+	Ensemble Test: time: 40.47s, speed: 1472.48st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-3-5.score8000450045', 0.8615, 0.7551, 0.8048]
+********** ('word', 1, (2, 5))
+********** ['base2.substr.wordlen1.ans2-5.score69985569499', 0.8455, 0.6161, 0.7128]
+	Test: time: 10.60s, speed: 6507.41st/s; acc: 0.9838, p: 0.8455, r: 0.6161, f: 0.7128
+	Ensemble Test: time: 10.60s, speed: 6507.41st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-5.score69985569499', 0.8455, 0.6161, 0.7128]
+********** ['base2.substr.wordlen1.ans2-5.score61793699932', 0.4786, 0.7974, 0.5982]
+	Test: time: 21.23s, speed: 3249.19st/s; acc: 0.9650, p: 0.4786, r: 0.7974, f: 0.5982
+	Ensemble Test: time: 21.23s, speed: 3249.19st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-5.score61793699932', 0.4786, 0.7974, 0.5982]
+********** ['base2.substr.wordlen1.ans2-5.score72330578014', 0.782, 0.6804, 0.7277]
+	Test: time: 31.99s, speed: 2156.86st/s; acc: 0.9833, p: 0.7820, r: 0.6804, f: 0.7277
+	Ensemble Test: time: 31.99s, speed: 2156.86st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-5.score72330578014', 0.782, 0.6804, 0.7277]
+********** ['base2.substr.wordlen1.ans2-5.score72330578014', 0.782, 0.6804, 0.7277]
+	Test: time: 42.54s, speed: 1621.92st/s; acc: 0.9833, p: 0.7820, r: 0.6804, f: 0.7277
+	Ensemble Test: time: 42.54s, speed: 1621.92st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-5.score72330578014', 0.782, 0.6804, 0.7277]
+********** ('word', 5, (3,))
+********** ['base2.substr.wordlen5.ans3.score5583333289', 0.8333, 0.409, 0.5487]
+	Test: time: 9.78s, speed: 5309.80st/s; acc: 0.9460, p: 0.8333, r: 0.4090, f: 0.5487
+	Ensemble Test: time: 9.78s, speed: 5309.80st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans3.score5583333289', 0.8333, 0.409, 0.5487]
+********** ['base2.substr.wordlen5.ans3.score64634145842', 0.5917, 0.6061, 0.5988]
+	Test: time: 19.62s, speed: 2647.59st/s; acc: 0.9348, p: 0.5917, r: 0.6061, f: 0.5988
+	Ensemble Test: time: 19.62s, speed: 2647.59st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans3.score64634145842', 0.5917, 0.6061, 0.5988]
+********** ['base2.substr.wordlen5.ans3.score6634166970', 0.7277, 0.5589, 0.6322]
+	Test: time: 29.59s, speed: 1755.62st/s; acc: 0.9478, p: 0.7277, r: 0.5589, f: 0.6322
+	Ensemble Test: time: 29.59s, speed: 1755.62st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans3.score6634166970', 0.7277, 0.5589, 0.6322]
+********** ['base2.substr.wordlen5.ans3.score6634166970', 0.7277, 0.5589, 0.6322]
+	Test: time: 39.37s, speed: 1319.44st/s; acc: 0.9478, p: 0.7277, r: 0.5589, f: 0.6322
+	Ensemble Test: time: 39.37s, speed: 1319.44st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans3.score6634166970', 0.7277, 0.5589, 0.6322]
+********** ('word', 6, (2, 3, 4, 5))
+********** ['base2.substr.wordlen6.ans2-4-3-5.score86603797461', 0.9484, 0.8384, 0.89]
+	Test: time: 9.31s, speed: 5182.00st/s; acc: 0.9454, p: 0.9484, r: 0.8384, f: 0.8900
+	Ensemble Test: time: 9.31s, speed: 5182.00st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-4-3-5.score86603797461', 0.9484, 0.8384, 0.89]
+********** ['base2.substr.wordlen6.ans2-4-3-5.score88677274182', 0.9004, 0.8851, 0.8927]
+	Test: time: 18.63s, speed: 2589.32st/s; acc: 0.9439, p: 0.9004, r: 0.8851, f: 0.8927
+	Ensemble Test: time: 18.63s, speed: 2589.32st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-4-3-5.score88677274182', 0.9004, 0.8851, 0.8927]
+********** ['base2.substr.wordlen6.ans2-4-3-5.score88189075664', 0.94, 0.8644, 0.9006]
+	Test: time: 27.89s, speed: 1729.70st/s; acc: 0.9497, p: 0.9400, r: 0.8644, f: 0.9006
+	Ensemble Test: time: 27.89s, speed: 1729.70st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-4-3-5.score88189075664', 0.94, 0.8644, 0.9006]
+********** ['base2.substr.wordlen6.ans2-4-3-5.score88189075664', 0.94, 0.8644, 0.9006]
+	Test: time: 36.93s, speed: 1306.29st/s; acc: 0.9497, p: 0.9400, r: 0.8644, f: 0.9006
+	Ensemble Test: time: 36.93s, speed: 1306.29st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-4-3-5.score88189075664', 0.94, 0.8644, 0.9006]
+********** ('word', 1, (2, 3, 4, 5))
+********** ['base2.substr.wordlen1.ans2-4-3-5.score79734526443', 0.9486, 0.7148, 0.8153]
+	Test: time: 10.42s, speed: 6622.08st/s; acc: 0.9730, p: 0.9486, r: 0.7148, f: 0.8153
+	Ensemble Test: time: 10.42s, speed: 6622.08st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-4-3-5.score79734526443', 0.9486, 0.7148, 0.8153]
+********** ['base2.substr.wordlen1.ans2-4-3-5.score83403027620', 0.9038, 0.7949, 0.8459]
+	Test: time: 21.12s, speed: 3267.35st/s; acc: 0.9758, p: 0.9038, r: 0.7949, f: 0.8459
+	Ensemble Test: time: 21.12s, speed: 3267.35st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-4-3-5.score83403027620', 0.9038, 0.7949, 0.8459]
+********** ['base2.substr.wordlen1.ans2-4-3-5.score83274647391', 0.9196, 0.7845, 0.8467]
+	Test: time: 31.69s, speed: 2177.33st/s; acc: 0.9763, p: 0.9196, r: 0.7845, f: 0.8467
+	Ensemble Test: time: 31.69s, speed: 2177.33st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-4-3-5.score83274647391', 0.9196, 0.7845, 0.8467]
+********** ['base2.substr.wordlen1.ans2-4-3-5.score83274647391', 0.9196, 0.7845, 0.8467]
+	Test: time: 41.97s, speed: 1643.69st/s; acc: 0.9763, p: 0.9196, r: 0.7845, f: 0.8467
+	Ensemble Test: time: 41.97s, speed: 1643.69st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-4-3-5.score83274647391', 0.9196, 0.7845, 0.8467]
+********** ('word', 6, (2, 5))
+********** ['base2.substr.wordlen6.ans2-5.score70297482364', 0.9117, 0.5993, 0.7232]
+	Test: time: 9.41s, speed: 5129.06st/s; acc: 0.9432, p: 0.9117, r: 0.5993, f: 0.7232
+	Ensemble Test: time: 9.41s, speed: 5129.06st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-5.score70297482364', 0.9117, 0.5993, 0.7232]
+********** ['base2.substr.wordlen6.ans2-5.score76247456721', 0.7454, 0.8019, 0.7726]
+	Test: time: 18.92s, speed: 2549.51st/s; acc: 0.9415, p: 0.7454, r: 0.8019, f: 0.7726
+	Ensemble Test: time: 18.92s, speed: 2549.51st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-5.score76247456721', 0.7454, 0.8019, 0.7726]
+********** ['base2.substr.wordlen6.ans2-5.score78606325034', 0.829, 0.7837, 0.8057]
+	Test: time: 28.60s, speed: 1686.92st/s; acc: 0.9532, p: 0.8290, r: 0.7837, f: 0.8057
+	Ensemble Test: time: 28.60s, speed: 1686.92st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-5.score78606325034', 0.829, 0.7837, 0.8057]
+********** ['base2.substr.wordlen6.ans2-5.score78606325034', 0.829, 0.7837, 0.8057]
+	Test: time: 37.68s, speed: 1280.53st/s; acc: 0.9532, p: 0.8290, r: 0.7837, f: 0.8057
+	Ensemble Test: time: 37.68s, speed: 1280.53st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-5.score78606325034', 0.829, 0.7837, 0.8057]
+********** ('word', 5, (2, 3, 5))
+********** ['base2.substr.wordlen5.ans2-3-5.score80872889557', 0.9189, 0.7176, 0.8059]
+	Test: time: 9.64s, speed: 5386.94st/s; acc: 0.9381, p: 0.9189, r: 0.7176, f: 0.8059
+	Ensemble Test: time: 9.64s, speed: 5386.94st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-3-5.score80872889557', 0.9189, 0.7176, 0.8059]
+********** ['base2.substr.wordlen5.ans2-3-5.score82208800191', 0.8485, 0.7882, 0.8172]
+	Test: time: 19.85s, speed: 2617.17st/s; acc: 0.9369, p: 0.8485, r: 0.7882, f: 0.8172
+	Ensemble Test: time: 19.85s, speed: 2617.17st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-3-5.score82208800191', 0.8485, 0.7882, 0.8172]
+********** ['base2.substr.wordlen5.ans2-3-5.score82044514325', 0.8735, 0.7756, 0.8217]
+	Test: time: 29.48s, speed: 1761.90st/s; acc: 0.9397, p: 0.8735, r: 0.7756, f: 0.8217
+	Ensemble Test: time: 29.48s, speed: 1761.90st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-3-5.score82044514325', 0.8735, 0.7756, 0.8217]
+********** ['base2.substr.wordlen5.ans2-3-5.score82044514325', 0.8735, 0.7756, 0.8217]
+	Test: time: 38.90s, speed: 1335.26st/s; acc: 0.9397, p: 0.8735, r: 0.7756, f: 0.8217
+	Ensemble Test: time: 38.90s, speed: 1335.26st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-3-5.score82044514325', 0.8735, 0.7756, 0.8217]
+********** ('word', 7, (2, 4, 5))
+********** ['base2.substr.wordlen7.ans2-4-5.score58271334372', 0.9852, 0.4438, 0.612]
+	Test: time: 8.92s, speed: 5017.34st/s; acc: 0.8811, p: 0.9852, r: 0.4438, f: 0.6120
+	Ensemble Test: time: 8.92s, speed: 5017.34st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-4-5.score58271334372', 0.9852, 0.4438, 0.612]
+********** ['base2.substr.wordlen7.ans2-4-5.score85624859773', 0.8237, 0.918, 0.8683]
+	Test: time: 17.87s, speed: 2503.18st/s; acc: 0.9412, p: 0.8237, r: 0.9180, f: 0.8683
+	Ensemble Test: time: 17.87s, speed: 2503.18st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-4-5.score85624859773', 0.8237, 0.918, 0.8683]
+********** ['base2.substr.wordlen7.ans2-4-5.score87716164151', 0.9076, 0.8756, 0.8913]
+	Test: time: 26.81s, speed: 1668.62st/s; acc: 0.9549, p: 0.9076, r: 0.8756, f: 0.8913
+	Ensemble Test: time: 26.81s, speed: 1668.62st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-4-5.score87716164151', 0.9076, 0.8756, 0.8913]
+********** ['base2.substr.wordlen7.ans2-4-5.score87716164151', 0.9076, 0.8756, 0.8913]
+	Test: time: 35.47s, speed: 1261.48st/s; acc: 0.9549, p: 0.9076, r: 0.8756, f: 0.8913
+	Ensemble Test: time: 35.47s, speed: 1261.48st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-4-5.score87716164151', 0.9076, 0.8756, 0.8913]
+********** ('word', 4, (2, 4))
+********** ['base2.substr.wordlen4.ans2-4.score7963380232', 0.9145, 0.7455, 0.8214]
+	Test: time: 10.03s, speed: 5552.12st/s; acc: 0.9658, p: 0.9145, r: 0.7455, f: 0.8214
+	Ensemble Test: time: 10.03s, speed: 5552.12st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-4.score7963380232', 0.9145, 0.7455, 0.8214]
+********** ['base2.substr.wordlen4.ans2-4.score79718275733', 0.7721, 0.8678, 0.8171]
+	Test: time: 20.19s, speed: 2759.06st/s; acc: 0.9591, p: 0.7721, r: 0.8678, f: 0.8171
+	Ensemble Test: time: 20.19s, speed: 2759.06st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-4.score79718275733', 0.7721, 0.8678, 0.8171]
+********** ['base2.substr.wordlen4.ans2-4.score81834910121', 0.8727, 0.8148, 0.8427]
+	Test: time: 30.27s, speed: 1840.76st/s; acc: 0.9680, p: 0.8727, r: 0.8148, f: 0.8427
+	Ensemble Test: time: 30.27s, speed: 1840.76st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-4.score81834910121', 0.8727, 0.8148, 0.8427]
+********** ['base2.substr.wordlen4.ans2-4.score81834910121', 0.8727, 0.8148, 0.8427]
+	Test: time: 39.96s, speed: 1394.14st/s; acc: 0.9680, p: 0.8727, r: 0.8148, f: 0.8427
+	Ensemble Test: time: 39.96s, speed: 1394.14st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-4.score81834910121', 0.8727, 0.8148, 0.8427]
+********** ('word', 2, (3, 4))
+********** ['base2.substr.wordlen2.ans4-3.score71812595519', 0.8903, 0.6455, 0.7484]
+	Test: time: 10.43s, speed: 6114.29st/s; acc: 0.9660, p: 0.8903, r: 0.6455, f: 0.7484
+	Ensemble Test: time: 10.43s, speed: 6114.29st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans4-3.score71812595519', 0.8903, 0.6455, 0.7484]
+********** ['base2.substr.wordlen2.ans4-3.score75945240699', 0.7592, 0.7569, 0.7581]
+	Test: time: 21.40s, speed: 2980.86st/s; acc: 0.9622, p: 0.7592, r: 0.7569, f: 0.7581
+	Ensemble Test: time: 21.40s, speed: 2980.86st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans4-3.score75945240699', 0.7592, 0.7569, 0.7581]
+********** ['base2.substr.wordlen2.ans4-3.score77082218158', 0.8449, 0.7196, 0.7773]
+	Test: time: 32.28s, speed: 1976.70st/s; acc: 0.9677, p: 0.8449, r: 0.7196, f: 0.7773
+	Ensemble Test: time: 32.28s, speed: 1976.70st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans4-3.score77082218158', 0.8449, 0.7196, 0.7773]
+********** ['base2.substr.wordlen2.ans4-3.score77082218158', 0.8449, 0.7196, 0.7773]
+	Test: time: 42.55s, speed: 1499.47st/s; acc: 0.9677, p: 0.8449, r: 0.7196, f: 0.7773
+	Ensemble Test: time: 42.55s, speed: 1499.47st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans4-3.score77082218158', 0.8449, 0.7196, 0.7773]
+********** ('word', 1, (4, 5))
+********** ['base2.substr.wordlen1.ans4-5.score77368239262', 0.9353, 0.7265, 0.8178]
+	Test: time: 10.62s, speed: 6495.49st/s; acc: 0.9872, p: 0.9353, r: 0.7265, f: 0.8178
+	Ensemble Test: time: 10.62s, speed: 6495.49st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans4-5.score77368239262', 0.9353, 0.7265, 0.8178]
+********** ['base2.substr.wordlen1.ans4-5.score81223448948', 0.797, 0.8922, 0.8419]
+	Test: time: 21.32s, speed: 3236.79st/s; acc: 0.9868, p: 0.7970, r: 0.8922, f: 0.8419
+	Ensemble Test: time: 21.32s, speed: 3236.79st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans4-5.score81223448948', 0.797, 0.8922, 0.8419]
+********** ['base2.substr.wordlen1.ans4-5.score82865853158', 0.8708, 0.8651, 0.868]
+	Test: time: 31.90s, speed: 2162.67st/s; acc: 0.9896, p: 0.8708, r: 0.8651, f: 0.8680
+	Ensemble Test: time: 31.90s, speed: 2162.67st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans4-5.score82865853158', 0.8708, 0.8651, 0.868]
+********** ['base2.substr.wordlen1.ans4-5.score82865853158', 0.8708, 0.8651, 0.868]
+	Test: time: 42.22s, speed: 1634.21st/s; acc: 0.9896, p: 0.8708, r: 0.8651, f: 0.8680
+	Ensemble Test: time: 42.22s, speed: 1634.21st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans4-5.score82865853158', 0.8708, 0.8651, 0.868]
+********** ('word', 7, (2, 4))
+********** ['base2.substr.wordlen7.ans2-4.score64703476028', 0.9585, 0.5747, 0.7185]
+	Test: time: 8.96s, speed: 4995.84st/s; acc: 0.9289, p: 0.9585, r: 0.5747, f: 0.7185
+	Ensemble Test: time: 8.96s, speed: 4995.84st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-4.score64703476028', 0.9585, 0.5747, 0.7185]
+********** ['base2.substr.wordlen7.ans2-4.score82438868982', 0.8354, 0.8735, 0.854]
+	Test: time: 18.35s, speed: 2438.34st/s; acc: 0.9528, p: 0.8354, r: 0.8735, f: 0.8540
+	Ensemble Test: time: 18.35s, speed: 2438.34st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-4.score82438868982', 0.8354, 0.8735, 0.854]
+********** ['base2.substr.wordlen7.ans2-4.score82815375786', 0.8542, 0.8619, 0.858]
+	Test: time: 27.99s, speed: 1598.60st/s; acc: 0.9550, p: 0.8542, r: 0.8619, f: 0.8580
+	Ensemble Test: time: 27.99s, speed: 1598.60st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-4.score82815375786', 0.8542, 0.8619, 0.858]
+********** ['base2.substr.wordlen7.ans2-4.score82815375786', 0.8542, 0.8619, 0.858]
+	Test: time: 36.60s, speed: 1222.45st/s; acc: 0.9550, p: 0.8542, r: 0.8619, f: 0.8580
+	Ensemble Test: time: 36.60s, speed: 1222.45st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-4.score82815375786', 0.8542, 0.8619, 0.858]
+********** ('word', 1, (3, 5))
+********** ['base2.substr.wordlen1.ans3-5.score62431636051', 0.8551, 0.4851, 0.619]
+	Test: time: 10.56s, speed: 6533.03st/s; acc: 0.9791, p: 0.8551, r: 0.4851, f: 0.6190
+	Ensemble Test: time: 10.56s, speed: 6533.03st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans3-5.score62431636051', 0.8551, 0.4851, 0.619]
+********** ['base2.substr.wordlen1.ans3-5.score55958031006', 0.4259, 0.7087, 0.532]
+	Test: time: 21.24s, speed: 3248.69st/s; acc: 0.9563, p: 0.4259, r: 0.7087, f: 0.5320
+	Ensemble Test: time: 21.24s, speed: 3248.69st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans3-5.score55958031006', 0.4259, 0.7087, 0.532]
+********** ['base2.substr.wordlen1.ans3-5.score68081879721', 0.8023, 0.5938, 0.6825]
+	Test: time: 31.92s, speed: 2161.68st/s; acc: 0.9806, p: 0.8023, r: 0.5938, f: 0.6825
+	Ensemble Test: time: 31.92s, speed: 2161.68st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans3-5.score68081879721', 0.8023, 0.5938, 0.6825]
+********** ['base2.substr.wordlen1.ans3-5.score68081879721', 0.8023, 0.5938, 0.6825]
+	Test: time: 42.20s, speed: 1634.91st/s; acc: 0.9806, p: 0.8023, r: 0.5938, f: 0.6825
+	Ensemble Test: time: 42.20s, speed: 1634.91st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans3-5.score68081879721', 0.8023, 0.5938, 0.6825]
+********** ('word', 3, (2, 3))
+********** ['base2.substr.wordlen3.ans2-3.score53509274775', 0.8922, 0.4186, 0.5698]
+	Test: time: 10.66s, speed: 5587.84st/s; acc: 0.9431, p: 0.8922, r: 0.4186, f: 0.5698
+	Ensemble Test: time: 10.66s, speed: 5587.84st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-3.score53509274775', 0.8922, 0.4186, 0.5698]
+********** ['base2.substr.wordlen3.ans2-3.score74576752950', 0.774, 0.7034, 0.737]
+	Test: time: 21.58s, speed: 2761.17st/s; acc: 0.9548, p: 0.7740, r: 0.7034, f: 0.7370
+	Ensemble Test: time: 21.58s, speed: 2761.17st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-3.score74576752950', 0.774, 0.7034, 0.737]
+********** ['base2.substr.wordlen3.ans2-3.score74537523944', 0.8317, 0.6711, 0.7429]
+	Test: time: 32.20s, speed: 1850.80st/s; acc: 0.9582, p: 0.8317, r: 0.6711, f: 0.7429
+	Ensemble Test: time: 32.20s, speed: 1850.80st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-3.score74537523944', 0.8317, 0.6711, 0.7429]
+********** ['base2.substr.wordlen3.ans2-3.score74537523944', 0.8317, 0.6711, 0.7429]
+	Test: time: 42.26s, speed: 1409.93st/s; acc: 0.9582, p: 0.8317, r: 0.6711, f: 0.7429
+	Ensemble Test: time: 42.26s, speed: 1409.93st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-3.score74537523944', 0.8317, 0.6711, 0.7429]
+********** ('word', 5, (2,))
+********** ['base2.substr.wordlen5.ans2.score69533489221', 0.7894, 0.5669, 0.6599]
+	Test: time: 9.94s, speed: 5224.31st/s; acc: 0.9672, p: 0.7894, r: 0.5669, f: 0.6599
+	Ensemble Test: time: 9.94s, speed: 5224.31st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2.score69533489221', 0.7894, 0.5669, 0.6599]
+********** ['base2.substr.wordlen5.ans2.score6939814764', 0.6917, 0.6348, 0.662]
+	Test: time: 19.96s, speed: 2602.37st/s; acc: 0.9636, p: 0.6917, r: 0.6348, f: 0.6620
+	Ensemble Test: time: 19.96s, speed: 2602.37st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2.score6939814764', 0.6917, 0.6348, 0.662]
+********** ['base2.substr.wordlen5.ans2.score71812576571', 0.7628, 0.6221, 0.6853]
+	Test: time: 29.81s, speed: 1742.28st/s; acc: 0.9679, p: 0.7628, r: 0.6221, f: 0.6853
+	Ensemble Test: time: 29.81s, speed: 1742.28st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2.score71812576571', 0.7628, 0.6221, 0.6853]
+********** ['base2.substr.wordlen5.ans2.score71812576571', 0.7628, 0.6221, 0.6853]
+	Test: time: 39.38s, speed: 1319.16st/s; acc: 0.9679, p: 0.7628, r: 0.6221, f: 0.6853
+	Ensemble Test: time: 39.38s, speed: 1319.16st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2.score71812576571', 0.7628, 0.6221, 0.6853]
+********** ('word', 4, (2, 3, 4))
+********** ['base2.substr.wordlen4.ans2-4-3.score81812391461', 0.9243, 0.7803, 0.8463]
+	Test: time: 9.99s, speed: 5575.65st/s; acc: 0.9532, p: 0.9243, r: 0.7803, f: 0.8463
+	Ensemble Test: time: 9.99s, speed: 5575.65st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-4-3.score81812391461', 0.9243, 0.7803, 0.8463]
+********** ['base2.substr.wordlen4.ans2-4-3.score82965965212', 0.8453, 0.8326, 0.8389]
+	Test: time: 20.03s, speed: 2781.50st/s; acc: 0.9472, p: 0.8453, r: 0.8326, f: 0.8389
+	Ensemble Test: time: 20.03s, speed: 2781.50st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-4-3.score82965965212', 0.8453, 0.8326, 0.8389]
+********** ['base2.substr.wordlen4.ans2-4-3.score82998590058', 0.8981, 0.8062, 0.8497]
+	Test: time: 29.97s, speed: 1858.84st/s; acc: 0.9529, p: 0.8981, r: 0.8062, f: 0.8497
+	Ensemble Test: time: 29.97s, speed: 1858.84st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-4-3.score82998590058', 0.8981, 0.8062, 0.8497]
+********** ['base2.substr.wordlen4.ans2-4-3.score82998590058', 0.8981, 0.8062, 0.8497]
+	Test: time: 39.77s, speed: 1400.82st/s; acc: 0.9529, p: 0.8981, r: 0.8062, f: 0.8497
+	Ensemble Test: time: 39.77s, speed: 1400.82st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-4-3.score82998590058', 0.8981, 0.8062, 0.8497]
+********** ('word', 2, (3, 4, 5))
+********** ['base2.substr.wordlen2.ans4-3-5.score79238900140', 0.9006, 0.7282, 0.8053]
+	Test: time: 10.57s, speed: 6036.61st/s; acc: 0.9644, p: 0.9006, r: 0.7282, f: 0.8053
+	Ensemble Test: time: 10.57s, speed: 6036.61st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans4-3-5.score79238900140', 0.9006, 0.7282, 0.8053]
+********** ['base2.substr.wordlen2.ans4-3-5.score81632143248', 0.7943, 0.8318, 0.8126]
+	Test: time: 21.17s, speed: 3013.59st/s; acc: 0.9613, p: 0.7943, r: 0.8318, f: 0.8126
+	Ensemble Test: time: 21.17s, speed: 3013.59st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans4-3-5.score81632143248', 0.7943, 0.8318, 0.8126]
+********** ['base2.substr.wordlen2.ans4-3-5.score82909960932', 0.862, 0.7975, 0.8285]
+	Test: time: 31.61s, speed: 2018.18st/s; acc: 0.9666, p: 0.8620, r: 0.7975, f: 0.8285
+	Ensemble Test: time: 31.61s, speed: 2018.18st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans4-3-5.score82909960932', 0.862, 0.7975, 0.8285]
+********** ['base2.substr.wordlen2.ans4-3-5.score82909960932', 0.862, 0.7975, 0.8285]
+	Test: time: 41.82s, speed: 1525.59st/s; acc: 0.9666, p: 0.8620, r: 0.7975, f: 0.8285
+	Ensemble Test: time: 41.82s, speed: 1525.59st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans4-3-5.score82909960932', 0.862, 0.7975, 0.8285]
+********** ('word', 5, (2, 3, 4))
+********** ['base2.substr.wordlen5.ans2-4-3.score7960559532', 0.9187, 0.7548, 0.8287]
+	Test: time: 9.64s, speed: 5388.45st/s; acc: 0.9397, p: 0.9187, r: 0.7548, f: 0.8287
+	Ensemble Test: time: 9.64s, speed: 5388.45st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-4-3.score7960559532', 0.9187, 0.7548, 0.8287]
+********** ['base2.substr.wordlen5.ans2-4-3.score82114852759', 0.8087, 0.8495, 0.8286]
+	Test: time: 19.42s, speed: 2675.31st/s; acc: 0.9321, p: 0.8087, r: 0.8495, f: 0.8286
+	Ensemble Test: time: 19.42s, speed: 2675.31st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-4-3.score82114852759', 0.8087, 0.8495, 0.8286]
+********** ['base2.substr.wordlen5.ans2-4-3.score83282282268', 0.885, 0.8102, 0.846]
+	Test: time: 29.11s, speed: 1784.06st/s; acc: 0.9430, p: 0.8850, r: 0.8102, f: 0.8460
+	Ensemble Test: time: 29.11s, speed: 1784.06st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-4-3.score83282282268', 0.885, 0.8102, 0.846]
+********** ['base2.substr.wordlen5.ans2-4-3.score83282282268', 0.885, 0.8102, 0.846]
+	Test: time: 39.55s, speed: 1313.18st/s; acc: 0.9430, p: 0.8850, r: 0.8102, f: 0.8460
+	Ensemble Test: time: 39.55s, speed: 1313.18st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-4-3.score83282282268', 0.885, 0.8102, 0.846]
+********** ('word', 4, (2,))
+********** ['base2.substr.wordlen4.ans2.score67912217792', 0.8287, 0.5193, 0.6385]
+	Test: time: 10.09s, speed: 5523.29st/s; acc: 0.9721, p: 0.8287, r: 0.5193, f: 0.6385
+	Ensemble Test: time: 10.09s, speed: 5523.29st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2.score67912217792', 0.8287, 0.5193, 0.6385]
+********** ['base2.substr.wordlen4.ans2.score70547021871', 0.7216, 0.6376, 0.677]
+	Test: time: 20.12s, speed: 2768.98st/s; acc: 0.9711, p: 0.7216, r: 0.6376, f: 0.6770
+	Ensemble Test: time: 20.12s, speed: 2768.98st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2.score70547021871', 0.7216, 0.6376, 0.677]
+********** ['base2.substr.wordlen4.ans2.score69986013497', 0.7777, 0.6122, 0.6851]
+	Test: time: 30.00s, speed: 1857.03st/s; acc: 0.9733, p: 0.7777, r: 0.6122, f: 0.6851
+	Ensemble Test: time: 30.00s, speed: 1857.03st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2.score69986013497', 0.7777, 0.6122, 0.6851]
+********** ['base2.substr.wordlen4.ans2.score69986013497', 0.7777, 0.6122, 0.6851]
+	Test: time: 39.65s, speed: 1404.90st/s; acc: 0.9733, p: 0.7777, r: 0.6122, f: 0.6851
+	Ensemble Test: time: 39.65s, speed: 1404.90st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2.score69986013497', 0.7777, 0.6122, 0.6851]
+********** ('word', 5, (2, 4))
+********** ['base2.substr.wordlen5.ans2-4.score81595784224', 0.9035, 0.7928, 0.8445]
+	Test: time: 10.56s, speed: 4916.84st/s; acc: 0.9640, p: 0.9035, r: 0.7928, f: 0.8445
+	Ensemble Test: time: 10.56s, speed: 4916.84st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-4.score81595784224', 0.9035, 0.7928, 0.8445]
+********** ['base2.substr.wordlen5.ans2-4.score81071988735', 0.8032, 0.8757, 0.8379]
+	Test: time: 20.38s, speed: 2548.25st/s; acc: 0.9582, p: 0.8032, r: 0.8757, f: 0.8379
+	Ensemble Test: time: 20.38s, speed: 2548.25st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-4.score81071988735', 0.8032, 0.8757, 0.8379]
+********** ['base2.substr.wordlen5.ans2-4.score82341462916', 0.8863, 0.8249, 0.8545]
+	Test: time: 30.07s, speed: 1727.21st/s; acc: 0.9653, p: 0.8863, r: 0.8249, f: 0.8545
+	Ensemble Test: time: 30.07s, speed: 1727.21st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-4.score82341462916', 0.8863, 0.8249, 0.8545]
+********** ['base2.substr.wordlen5.ans2-4.score82341462916', 0.8863, 0.8249, 0.8545]
+	Test: time: 39.51s, speed: 1314.50st/s; acc: 0.9653, p: 0.8863, r: 0.8249, f: 0.8545
+	Ensemble Test: time: 39.51s, speed: 1314.50st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-4.score82341462916', 0.8863, 0.8249, 0.8545]
+********** ('word', 1, (2, 3))
+********** ['base2.substr.wordlen1.ans2-3.score58330605121', 0.8948, 0.4297, 0.5806]
+	Test: time: 10.87s, speed: 6346.29st/s; acc: 0.9727, p: 0.8948, r: 0.4297, f: 0.5806
+	Ensemble Test: time: 10.87s, speed: 6346.29st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-3.score58330605121', 0.8948, 0.4297, 0.5806]
+********** ['base2.substr.wordlen1.ans2-3.score66397912708', 0.6196, 0.6832, 0.6498]
+	Test: time: 21.62s, speed: 3190.77st/s; acc: 0.9677, p: 0.6196, r: 0.6832, f: 0.6498
+	Ensemble Test: time: 21.62s, speed: 3190.77st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-3.score66397912708', 0.6196, 0.6832, 0.6498]
+********** ['base2.substr.wordlen1.ans2-3.score69090908598', 0.7773, 0.5954, 0.6743]
+	Test: time: 32.30s, speed: 2136.28st/s; acc: 0.9747, p: 0.7773, r: 0.5954, f: 0.6743
+	Ensemble Test: time: 32.30s, speed: 2136.28st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-3.score69090908598', 0.7773, 0.5954, 0.6743]
+********** ['base2.substr.wordlen1.ans2-3.score69090908598', 0.7773, 0.5954, 0.6743]
+	Test: time: 42.81s, speed: 1611.58st/s; acc: 0.9747, p: 0.7773, r: 0.5954, f: 0.6743
+	Ensemble Test: time: 42.81s, speed: 1611.58st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-3.score69090908598', 0.7773, 0.5954, 0.6743]
+********** ('word', 4, (2, 3, 5))
+********** ['base2.substr.wordlen4.ans2-3-5.score70325433253', 0.9418, 0.6082, 0.7391]
+	Test: time: 9.88s, speed: 5640.61st/s; acc: 0.9353, p: 0.9418, r: 0.6082, f: 0.7391
+	Ensemble Test: time: 9.88s, speed: 5640.61st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-3-5.score70325433253', 0.9418, 0.6082, 0.7391]
+********** ['base2.substr.wordlen4.ans2-3-5.score8196503180', 0.8469, 0.7813, 0.8127]
+	Test: time: 19.80s, speed: 2813.25st/s; acc: 0.9458, p: 0.8469, r: 0.7813, f: 0.8127
+	Ensemble Test: time: 19.80s, speed: 2813.25st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-3-5.score8196503180', 0.8469, 0.7813, 0.8127]
+********** ['base2.substr.wordlen4.ans2-3-5.score81835040986', 0.8764, 0.7673, 0.8182]
+	Test: time: 29.76s, speed: 1872.18st/s; acc: 0.9487, p: 0.8764, r: 0.7673, f: 0.8182
+	Ensemble Test: time: 29.76s, speed: 1872.18st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-3-5.score81835040986', 0.8764, 0.7673, 0.8182]
+********** ['base2.substr.wordlen4.ans2-3-5.score81835040986', 0.8764, 0.7673, 0.8182]
+	Test: time: 39.42s, speed: 1413.10st/s; acc: 0.9487, p: 0.8764, r: 0.7673, f: 0.8182
+	Ensemble Test: time: 39.42s, speed: 1413.10st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-3-5.score81835040986', 0.8764, 0.7673, 0.8182]
+********** ('word', 7, (2, 3, 5))
+********** ['base2.substr.wordlen7.ans2-3-5.score77820737652', 0.9553, 0.6831, 0.7966]
+	Test: time: 8.90s, speed: 5026.25st/s; acc: 0.9188, p: 0.9553, r: 0.6831, f: 0.7966
+	Ensemble Test: time: 8.90s, speed: 5026.25st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-3-5.score77820737652', 0.9553, 0.6831, 0.7966]
+********** ['base2.substr.wordlen7.ans2-3-5.score81311612450', 0.7373, 0.8581, 0.7931]
+	Test: time: 17.88s, speed: 2502.23st/s; acc: 0.8958, p: 0.7373, r: 0.8581, f: 0.7931
+	Ensemble Test: time: 17.88s, speed: 2502.23st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-3-5.score81311612450', 0.7373, 0.8581, 0.7931]
+********** ['base2.substr.wordlen7.ans2-3-5.score82363315199', 0.8902, 0.7852, 0.8344]
+	Test: time: 26.76s, speed: 1671.58st/s; acc: 0.9274, p: 0.8902, r: 0.7852, f: 0.8344
+	Ensemble Test: time: 26.76s, speed: 1671.58st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-3-5.score82363315199', 0.8902, 0.7852, 0.8344]
+********** ['base2.substr.wordlen7.ans2-3-5.score82363315199', 0.8902, 0.7852, 0.8344]
+	Test: time: 35.41s, speed: 1263.32st/s; acc: 0.9274, p: 0.8902, r: 0.7852, f: 0.8344
+	Ensemble Test: time: 35.41s, speed: 1263.32st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-3-5.score82363315199', 0.8902, 0.7852, 0.8344]
+********** ('word', 1, (3,))
+********** ['base2.substr.wordlen1.ans3.score55213903283', 0.7839, 0.3951, 0.5254]
+	Test: time: 10.46s, speed: 6595.96st/s; acc: 0.9835, p: 0.7839, r: 0.3951, f: 0.5254
+	Ensemble Test: time: 10.46s, speed: 6595.96st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans3.score55213903283', 0.7839, 0.3951, 0.5254]
+********** ['base2.substr.wordlen1.ans3.score56879739478', 0.5614, 0.521, 0.5404]
+	Test: time: 21.22s, speed: 3251.76st/s; acc: 0.9795, p: 0.5614, r: 0.5210, f: 0.5404
+	Ensemble Test: time: 21.22s, speed: 3251.76st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans3.score56879739478', 0.5614, 0.521, 0.5404]
+********** ['base2.substr.wordlen1.ans3.score57917436362', 0.7295, 0.4577, 0.5625]
+	Test: time: 31.84s, speed: 2167.21st/s; acc: 0.9835, p: 0.7295, r: 0.4577, f: 0.5625
+	Ensemble Test: time: 31.84s, speed: 2167.21st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans3.score57917436362', 0.7295, 0.4577, 0.5625]
+********** ['base2.substr.wordlen1.ans3.score57917436362', 0.7295, 0.4577, 0.5625]
+	Test: time: 42.27s, speed: 1632.22st/s; acc: 0.9835, p: 0.7295, r: 0.4577, f: 0.5625
+	Ensemble Test: time: 42.27s, speed: 1632.22st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans3.score57917436362', 0.7295, 0.4577, 0.5625]
+********** ('word', 6, (3,))
+********** ['base2.substr.wordlen6.ans3.score611098207', 0.8793, 0.4261, 0.574]
+	Test: time: 9.31s, speed: 5181.07st/s; acc: 0.9406, p: 0.8793, r: 0.4261, f: 0.5740
+	Ensemble Test: time: 9.31s, speed: 5181.07st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans3.score611098207', 0.8793, 0.4261, 0.574]
+********** ['base2.substr.wordlen6.ans3.score66679041639', 0.6602, 0.5823, 0.6188]
+	Test: time: 18.69s, speed: 2581.12st/s; acc: 0.9326, p: 0.6602, r: 0.5823, f: 0.6188
+	Ensemble Test: time: 18.69s, speed: 2581.12st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans3.score66679041639', 0.6602, 0.5823, 0.6188]
+********** ['base2.substr.wordlen6.ans3.score68119042492', 0.7297, 0.5635, 0.636]
+	Test: time: 28.03s, speed: 1721.30st/s; acc: 0.9394, p: 0.7297, r: 0.5635, f: 0.6360
+	Ensemble Test: time: 28.03s, speed: 1721.30st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans3.score68119042492', 0.7297, 0.5635, 0.636]
+********** ['base2.substr.wordlen6.ans3.score68119042492', 0.7297, 0.5635, 0.636]
+	Test: time: 37.54s, speed: 1285.17st/s; acc: 0.9394, p: 0.7297, r: 0.5635, f: 0.6360
+	Ensemble Test: time: 37.54s, speed: 1285.17st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans3.score68119042492', 0.7297, 0.5635, 0.636]
+********** ('word', 4, (3,))
+********** ['base2.substr.wordlen4.ans3.score5412621316', 0.8802, 0.3742, 0.5252]
+	Test: time: 9.94s, speed: 5603.44st/s; acc: 0.9549, p: 0.8802, r: 0.3742, f: 0.5252
+	Ensemble Test: time: 9.94s, speed: 5603.44st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans3.score5412621316', 0.8802, 0.3742, 0.5252]
+********** ['base2.substr.wordlen4.ans3.score63698781338', 0.5951, 0.5864, 0.5907]
+	Test: time: 19.98s, speed: 2787.96st/s; acc: 0.9459, p: 0.5951, r: 0.5864, f: 0.5907
+	Ensemble Test: time: 19.98s, speed: 2787.96st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans3.score63698781338', 0.5951, 0.5864, 0.5907]
+********** ['base2.substr.wordlen4.ans3.score64920710701', 0.7057, 0.5611, 0.6251]
+	Test: time: 29.92s, speed: 1861.71st/s; acc: 0.9552, p: 0.7057, r: 0.5611, f: 0.6251
+	Ensemble Test: time: 29.92s, speed: 1861.71st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans3.score64920710701', 0.7057, 0.5611, 0.6251]
+********** ['base2.substr.wordlen4.ans3.score64920710701', 0.7057, 0.5611, 0.6251]
+	Test: time: 39.63s, speed: 1405.92st/s; acc: 0.9552, p: 0.7057, r: 0.5611, f: 0.6251
+	Ensemble Test: time: 39.63s, speed: 1405.92st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans3.score64920710701', 0.7057, 0.5611, 0.6251]
+********** ('word', 6, (2,))
+********** ['base2.substr.wordlen6.ans2.score61733848256', 0.8815, 0.4169, 0.5661]
+	Test: time: 9.81s, speed: 4917.49st/s; acc: 0.9586, p: 0.8815, r: 0.4169, f: 0.5661
+	Ensemble Test: time: 9.81s, speed: 4917.49st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2.score61733848256', 0.8815, 0.4169, 0.5661]
+********** ['base2.substr.wordlen6.ans2.score70853821585', 0.7184, 0.6673, 0.6919]
+	Test: time: 19.37s, speed: 2490.96st/s; acc: 0.9615, p: 0.7184, r: 0.6673, f: 0.6919
+	Ensemble Test: time: 19.37s, speed: 2490.96st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2.score70853821585', 0.7184, 0.6673, 0.6919]
+********** ['base2.substr.wordlen6.ans2.score71843756772', 0.7658, 0.6459, 0.7007]
+	Test: time: 28.72s, speed: 1679.74st/s; acc: 0.9643, p: 0.7658, r: 0.6459, f: 0.7007
+	Ensemble Test: time: 28.72s, speed: 1679.74st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2.score71843756772', 0.7658, 0.6459, 0.7007]
+********** ['base2.substr.wordlen6.ans2.score71843756772', 0.7658, 0.6459, 0.7007]
+	Test: time: 37.79s, speed: 1276.68st/s; acc: 0.9643, p: 0.7658, r: 0.6459, f: 0.7007
+	Ensemble Test: time: 37.79s, speed: 1276.68st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2.score71843756772', 0.7658, 0.6459, 0.7007]
+********** ('word', 4, (2, 3))
+********** ['base2.substr.wordlen4.ans2-3.score66039738658', 0.9333, 0.5197, 0.6676]
+	Test: time: 10.10s, speed: 5513.57st/s; acc: 0.9422, p: 0.9333, r: 0.5197, f: 0.6676
+	Ensemble Test: time: 10.10s, speed: 5513.57st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-3.score66039738658', 0.9333, 0.5197, 0.6676]
+********** ['base2.substr.wordlen4.ans2-3.score73981338817', 0.7297, 0.7178, 0.7237]
+	Test: time: 20.18s, speed: 2760.04st/s; acc: 0.9388, p: 0.7297, r: 0.7178, f: 0.7237
+	Ensemble Test: time: 20.18s, speed: 2760.04st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-3.score73981338817', 0.7297, 0.7178, 0.7237]
+********** ['base2.substr.wordlen4.ans2-3.score74479852021', 0.848, 0.6553, 0.7393]
+	Test: time: 30.22s, speed: 1843.42st/s; acc: 0.9484, p: 0.8480, r: 0.6553, f: 0.7393
+	Ensemble Test: time: 30.22s, speed: 1843.42st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-3.score74479852021', 0.848, 0.6553, 0.7393]
+********** ['base2.substr.wordlen4.ans2-3.score74479852021', 0.848, 0.6553, 0.7393]
+	Test: time: 40.07s, speed: 1390.31st/s; acc: 0.9484, p: 0.8480, r: 0.6553, f: 0.7393
+	Ensemble Test: time: 40.07s, speed: 1390.31st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-3.score74479852021', 0.848, 0.6553, 0.7393]
+********** ('word', 7, (4,))
+********** ['base2.substr.wordlen7.ans4.score84142672471', 0.9136, 0.8681, 0.8903]
+	Test: time: 8.98s, speed: 4979.96st/s; acc: 0.9798, p: 0.9136, r: 0.8681, f: 0.8903
+	Ensemble Test: time: 8.98s, speed: 4979.96st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans4.score84142672471', 0.9136, 0.8681, 0.8903]
+********** ['base2.substr.wordlen7.ans4.score85755813453', 0.8908, 0.8956, 0.8932]
+	Test: time: 18.63s, speed: 2401.91st/s; acc: 0.9798, p: 0.8908, r: 0.8956, f: 0.8932
+	Ensemble Test: time: 18.63s, speed: 2401.91st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans4.score85755813453', 0.8908, 0.8956, 0.8932]
+********** ['base2.substr.wordlen7.ans4.score85678073011', 0.9095, 0.8802, 0.8946]
+	Test: time: 27.60s, speed: 1621.08st/s; acc: 0.9805, p: 0.9095, r: 0.8802, f: 0.8946
+	Ensemble Test: time: 27.60s, speed: 1621.08st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans4.score85678073011', 0.9095, 0.8802, 0.8946]
+********** ['base2.substr.wordlen7.ans4.score85678073011', 0.9095, 0.8802, 0.8946]
+	Test: time: 36.23s, speed: 1234.91st/s; acc: 0.9805, p: 0.9095, r: 0.8802, f: 0.8946
+	Ensemble Test: time: 36.23s, speed: 1234.91st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans4.score85678073011', 0.9095, 0.8802, 0.8946]
+********** ('word', 3, (2, 4))
+********** ['base2.substr.wordlen3.ans2-4.score79156759691', 0.907, 0.7484, 0.8201]
+	Test: time: 10.38s, speed: 5740.20st/s; acc: 0.9714, p: 0.9070, r: 0.7484, f: 0.8201
+	Ensemble Test: time: 10.38s, speed: 5740.20st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-4.score79156759691', 0.907, 0.7484, 0.8201]
+********** ['base2.substr.wordlen3.ans2-4.score80798148719', 0.8288, 0.8253, 0.8271]
+	Test: time: 20.73s, speed: 2874.14st/s; acc: 0.9699, p: 0.8288, r: 0.8253, f: 0.8271
+	Ensemble Test: time: 20.73s, speed: 2874.14st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-4.score80798148719', 0.8288, 0.8253, 0.8271]
+********** ['base2.substr.wordlen3.ans2-4.score80642283176', 0.8662, 0.8086, 0.8364]
+	Test: time: 31.04s, speed: 1919.77st/s; acc: 0.9724, p: 0.8662, r: 0.8086, f: 0.8364
+	Ensemble Test: time: 31.04s, speed: 1919.77st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-4.score80642283176', 0.8662, 0.8086, 0.8364]
+********** ['base2.substr.wordlen3.ans2-4.score80642283176', 0.8662, 0.8086, 0.8364]
+	Test: time: 41.16s, speed: 1447.64st/s; acc: 0.9724, p: 0.8662, r: 0.8086, f: 0.8364
+	Ensemble Test: time: 41.16s, speed: 1447.64st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-4.score80642283176', 0.8662, 0.8086, 0.8364]
+********** ('word', 4, (2, 4, 5))
+********** ['base2.substr.wordlen4.ans2-4-5.score83965252442', 0.9287, 0.8038, 0.8617]
+	Test: time: 9.86s, speed: 5647.82st/s; acc: 0.9634, p: 0.9287, r: 0.8038, f: 0.8617
+	Ensemble Test: time: 9.86s, speed: 5647.82st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-4-5.score83965252442', 0.9287, 0.8038, 0.8617]
+********** ['base2.substr.wordlen4.ans2-4-5.score85945632814', 0.8868, 0.8762, 0.8815]
+	Test: time: 19.88s, speed: 2801.74st/s; acc: 0.9665, p: 0.8868, r: 0.8762, f: 0.8815
+	Ensemble Test: time: 19.88s, speed: 2801.74st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-4-5.score85945632814', 0.8868, 0.8762, 0.8815]
+********** ['base2.substr.wordlen4.ans2-4-5.score85827787762', 0.9115, 0.8564, 0.8831]
+	Test: time: 29.80s, speed: 1869.61st/s; acc: 0.9678, p: 0.9115, r: 0.8564, f: 0.8831
+	Ensemble Test: time: 29.80s, speed: 1869.61st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-4-5.score85827787762', 0.9115, 0.8564, 0.8831]
+********** ['base2.substr.wordlen4.ans2-4-5.score85827787762', 0.9115, 0.8564, 0.8831]
+	Test: time: 39.51s, speed: 1409.88st/s; acc: 0.9678, p: 0.9115, r: 0.8564, f: 0.8831
+	Ensemble Test: time: 39.51s, speed: 1409.88st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-4-5.score85827787762', 0.9115, 0.8564, 0.8831]
+********** ('word', 3, (2, 3, 4))
+********** ['base2.substr.wordlen3.ans2-4-3.score75483303556', 0.9373, 0.6792, 0.7877]
+	Test: time: 10.21s, speed: 5834.51st/s; acc: 0.9501, p: 0.9373, r: 0.6792, f: 0.7877
+	Ensemble Test: time: 10.21s, speed: 5834.51st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-4-3.score75483303556', 0.9373, 0.6792, 0.7877]
+********** ['base2.substr.wordlen3.ans2-4-3.score82233696191', 0.8387, 0.8243, 0.8314]
+	Test: time: 20.48s, speed: 2909.29st/s; acc: 0.9545, p: 0.8387, r: 0.8243, f: 0.8314
+	Ensemble Test: time: 20.48s, speed: 2909.29st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-4-3.score82233696191', 0.8387, 0.8243, 0.8314]
+********** ['base2.substr.wordlen3.ans2-4-3.score82432160306', 0.8919, 0.7935, 0.8398]
+	Test: time: 30.81s, speed: 1934.07st/s; acc: 0.9588, p: 0.8919, r: 0.7935, f: 0.8398
+	Ensemble Test: time: 30.81s, speed: 1934.07st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-4-3.score82432160306', 0.8919, 0.7935, 0.8398]
+********** ['base2.substr.wordlen3.ans2-4-3.score82432160306', 0.8919, 0.7935, 0.8398]
+	Test: time: 40.76s, speed: 1462.05st/s; acc: 0.9588, p: 0.8919, r: 0.7935, f: 0.8398
+	Ensemble Test: time: 40.76s, speed: 1462.05st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-4-3.score82432160306', 0.8919, 0.7935, 0.8398]
+********** ('word', 7, (2, 5))
+********** ['base2.substr.wordlen7.ans2-5.score68450744497', 0.8949, 0.593, 0.7133]
+	Test: time: 9.11s, speed: 4910.30st/s; acc: 0.9330, p: 0.8949, r: 0.5930, f: 0.7133
+	Ensemble Test: time: 9.11s, speed: 4910.30st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-5.score68450744497', 0.8949, 0.593, 0.7133]
+********** ['base2.substr.wordlen7.ans2-5.score78049934418', 0.7853, 0.8183, 0.8015]
+	Test: time: 18.16s, speed: 2463.12st/s; acc: 0.9430, p: 0.7853, r: 0.8183, f: 0.8015
+	Ensemble Test: time: 18.16s, speed: 2463.12st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-5.score78049934418', 0.7853, 0.8183, 0.8015]
+********** ['base2.substr.wordlen7.ans2-5.score78052452757', 0.837, 0.7739, 0.8042]
+	Test: time: 27.16s, speed: 1647.28st/s; acc: 0.9470, p: 0.8370, r: 0.7739, f: 0.8042
+	Ensemble Test: time: 27.16s, speed: 1647.28st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-5.score78052452757', 0.837, 0.7739, 0.8042]
+********** ['base2.substr.wordlen7.ans2-5.score78052452757', 0.837, 0.7739, 0.8042]
+	Test: time: 35.83s, speed: 1248.53st/s; acc: 0.9470, p: 0.8370, r: 0.7739, f: 0.8042
+	Ensemble Test: time: 35.83s, speed: 1248.53st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-5.score78052452757', 0.837, 0.7739, 0.8042]
+********** ('word', 3, (2,))
+********** ['base2.substr.wordlen3.ans2.score64461646260', 0.8105, 0.5087, 0.6251]
+	Test: time: 10.23s, speed: 5825.86st/s; acc: 0.9765, p: 0.8105, r: 0.5087, f: 0.6251
+	Ensemble Test: time: 10.23s, speed: 5825.86st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2.score64461646260', 0.8105, 0.5087, 0.6251]
+********** ['base2.substr.wordlen3.ans2.score69254092893', 0.6725, 0.6341, 0.6528]
+	Test: time: 20.59s, speed: 2894.09st/s; acc: 0.9740, p: 0.6725, r: 0.6341, f: 0.6528
+	Ensemble Test: time: 20.59s, speed: 2894.09st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2.score69254092893', 0.6725, 0.6341, 0.6528]
+********** ['base2.substr.wordlen3.ans2.score67597207892', 0.7657, 0.5993, 0.6724]
+	Test: time: 31.40s, speed: 1897.91st/s; acc: 0.9775, p: 0.7657, r: 0.5993, f: 0.6724
+	Ensemble Test: time: 31.40s, speed: 1897.91st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2.score67597207892', 0.7657, 0.5993, 0.6724]
+********** ['base2.substr.wordlen3.ans2.score67597207892', 0.7657, 0.5993, 0.6724]
+	Test: time: 41.37s, speed: 1440.46st/s; acc: 0.9775, p: 0.7657, r: 0.5993, f: 0.6724
+	Ensemble Test: time: 41.37s, speed: 1440.46st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2.score67597207892', 0.7657, 0.5993, 0.6724]
+********** ('word', 7, (2, 3, 4, 5))
+********** ['base2.substr.wordlen7.ans2-4-3-5.score5548049275', 0.9953, 0.4228, 0.5935]
+	Test: time: 9.00s, speed: 4970.62st/s; acc: 0.8308, p: 0.9953, r: 0.4228, f: 0.5935
+	Ensemble Test: time: 9.00s, speed: 4970.62st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-4-3-5.score5548049275', 0.9953, 0.4228, 0.5935]
+********** ['base2.substr.wordlen7.ans2-4-3-5.score88986885887', 0.8762, 0.9025, 0.8891]
+	Test: time: 18.32s, speed: 2442.51st/s; acc: 0.9342, p: 0.8762, r: 0.9025, f: 0.8891
+	Ensemble Test: time: 18.32s, speed: 2442.51st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-4-3-5.score88986885887', 0.8762, 0.9025, 0.8891]
+********** ['base2.substr.wordlen7.ans2-4-3-5.score89019104670', 0.9321, 0.8693, 0.8996]
+	Test: time: 27.68s, speed: 1616.13st/s; acc: 0.9433, p: 0.9321, r: 0.8693, f: 0.8996
+	Ensemble Test: time: 27.68s, speed: 1616.13st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-4-3-5.score89019104670', 0.9321, 0.8693, 0.8996]
+********** ['base2.substr.wordlen7.ans2-4-3-5.score89019104670', 0.9321, 0.8693, 0.8996]
+	Test: time: 36.32s, speed: 1231.71st/s; acc: 0.9433, p: 0.9321, r: 0.8693, f: 0.8996
+	Ensemble Test: time: 36.32s, speed: 1231.71st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2-4-3-5.score89019104670', 0.9321, 0.8693, 0.8996]
+********** ('word', 2, (2, 3, 4, 5))
+********** ['base2.substr.wordlen2.ans2-4-3-5.score83967915029', 0.9438, 0.7821, 0.8554]
+	Test: time: 10.35s, speed: 6163.52st/s; acc: 0.9653, p: 0.9438, r: 0.7821, f: 0.8554
+	Ensemble Test: time: 10.35s, speed: 6163.52st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-4-3-5.score83967915029', 0.9438, 0.7821, 0.8554]
+********** ['base2.substr.wordlen2.ans2-4-3-5.score86657909051', 0.8744, 0.8655, 0.8699]
+	Test: time: 21.91s, speed: 2912.31st/s; acc: 0.9660, p: 0.8744, r: 0.8655, f: 0.8699
+	Ensemble Test: time: 21.91s, speed: 2912.31st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-4-3-5.score86657909051', 0.8744, 0.8655, 0.8699]
+********** ['base2.substr.wordlen2.ans2-4-3-5.score86353032160', 0.9108, 0.8416, 0.8748]
+	Test: time: 32.56s, speed: 1959.20st/s; acc: 0.9684, p: 0.9108, r: 0.8416, f: 0.8748
+	Ensemble Test: time: 32.56s, speed: 1959.20st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-4-3-5.score86353032160', 0.9108, 0.8416, 0.8748]
+********** ['base2.substr.wordlen2.ans2-4-3-5.score86353032160', 0.9108, 0.8416, 0.8748]
+	Test: time: 43.02s, speed: 1482.92st/s; acc: 0.9684, p: 0.9108, r: 0.8416, f: 0.8748
+	Ensemble Test: time: 43.02s, speed: 1482.92st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-4-3-5.score86353032160', 0.9108, 0.8416, 0.8748]
+********** ('word', 6, (2, 3))
+********** ['base2.substr.wordlen6.ans2-3.score55741792069', 0.9355, 0.4328, 0.5918]
+	Test: time: 9.46s, speed: 5097.34st/s; acc: 0.9084, p: 0.9355, r: 0.4328, f: 0.5918
+	Ensemble Test: time: 9.46s, speed: 5097.34st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-3.score55741792069', 0.9355, 0.4328, 0.5918]
+********** ['base2.substr.wordlen6.ans2-3.score76677250345', 0.7952, 0.7332, 0.7629]
+	Test: time: 18.99s, speed: 2541.27st/s; acc: 0.9301, p: 0.7952, r: 0.7332, f: 0.7629
+	Ensemble Test: time: 18.99s, speed: 2541.27st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-3.score76677250345', 0.7952, 0.7332, 0.7629]
+********** ['base2.substr.wordlen6.ans2-3.score76557606673', 0.8537, 0.6992, 0.7688]
+	Test: time: 28.51s, speed: 1692.51st/s; acc: 0.9355, p: 0.8537, r: 0.6992, f: 0.7688
+	Ensemble Test: time: 28.51s, speed: 1692.51st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-3.score76557606673', 0.8537, 0.6992, 0.7688]
+********** ['base2.substr.wordlen6.ans2-3.score76557606673', 0.8537, 0.6992, 0.7688]
+	Test: time: 37.57s, speed: 1284.32st/s; acc: 0.9355, p: 0.8537, r: 0.6992, f: 0.7688
+	Ensemble Test: time: 37.57s, speed: 1284.32st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-3.score76557606673', 0.8537, 0.6992, 0.7688]
+********** ('word', 2, (2, 5))
+********** ['base2.substr.wordlen2.ans2-5.score72412976069', 0.8662, 0.6859, 0.7656]
+	Test: time: 10.55s, speed: 6047.27st/s; acc: 0.9773, p: 0.8662, r: 0.6859, f: 0.7656
+	Ensemble Test: time: 10.55s, speed: 6047.27st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-5.score72412976069', 0.8662, 0.6859, 0.7656]
+********** ['base2.substr.wordlen2.ans2-5.score69279819457', 0.5769, 0.7631, 0.6571]
+	Test: time: 21.56s, speed: 2958.47st/s; acc: 0.9570, p: 0.5769, r: 0.7631, f: 0.6571
+	Ensemble Test: time: 21.56s, speed: 2958.47st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-5.score69279819457', 0.5769, 0.7631, 0.6571]
+********** ['base2.substr.wordlen2.ans2-5.score73320981445', 0.8573, 0.71, 0.7768]
+	Test: time: 32.07s, speed: 1989.20st/s; acc: 0.9780, p: 0.8573, r: 0.7100, f: 0.7768
+	Ensemble Test: time: 32.07s, speed: 1989.20st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-5.score73320981445', 0.8573, 0.71, 0.7768]
+********** ['base2.substr.wordlen2.ans2-5.score73320981445', 0.8573, 0.71, 0.7768]
+	Test: time: 42.25s, speed: 1509.97st/s; acc: 0.9780, p: 0.8573, r: 0.7100, f: 0.7768
+	Ensemble Test: time: 42.25s, speed: 1509.97st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-5.score73320981445', 0.8573, 0.71, 0.7768]
+********** ('word', 4, (5,))
+********** ['base2.substr.wordlen4.ans5.score81109056801', 0.8519, 0.8079, 0.8294]
+	Test: time: 9.93s, speed: 5611.14st/s; acc: 0.9860, p: 0.8519, r: 0.8079, f: 0.8294
+	Ensemble Test: time: 9.93s, speed: 5611.14st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans5.score81109056801', 0.8519, 0.8079, 0.8294]
+********** ['base2.substr.wordlen4.ans5.score81006377954', 0.8174, 0.831, 0.8241]
+	Test: time: 19.96s, speed: 2790.52st/s; acc: 0.9851, p: 0.8174, r: 0.8310, f: 0.8241
+	Ensemble Test: time: 19.96s, speed: 2790.52st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans5.score81006377954', 0.8174, 0.831, 0.8241]
+********** ['base2.substr.wordlen4.ans5.score81109056801', 0.8519, 0.8079, 0.8294]
+	Test: time: 29.64s, speed: 1879.64st/s; acc: 0.9860, p: 0.8519, r: 0.8079, f: 0.8294
+	Ensemble Test: time: 29.64s, speed: 1879.64st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans5.score81109056801', 0.8519, 0.8079, 0.8294]
+********** ['base2.substr.wordlen4.ans5.score81109056801', 0.8519, 0.8079, 0.8294]
+	Test: time: 39.32s, speed: 1416.95st/s; acc: 0.9860, p: 0.8519, r: 0.8079, f: 0.8294
+	Ensemble Test: time: 39.32s, speed: 1416.95st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans5.score81109056801', 0.8519, 0.8079, 0.8294]
+********** ('word', 6, (2, 3, 4))
+********** ['base2.substr.wordlen6.ans2-4-3.score60663320107', 0.9723, 0.4945, 0.6556]
+	Test: time: 9.41s, speed: 5126.25st/s; acc: 0.8855, p: 0.9723, r: 0.4945, f: 0.6556
+	Ensemble Test: time: 9.41s, speed: 5126.25st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-4-3.score60663320107', 0.9723, 0.4945, 0.6556]
+********** ['base2.substr.wordlen6.ans2-4-3.score83158114100', 0.8096, 0.8697, 0.8386]
+	Test: time: 18.80s, speed: 2565.75st/s; acc: 0.9262, p: 0.8096, r: 0.8697, f: 0.8386
+	Ensemble Test: time: 18.80s, speed: 2565.75st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-4-3.score83158114100', 0.8096, 0.8697, 0.8386]
+********** ['base2.substr.wordlen6.ans2-4-3.score83298032784', 0.9012, 0.8187, 0.858]
+	Test: time: 28.10s, speed: 1716.68st/s; acc: 0.9403, p: 0.9012, r: 0.8187, f: 0.8580
+	Ensemble Test: time: 28.10s, speed: 1716.68st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-4-3.score83298032784', 0.9012, 0.8187, 0.858]
+********** ['base2.substr.wordlen6.ans2-4-3.score83298032784', 0.9012, 0.8187, 0.858]
+	Test: time: 37.20s, speed: 1296.81st/s; acc: 0.9403, p: 0.9012, r: 0.8187, f: 0.8580
+	Ensemble Test: time: 37.20s, speed: 1296.81st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-4-3.score83298032784', 0.9012, 0.8187, 0.858]
+********** ('word', 6, (2, 4))
+********** ['base2.substr.wordlen6.ans2-4.score72051870393', 0.9528, 0.6, 0.7363]
+	Test: time: 9.41s, speed: 5129.43st/s; acc: 0.9395, p: 0.9528, r: 0.6000, f: 0.7363
+	Ensemble Test: time: 9.41s, speed: 5129.43st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-4.score72051870393', 0.9528, 0.6, 0.7363]
+********** ['base2.substr.wordlen6.ans2-4.score81278441663', 0.8081, 0.8769, 0.8411]
+	Test: time: 19.59s, speed: 2462.60st/s; acc: 0.9533, p: 0.8081, r: 0.8769, f: 0.8411
+	Ensemble Test: time: 19.59s, speed: 2462.60st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-4.score81278441663', 0.8081, 0.8769, 0.8411]
+********** ['base2.substr.wordlen6.ans2-4.score82461676687', 0.8676, 0.8375, 0.8523]
+	Test: time: 29.00s, speed: 1663.76st/s; acc: 0.9591, p: 0.8676, r: 0.8375, f: 0.8523
+	Ensemble Test: time: 29.00s, speed: 1663.76st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-4.score82461676687', 0.8676, 0.8375, 0.8523]
+********** ['base2.substr.wordlen6.ans2-4.score82461676687', 0.8676, 0.8375, 0.8523]
+	Test: time: 37.99s, speed: 1269.89st/s; acc: 0.9591, p: 0.8676, r: 0.8375, f: 0.8523
+	Ensemble Test: time: 37.99s, speed: 1269.89st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-4.score82461676687', 0.8676, 0.8375, 0.8523]
+********** ('word', 2, (2, 4, 5))
+********** ['base2.substr.wordlen2.ans2-4-5.score8382055722', 0.9152, 0.8252, 0.8679]
+	Test: time: 10.63s, speed: 6001.21st/s; acc: 0.9763, p: 0.9152, r: 0.8252, f: 0.8679
+	Ensemble Test: time: 10.63s, speed: 6001.21st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-4-5.score8382055722', 0.9152, 0.8252, 0.8679]
+********** ['base2.substr.wordlen2.ans2-4-5.score83657980779', 0.8595, 0.8673, 0.8634]
+	Test: time: 21.44s, speed: 2976.34st/s; acc: 0.9741, p: 0.8595, r: 0.8673, f: 0.8634
+	Ensemble Test: time: 21.44s, speed: 2976.34st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-4-5.score83657980779', 0.8595, 0.8673, 0.8634]
+********** ['base2.substr.wordlen2.ans2-4-5.score84635761091', 0.9015, 0.8449, 0.8723]
+	Test: time: 31.89s, speed: 2000.84st/s; acc: 0.9766, p: 0.9015, r: 0.8449, f: 0.8723
+	Ensemble Test: time: 31.89s, speed: 2000.84st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-4-5.score84635761091', 0.9015, 0.8449, 0.8723]
+********** ['base2.substr.wordlen2.ans2-4-5.score84635761091', 0.9015, 0.8449, 0.8723]
+	Test: time: 42.25s, speed: 1510.11st/s; acc: 0.9766, p: 0.9015, r: 0.8449, f: 0.8723
+	Ensemble Test: time: 42.25s, speed: 1510.11st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-4-5.score84635761091', 0.9015, 0.8449, 0.8723]
+********** ('word', 1, (2, 4))
+********** ['base2.substr.wordlen1.ans2-4.score68377021277', 0.9059, 0.6111, 0.7299]
+	Test: time: 11.12s, speed: 6202.29st/s; acc: 0.9781, p: 0.9059, r: 0.6111, f: 0.7299
+	Ensemble Test: time: 11.12s, speed: 6202.29st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-4.score68377021277', 0.9059, 0.6111, 0.7299]
+********** ['base2.substr.wordlen1.ans2-4.score65622309736', 0.5151, 0.858, 0.6437]
+	Test: time: 22.09s, speed: 3123.27st/s; acc: 0.9541, p: 0.5151, r: 0.8580, f: 0.6437
+	Ensemble Test: time: 22.09s, speed: 3123.27st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-4.score65622309736', 0.5151, 0.858, 0.6437]
+********** ['base2.substr.wordlen1.ans2-4.score76317084683', 0.8472, 0.7307, 0.7846]
+	Test: time: 33.01s, speed: 2090.03st/s; acc: 0.9806, p: 0.8472, r: 0.7307, f: 0.7846
+	Ensemble Test: time: 33.01s, speed: 2090.03st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-4.score76317084683', 0.8472, 0.7307, 0.7846]
+********** ['base2.substr.wordlen1.ans2-4.score76317084683', 0.8472, 0.7307, 0.7846]
+	Test: time: 43.89s, speed: 1571.97st/s; acc: 0.9806, p: 0.8472, r: 0.7307, f: 0.7846
+	Ensemble Test: time: 43.89s, speed: 1571.97st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-4.score76317084683', 0.8472, 0.7307, 0.7846]
+********** ('word', 5, (3, 5))
+********** ['base2.substr.wordlen5.ans3-5.score73596425431', 0.897, 0.6131, 0.7284]
+	Test: time: 9.73s, speed: 5340.99st/s; acc: 0.9415, p: 0.8970, r: 0.6131, f: 0.7284
+	Ensemble Test: time: 9.73s, speed: 5340.99st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans3-5.score73596425431', 0.897, 0.6131, 0.7284]
+********** ['base2.substr.wordlen5.ans3-5.score76652866141', 0.7473, 0.7496, 0.7484]
+	Test: time: 19.48s, speed: 2666.25st/s; acc: 0.9355, p: 0.7473, r: 0.7496, f: 0.7484
+	Ensemble Test: time: 19.48s, speed: 2666.25st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans3-5.score76652866141', 0.7473, 0.7496, 0.7484]
+********** ['base2.substr.wordlen5.ans3-5.score77206466504', 0.8021, 0.7167, 0.757]
+	Test: time: 29.21s, speed: 1778.29st/s; acc: 0.9411, p: 0.8021, r: 0.7167, f: 0.7570
+	Ensemble Test: time: 29.21s, speed: 1778.29st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans3-5.score77206466504', 0.8021, 0.7167, 0.757]
+********** ['base2.substr.wordlen5.ans3-5.score77206466504', 0.8021, 0.7167, 0.757]
+	Test: time: 38.55s, speed: 1347.41st/s; acc: 0.9411, p: 0.8021, r: 0.7167, f: 0.7570
+	Ensemble Test: time: 38.55s, speed: 1347.41st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans3-5.score77206466504', 0.8021, 0.7167, 0.757]
+********** ('word', 2, (4, 5))
+********** ['base2.substr.wordlen2.ans4-5.score8403009983', 0.9006, 0.8701, 0.8851]
+	Test: time: 10.55s, speed: 6048.54st/s; acc: 0.9855, p: 0.9006, r: 0.8701, f: 0.8851
+	Ensemble Test: time: 10.55s, speed: 6048.54st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans4-5.score8403009983', 0.9006, 0.8701, 0.8851]
+********** ['base2.substr.wordlen2.ans4-5.score82324089295', 0.8129, 0.9203, 0.8633]
+	Test: time: 21.27s, speed: 3000.12st/s; acc: 0.9814, p: 0.8129, r: 0.9203, f: 0.8633
+	Ensemble Test: time: 21.27s, speed: 3000.12st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans4-5.score82324089295', 0.8129, 0.9203, 0.8633]
+********** ['base2.substr.wordlen2.ans4-5.score83999179995', 0.8859, 0.8885, 0.8872]
+	Test: time: 31.64s, speed: 2016.39st/s; acc: 0.9855, p: 0.8859, r: 0.8885, f: 0.8872
+	Ensemble Test: time: 31.64s, speed: 2016.39st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans4-5.score83999179995', 0.8859, 0.8885, 0.8872]
+********** ['base2.substr.wordlen2.ans4-5.score83999179995', 0.8859, 0.8885, 0.8872]
+	Test: time: 41.74s, speed: 1528.50st/s; acc: 0.9855, p: 0.8859, r: 0.8885, f: 0.8872
+	Ensemble Test: time: 41.74s, speed: 1528.50st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans4-5.score83999179995', 0.8859, 0.8885, 0.8872]
+********** ('word', 2, (3,))
+********** ['base2.substr.wordlen2.ans3.score60172413333', 0.8058, 0.4244, 0.556]
+	Test: time: 10.55s, speed: 6048.75st/s; acc: 0.9741, p: 0.8058, r: 0.4244, f: 0.5560
+	Ensemble Test: time: 10.55s, speed: 6048.75st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans3.score60172413333', 0.8058, 0.4244, 0.556]
+********** ['base2.substr.wordlen2.ans3.score62180813854', 0.6083, 0.5378, 0.5709]
+	Test: time: 20.92s, speed: 3049.27st/s; acc: 0.9692, p: 0.6083, r: 0.5378, f: 0.5709
+	Ensemble Test: time: 20.92s, speed: 3049.27st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans3.score62180813854', 0.6083, 0.5378, 0.5709]
+********** ['base2.substr.wordlen2.ans3.score634772457', 0.7209, 0.4914, 0.5844]
+	Test: time: 31.36s, speed: 2034.60st/s; acc: 0.9733, p: 0.7209, r: 0.4914, f: 0.5844
+	Ensemble Test: time: 31.36s, speed: 2034.60st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans3.score634772457', 0.7209, 0.4914, 0.5844]
+********** ['base2.substr.wordlen2.ans3.score634772457', 0.7209, 0.4914, 0.5844]
+	Test: time: 41.44s, speed: 1539.70st/s; acc: 0.9733, p: 0.7209, r: 0.4914, f: 0.5844
+	Ensemble Test: time: 41.44s, speed: 1539.70st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans3.score634772457', 0.7209, 0.4914, 0.5844]
+********** ('word', 2, (5,))
+********** ['base2.substr.wordlen2.ans5.score78415613737', 0.8502, 0.7751, 0.8109]
+	Test: time: 10.45s, speed: 6105.40st/s; acc: 0.9917, p: 0.8502, r: 0.7751, f: 0.8109
+	Ensemble Test: time: 10.45s, speed: 6105.40st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans5.score78415613737', 0.8502, 0.7751, 0.8109]
+********** ['base2.substr.wordlen2.ans5.score77991452490', 0.8124, 0.8444, 0.8281]
+	Test: time: 20.93s, speed: 3048.12st/s; acc: 0.9919, p: 0.8124, r: 0.8444, f: 0.8281
+	Ensemble Test: time: 20.93s, speed: 3048.12st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans5.score77991452490', 0.8124, 0.8444, 0.8281]
+********** ['base2.substr.wordlen2.ans5.score77991452490', 0.8124, 0.8444, 0.8281]
+	Test: time: 31.00s, speed: 2057.78st/s; acc: 0.9919, p: 0.8124, r: 0.8444, f: 0.8281
+	Ensemble Test: time: 31.00s, speed: 2057.78st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans5.score77991452490', 0.8124, 0.8444, 0.8281]
+********** ['base2.substr.wordlen2.ans5.score77991452490', 0.8124, 0.8444, 0.8281]
+	Test: time: 41.07s, speed: 1553.41st/s; acc: 0.9919, p: 0.8124, r: 0.8444, f: 0.8281
+	Ensemble Test: time: 41.07s, speed: 1553.41st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans5.score77991452490', 0.8124, 0.8444, 0.8281]
+********** ('word', 5, (4,))
+********** ['base2.substr.wordlen5.ans4.score82160863848', 0.9291, 0.8337, 0.8788]
+	Test: time: 9.68s, speed: 5365.77st/s; acc: 0.9834, p: 0.9291, r: 0.8337, f: 0.8788
+	Ensemble Test: time: 9.68s, speed: 5365.77st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans4.score82160863848', 0.9291, 0.8337, 0.8788]
+********** ['base2.substr.wordlen5.ans4.score8243302541', 0.8564, 0.9047, 0.8799]
+	Test: time: 19.92s, speed: 2607.62st/s; acc: 0.9821, p: 0.8564, r: 0.9047, f: 0.8799
+	Ensemble Test: time: 19.92s, speed: 2607.62st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans4.score8243302541', 0.8564, 0.9047, 0.8799]
+********** ['base2.substr.wordlen5.ans4.score84404924260', 0.8991, 0.8965, 0.8978]
+	Test: time: 29.63s, speed: 1753.02st/s; acc: 0.9852, p: 0.8991, r: 0.8965, f: 0.8978
+	Ensemble Test: time: 29.63s, speed: 1753.02st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans4.score84404924260', 0.8991, 0.8965, 0.8978]
+********** ['base2.substr.wordlen5.ans4.score84404924260', 0.8991, 0.8965, 0.8978]
+	Test: time: 38.98s, speed: 1332.47st/s; acc: 0.9852, p: 0.8991, r: 0.8965, f: 0.8978
+	Ensemble Test: time: 38.98s, speed: 1332.47st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans4.score84404924260', 0.8991, 0.8965, 0.8978]
+********** ('word', 3, (3, 5))
+********** ['base2.substr.wordlen3.ans3-5.score69366401376', 0.8538, 0.5869, 0.6957]
+	Test: time: 10.41s, speed: 5725.70st/s; acc: 0.9568, p: 0.8538, r: 0.5869, f: 0.6957
+	Ensemble Test: time: 10.41s, speed: 5725.70st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans3-5.score69366401376', 0.8538, 0.5869, 0.6957]
+********** ['base2.substr.wordlen3.ans3-5.score7239775411', 0.7029, 0.7211, 0.7119]
+	Test: time: 21.13s, speed: 2819.71st/s; acc: 0.9509, p: 0.7029, r: 0.7211, f: 0.7119
+	Ensemble Test: time: 21.13s, speed: 2819.71st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans3-5.score7239775411', 0.7029, 0.7211, 0.7119]
+********** ['base2.substr.wordlen3.ans3-5.score74846834081', 0.7691, 0.7077, 0.7371]
+	Test: time: 31.36s, speed: 1899.94st/s; acc: 0.9575, p: 0.7691, r: 0.7077, f: 0.7371
+	Ensemble Test: time: 31.36s, speed: 1899.94st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans3-5.score74846834081', 0.7691, 0.7077, 0.7371]
+********** ['base2.substr.wordlen3.ans3-5.score74846834081', 0.7691, 0.7077, 0.7371]
+	Test: time: 41.26s, speed: 1444.10st/s; acc: 0.9575, p: 0.7691, r: 0.7077, f: 0.7371
+	Ensemble Test: time: 41.26s, speed: 1444.10st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans3-5.score74846834081', 0.7691, 0.7077, 0.7371]
+********** ('word', 1, (2, 3, 4))
+********** ['base2.substr.wordlen1.ans2-4-3.score72139870292', 0.9236, 0.6322, 0.7506]
+	Test: time: 10.44s, speed: 6606.84st/s; acc: 0.9700, p: 0.9236, r: 0.6322, f: 0.7506
+	Ensemble Test: time: 10.44s, speed: 6606.84st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-4-3.score72139870292', 0.9236, 0.6322, 0.7506]
+********** ['base2.substr.wordlen1.ans2-4-3.score7536480637', 0.6901, 0.834, 0.7553]
+	Test: time: 21.01s, speed: 3284.00st/s; acc: 0.9613, p: 0.6901, r: 0.8340, f: 0.7553
+	Ensemble Test: time: 21.01s, speed: 3284.00st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-4-3.score7536480637', 0.6901, 0.834, 0.7553]
+********** ['base2.substr.wordlen1.ans2-4-3.score77805906675', 0.8509, 0.7518, 0.7983]
+	Test: time: 31.50s, speed: 2189.94st/s; acc: 0.9728, p: 0.8509, r: 0.7518, f: 0.7983
+	Ensemble Test: time: 31.50s, speed: 2189.94st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-4-3.score77805906675', 0.8509, 0.7518, 0.7983]
+********** ['base2.substr.wordlen1.ans2-4-3.score77805906675', 0.8509, 0.7518, 0.7983]
+	Test: time: 41.77s, speed: 1651.73st/s; acc: 0.9728, p: 0.8509, r: 0.7518, f: 0.7983
+	Ensemble Test: time: 41.77s, speed: 1651.73st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-4-3.score77805906675', 0.8509, 0.7518, 0.7983]
+********** ('word', 3, (4,))
+********** ['base2.substr.wordlen3.ans4.score76575120676', 0.9451, 0.758, 0.8413]
+	Test: time: 10.31s, speed: 5778.23st/s; acc: 0.9856, p: 0.9451, r: 0.7580, f: 0.8413
+	Ensemble Test: time: 10.31s, speed: 5778.23st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans4.score76575120676', 0.9451, 0.758, 0.8413]
+********** ['base2.substr.wordlen3.ans4.score83146696028', 0.8715, 0.8832, 0.8773]
+	Test: time: 20.56s, speed: 2898.00st/s; acc: 0.9876, p: 0.8715, r: 0.8832, f: 0.8773
+	Ensemble Test: time: 20.56s, speed: 2898.00st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans4.score83146696028', 0.8715, 0.8832, 0.8773]
+********** ['base2.substr.wordlen3.ans4.score81575164777', 0.8947, 0.8682, 0.8812]
+	Test: time: 30.86s, speed: 1930.82st/s; acc: 0.9882, p: 0.8947, r: 0.8682, f: 0.8812
+	Ensemble Test: time: 30.86s, speed: 1930.82st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans4.score81575164777', 0.8947, 0.8682, 0.8812]
+********** ['base2.substr.wordlen3.ans4.score81575164777', 0.8947, 0.8682, 0.8812]
+	Test: time: 40.80s, speed: 1460.42st/s; acc: 0.9882, p: 0.8947, r: 0.8682, f: 0.8812
+	Ensemble Test: time: 40.80s, speed: 1460.42st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans4.score81575164777', 0.8947, 0.8682, 0.8812]
+********** ('word', 4, (4, 5))
+********** ['base2.substr.wordlen4.ans4-5.score84223797769', 0.9168, 0.8335, 0.8732]
+	Test: time: 10.15s, speed: 5490.04st/s; acc: 0.9761, p: 0.9168, r: 0.8335, f: 0.8732
+	Ensemble Test: time: 10.15s, speed: 5490.04st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans4-5.score84223797769', 0.9168, 0.8335, 0.8732]
+********** ['base2.substr.wordlen4.ans4-5.score67949526353', 0.5537, 0.9515, 0.7]
+	Test: time: 20.22s, speed: 2754.81st/s; acc: 0.9197, p: 0.5537, r: 0.9515, f: 0.7000
+	Ensemble Test: time: 20.22s, speed: 2754.81st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans4-5.score67949526353', 0.5537, 0.9515, 0.7]
+********** ['base2.substr.wordlen4.ans4-5.score85198664953', 0.8986, 0.8699, 0.884]
+	Test: time: 30.29s, speed: 1839.02st/s; acc: 0.9775, p: 0.8986, r: 0.8699, f: 0.8840
+	Ensemble Test: time: 30.29s, speed: 1839.02st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans4-5.score85198664953', 0.8986, 0.8699, 0.884]
+********** ['base2.substr.wordlen4.ans4-5.score85198664953', 0.8986, 0.8699, 0.884]
+	Test: time: 39.90s, speed: 1396.22st/s; acc: 0.9775, p: 0.8986, r: 0.8699, f: 0.8840
+	Ensemble Test: time: 39.90s, speed: 1396.22st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans4-5.score85198664953', 0.8986, 0.8699, 0.884]
+********** ('word', 7, (2,))
+********** ['base2.substr.wordlen7.ans2.score67305329912', 0.8239, 0.484, 0.6098]
+	Test: time: 8.82s, speed: 5071.71st/s; acc: 0.9545, p: 0.8239, r: 0.4840, f: 0.6098
+	Ensemble Test: time: 8.82s, speed: 5071.71st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2.score67305329912', 0.8239, 0.484, 0.6098]
+********** ['base2.substr.wordlen7.ans2.score62473281969', 0.4375, 0.7843, 0.5617]
+	Test: time: 18.51s, speed: 2416.59st/s; acc: 0.9101, p: 0.4375, r: 0.7843, f: 0.5617
+	Ensemble Test: time: 18.51s, speed: 2416.59st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2.score62473281969', 0.4375, 0.7843, 0.5617]
+********** ['base2.substr.wordlen7.ans2.score7246954546', 0.7664, 0.6577, 0.7079]
+	Test: time: 27.54s, speed: 1624.56st/s; acc: 0.9601, p: 0.7664, r: 0.6577, f: 0.7079
+	Ensemble Test: time: 27.54s, speed: 1624.56st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2.score7246954546', 0.7664, 0.6577, 0.7079]
+********** ['base2.substr.wordlen7.ans2.score7246954546', 0.7664, 0.6577, 0.7079]
+	Test: time: 36.17s, speed: 1236.78st/s; acc: 0.9601, p: 0.7664, r: 0.6577, f: 0.7079
+	Ensemble Test: time: 36.17s, speed: 1236.78st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans2.score7246954546', 0.7664, 0.6577, 0.7079]
+********** ('word', 6, (4, 5))
+********** ['base2.substr.wordlen6.ans4-5.score80642866812', 0.9546, 0.738, 0.8324]
+	Test: time: 9.23s, speed: 5224.40st/s; acc: 0.9602, p: 0.9546, r: 0.7380, f: 0.8324
+	Ensemble Test: time: 9.23s, speed: 5224.40st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans4-5.score80642866812', 0.9546, 0.738, 0.8324]
+********** ['base2.substr.wordlen6.ans4-5.score82620380243', 0.7541, 0.9308, 0.8332]
+	Test: time: 18.55s, speed: 2601.04st/s; acc: 0.9501, p: 0.7541, r: 0.9308, f: 0.8332
+	Ensemble Test: time: 18.55s, speed: 2601.04st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans4-5.score82620380243', 0.7541, 0.9308, 0.8332]
+********** ['base2.substr.wordlen6.ans4-5.score86711542755', 0.8857, 0.9031, 0.8943]
+	Test: time: 27.87s, speed: 1731.39st/s; acc: 0.9714, p: 0.8857, r: 0.9031, f: 0.8943
+	Ensemble Test: time: 27.87s, speed: 1731.39st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans4-5.score86711542755', 0.8857, 0.9031, 0.8943]
+********** ['base2.substr.wordlen6.ans4-5.score86711542755', 0.8857, 0.9031, 0.8943]
+	Test: time: 36.91s, speed: 1307.26st/s; acc: 0.9714, p: 0.8857, r: 0.9031, f: 0.8943
+	Ensemble Test: time: 36.91s, speed: 1307.26st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans4-5.score86711542755', 0.8857, 0.9031, 0.8943]
+********** ('word', 2, (2, 3))
+********** ['base2.substr.wordlen2.ans2-3.score61594513041', 0.8808, 0.4857, 0.6262]
+	Test: time: 10.46s, speed: 6097.85st/s; acc: 0.9602, p: 0.8808, r: 0.4857, f: 0.6262
+	Ensemble Test: time: 10.46s, speed: 6097.85st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-3.score61594513041', 0.8808, 0.4857, 0.6262]
+********** ['base2.substr.wordlen2.ans2-3.score73792394155', 0.7328, 0.697, 0.7145]
+	Test: time: 20.92s, speed: 3049.06st/s; acc: 0.9617, p: 0.7328, r: 0.6970, f: 0.7145
+	Ensemble Test: time: 20.92s, speed: 3049.06st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-3.score73792394155', 0.7328, 0.697, 0.7145]
+********** ['base2.substr.wordlen2.ans2-3.score73550989966', 0.7923, 0.6676, 0.7246]
+	Test: time: 31.38s, speed: 2033.18st/s; acc: 0.9651, p: 0.7923, r: 0.6676, f: 0.7246
+	Ensemble Test: time: 31.38s, speed: 2033.18st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-3.score73550989966', 0.7923, 0.6676, 0.7246]
+********** ['base2.substr.wordlen2.ans2-3.score73550989966', 0.7923, 0.6676, 0.7246]
+	Test: time: 41.49s, speed: 1537.87st/s; acc: 0.9651, p: 0.7923, r: 0.6676, f: 0.7246
+	Ensemble Test: time: 41.49s, speed: 1537.87st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-3.score73550989966', 0.7923, 0.6676, 0.7246]
+********** ('word', 4, (2, 3, 4, 5))
+********** ['base2.substr.wordlen4.ans2-4-3-5.score84014869393', 0.9526, 0.7986, 0.8688]
+	Test: time: 9.82s, speed: 5670.34st/s; acc: 0.9519, p: 0.9526, r: 0.7986, f: 0.8688
+	Ensemble Test: time: 9.82s, speed: 5670.34st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-4-3-5.score84014869393', 0.9526, 0.7986, 0.8688]
+********** ['base2.substr.wordlen4.ans2-4-3-5.score86203164656', 0.8463, 0.8859, 0.8657]
+	Test: time: 19.97s, speed: 2790.36st/s; acc: 0.9452, p: 0.8463, r: 0.8859, f: 0.8657
+	Ensemble Test: time: 19.97s, speed: 2790.36st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-4-3-5.score86203164656', 0.8463, 0.8859, 0.8657]
+********** ['base2.substr.wordlen4.ans2-4-3-5.score87814060756', 0.9293, 0.8559, 0.8911]
+	Test: time: 29.85s, speed: 1866.37st/s; acc: 0.9583, p: 0.9293, r: 0.8559, f: 0.8911
+	Ensemble Test: time: 29.85s, speed: 1866.37st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-4-3-5.score87814060756', 0.9293, 0.8559, 0.8911]
+********** ['base2.substr.wordlen4.ans2-4-3-5.score87814060756', 0.9293, 0.8559, 0.8911]
+	Test: time: 39.47s, speed: 1411.48st/s; acc: 0.9583, p: 0.9293, r: 0.8559, f: 0.8911
+	Ensemble Test: time: 39.47s, speed: 1411.48st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-4-3-5.score87814060756', 0.9293, 0.8559, 0.8911]
+********** ('word', 7, (3, 4, 5))
+********** ['base2.substr.wordlen7.ans4-3-5.score67542654965', 0.9754, 0.5689, 0.7187]
+	Test: time: 8.93s, speed: 5012.41st/s; acc: 0.8944, p: 0.9754, r: 0.5689, f: 0.7187
+	Ensemble Test: time: 8.93s, speed: 5012.41st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans4-3-5.score67542654965', 0.9754, 0.5689, 0.7187]
+********** ['base2.substr.wordlen7.ans4-3-5.score81509433466', 0.7366, 0.8921, 0.8069]
+	Test: time: 17.81s, speed: 2512.12st/s; acc: 0.8987, p: 0.7366, r: 0.8921, f: 0.8069
+	Ensemble Test: time: 17.81s, speed: 2512.12st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans4-3-5.score81509433466', 0.7366, 0.8921, 0.8069]
+********** ['base2.substr.wordlen7.ans4-3-5.score84650866369', 0.8853, 0.8148, 0.8486]
+	Test: time: 26.61s, speed: 1681.09st/s; acc: 0.9310, p: 0.8853, r: 0.8148, f: 0.8486
+	Ensemble Test: time: 26.61s, speed: 1681.09st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans4-3-5.score84650866369', 0.8853, 0.8148, 0.8486]
+********** ['base2.substr.wordlen7.ans4-3-5.score84650866369', 0.8853, 0.8148, 0.8486]
+	Test: time: 35.21s, speed: 1270.53st/s; acc: 0.9310, p: 0.8853, r: 0.8148, f: 0.8486
+	Ensemble Test: time: 35.21s, speed: 1270.53st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans4-3-5.score84650866369', 0.8853, 0.8148, 0.8486]
+********** ('word', 4, (2, 5))
+********** ['base2.substr.wordlen4.ans2-5.score67196244337', 0.9012, 0.587, 0.7109]
+	Test: time: 9.95s, speed: 5596.74st/s; acc: 0.9577, p: 0.9012, r: 0.5870, f: 0.7109
+	Ensemble Test: time: 9.95s, speed: 5596.74st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-5.score67196244337', 0.9012, 0.587, 0.7109]
+********** ['base2.substr.wordlen4.ans2-5.score78952262365', 0.8191, 0.7568, 0.7867]
+	Test: time: 19.98s, speed: 2788.87st/s; acc: 0.9636, p: 0.8191, r: 0.7568, f: 0.7867
+	Ensemble Test: time: 19.98s, speed: 2788.87st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-5.score78952262365', 0.8191, 0.7568, 0.7867]
+********** ['base2.substr.wordlen4.ans2-5.score78265044318', 0.8504, 0.7396, 0.7911]
+	Test: time: 29.96s, speed: 1859.24st/s; acc: 0.9654, p: 0.8504, r: 0.7396, f: 0.7911
+	Ensemble Test: time: 29.96s, speed: 1859.24st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-5.score78265044318', 0.8504, 0.7396, 0.7911]
+********** ['base2.substr.wordlen4.ans2-5.score78265044318', 0.8504, 0.7396, 0.7911]
+	Test: time: 39.87s, speed: 1397.23st/s; acc: 0.9654, p: 0.8504, r: 0.7396, f: 0.7911
+	Ensemble Test: time: 39.87s, speed: 1397.23st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans2-5.score78265044318', 0.8504, 0.7396, 0.7911]
+********** ('word', 2, (2, 4))
+********** ['base2.substr.wordlen2.ans2-4.score75100477984', 0.9258, 0.6728, 0.7793]
+	Test: time: 10.62s, speed: 6007.69st/s; acc: 0.9728, p: 0.9258, r: 0.6728, f: 0.7793
+	Ensemble Test: time: 10.62s, speed: 6007.69st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-4.score75100477984', 0.9258, 0.6728, 0.7793]
+********** ['base2.substr.wordlen2.ans2-4.score80475206113', 0.8621, 0.8105, 0.8355]
+	Test: time: 21.17s, speed: 3013.37st/s; acc: 0.9772, p: 0.8621, r: 0.8105, f: 0.8355
+	Ensemble Test: time: 21.17s, speed: 3013.37st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-4.score80475206113', 0.8621, 0.8105, 0.8355]
+********** ['base2.substr.wordlen2.ans2-4.score80246913083', 0.8935, 0.7897, 0.8384]
+	Test: time: 31.59s, speed: 2019.73st/s; acc: 0.9782, p: 0.8935, r: 0.7897, f: 0.8384
+	Ensemble Test: time: 31.59s, speed: 2019.73st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-4.score80246913083', 0.8935, 0.7897, 0.8384]
+********** ['base2.substr.wordlen2.ans2-4.score80246913083', 0.8935, 0.7897, 0.8384]
+	Test: time: 41.71s, speed: 1529.60st/s; acc: 0.9782, p: 0.8935, r: 0.7897, f: 0.8384
+	Ensemble Test: time: 41.71s, speed: 1529.60st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-4.score80246913083', 0.8935, 0.7897, 0.8384]
+********** ('word', 7, (3, 4))
+********** ['base2.substr.wordlen7.ans4-3.score75212717826', 0.8932, 0.6845, 0.7751]
+	Test: time: 8.90s, speed: 5029.16st/s; acc: 0.9250, p: 0.8932, r: 0.6845, f: 0.7751
+	Ensemble Test: time: 8.90s, speed: 5029.16st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans4-3.score75212717826', 0.8932, 0.6845, 0.7751]
+********** ['base2.substr.wordlen7.ans4-3.score78579811706', 0.7896, 0.7876, 0.7886]
+	Test: time: 17.80s, speed: 2513.63st/s; acc: 0.9203, p: 0.7896, r: 0.7876, f: 0.7886
+	Ensemble Test: time: 17.80s, speed: 2513.63st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans4-3.score78579811706', 0.7896, 0.7876, 0.7886]
+********** ['base2.substr.wordlen7.ans4-3.score78281822446', 0.8552, 0.7495, 0.7989]
+	Test: time: 26.68s, speed: 1677.15st/s; acc: 0.9287, p: 0.8552, r: 0.7495, f: 0.7989
+	Ensemble Test: time: 26.68s, speed: 1677.15st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans4-3.score78281822446', 0.8552, 0.7495, 0.7989]
+********** ['base2.substr.wordlen7.ans4-3.score78281822446', 0.8552, 0.7495, 0.7989]
+	Test: time: 35.24s, speed: 1269.47st/s; acc: 0.9287, p: 0.8552, r: 0.7495, f: 0.7989
+	Ensemble Test: time: 35.24s, speed: 1269.47st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans4-3.score78281822446', 0.8552, 0.7495, 0.7989]
+********** ('word', 2, (2,))
+********** ['base2.substr.wordlen2.ans2.score6159695771', 0.8464, 0.4719, 0.6059]
+	Test: time: 10.70s, speed: 5962.53st/s; acc: 0.9810, p: 0.8464, r: 0.4719, f: 0.6059
+	Ensemble Test: time: 10.70s, speed: 5962.53st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2.score6159695771', 0.8464, 0.4719, 0.6059]
+********** ['base2.substr.wordlen2.ans2.score69628600681', 0.682, 0.6523, 0.6668]
+	Test: time: 21.22s, speed: 3007.15st/s; acc: 0.9798, p: 0.6820, r: 0.6523, f: 0.6668
+	Ensemble Test: time: 21.22s, speed: 3007.15st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2.score69628600681', 0.682, 0.6523, 0.6668]
+********** ['base2.substr.wordlen2.ans2.score68978514399', 0.7795, 0.6092, 0.6839]
+	Test: time: 31.54s, speed: 2023.01st/s; acc: 0.9826, p: 0.7795, r: 0.6092, f: 0.6839
+	Ensemble Test: time: 31.54s, speed: 2023.01st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2.score68978514399', 0.7795, 0.6092, 0.6839]
+********** ['base2.substr.wordlen2.ans2.score68978514399', 0.7795, 0.6092, 0.6839]
+	Test: time: 41.65s, speed: 1531.90st/s; acc: 0.9826, p: 0.7795, r: 0.6092, f: 0.6839
+	Ensemble Test: time: 41.65s, speed: 1531.90st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2.score68978514399', 0.7795, 0.6092, 0.6839]
+********** ('word', 4, (3, 4))
+********** ['base2.substr.wordlen4.ans4-3.score74392935494', 0.9062, 0.643, 0.7523]
+	Test: time: 10.19s, speed: 5467.83st/s; acc: 0.9479, p: 0.9062, r: 0.6430, f: 0.7523
+	Ensemble Test: time: 10.19s, speed: 5467.83st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans4-3.score74392935494', 0.9062, 0.643, 0.7523]
+********** ['base2.substr.wordlen4.ans4-3.score77667344727', 0.7794, 0.7812, 0.7803]
+	Test: time: 20.30s, speed: 2744.01st/s; acc: 0.9459, p: 0.7794, r: 0.7812, f: 0.7803
+	Ensemble Test: time: 20.30s, speed: 2744.01st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans4-3.score77667344727', 0.7794, 0.7812, 0.7803]
+********** ['base2.substr.wordlen4.ans4-3.score77580252731', 0.8466, 0.7398, 0.7896]
+	Test: time: 30.45s, speed: 1829.77st/s; acc: 0.9515, p: 0.8466, r: 0.7398, f: 0.7896
+	Ensemble Test: time: 30.45s, speed: 1829.77st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans4-3.score77580252731', 0.8466, 0.7398, 0.7896]
+********** ['base2.substr.wordlen4.ans4-3.score77580252731', 0.8466, 0.7398, 0.7896]
+	Test: time: 40.07s, speed: 1390.49st/s; acc: 0.9515, p: 0.8466, r: 0.7398, f: 0.7896
+	Ensemble Test: time: 40.07s, speed: 1390.49st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans4-3.score77580252731', 0.8466, 0.7398, 0.7896]
+********** ('word', 6, (4,))
+********** ['base2.substr.wordlen6.ans4.score83812949142', 0.9286, 0.8544, 0.89]
+	Test: time: 9.35s, speed: 5159.96st/s; acc: 0.9824, p: 0.9286, r: 0.8544, f: 0.8900
+	Ensemble Test: time: 9.35s, speed: 5159.96st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans4.score83812949142', 0.9286, 0.8544, 0.89]
+********** ['base2.substr.wordlen6.ans4.score73472948903', 0.684, 0.935, 0.79]
+	Test: time: 18.61s, speed: 2591.79st/s; acc: 0.9586, p: 0.6840, r: 0.9350, f: 0.7900
+	Ensemble Test: time: 18.61s, speed: 2591.79st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans4.score73472948903', 0.684, 0.935, 0.79]
+********** ['base2.substr.wordlen6.ans4.score85166409022', 0.9143, 0.8761, 0.8948]
+	Test: time: 27.81s, speed: 1734.80st/s; acc: 0.9828, p: 0.9143, r: 0.8761, f: 0.8948
+	Ensemble Test: time: 27.81s, speed: 1734.80st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans4.score85166409022', 0.9143, 0.8761, 0.8948]
+********** ['base2.substr.wordlen6.ans4.score85166409022', 0.9143, 0.8761, 0.8948]
+	Test: time: 36.77s, speed: 1312.04st/s; acc: 0.9828, p: 0.9143, r: 0.8761, f: 0.8948
+	Ensemble Test: time: 36.77s, speed: 1312.04st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans4.score85166409022', 0.9143, 0.8761, 0.8948]
+********** ('word', 3, (2, 5))
+********** ['base2.substr.wordlen3.ans2-5.score76462790644', 0.8564, 0.7057, 0.7738]
+	Test: time: 10.28s, speed: 5794.18st/s; acc: 0.9707, p: 0.8564, r: 0.7057, f: 0.7738
+	Ensemble Test: time: 10.28s, speed: 5794.18st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-5.score76462790644', 0.8564, 0.7057, 0.7738]
+********** ['base2.substr.wordlen3.ans2-5.score77155019011', 0.7965, 0.759, 0.7773]
+	Test: time: 21.07s, speed: 2827.99st/s; acc: 0.9692, p: 0.7965, r: 0.7590, f: 0.7773
+	Ensemble Test: time: 21.07s, speed: 2827.99st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-5.score77155019011', 0.7965, 0.759, 0.7773]
+********** ['base2.substr.wordlen3.ans2-5.score76830381098', 0.8287, 0.7455, 0.7849]
+	Test: time: 31.53s, speed: 1890.00st/s; acc: 0.9710, p: 0.8287, r: 0.7455, f: 0.7849
+	Ensemble Test: time: 31.53s, speed: 1890.00st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-5.score76830381098', 0.8287, 0.7455, 0.7849]
+********** ['base2.substr.wordlen3.ans2-5.score76830381098', 0.8287, 0.7455, 0.7849]
+	Test: time: 41.47s, speed: 1437.00st/s; acc: 0.9710, p: 0.8287, r: 0.7455, f: 0.7849
+	Ensemble Test: time: 41.47s, speed: 1437.00st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-5.score76830381098', 0.8287, 0.7455, 0.7849]
+********** ('word', 6, (5,))
+********** ['base2.substr.wordlen6.ans5.score77123766605', 0.8946, 0.7544, 0.8185]
+	Test: time: 9.24s, speed: 5223.12st/s; acc: 0.9795, p: 0.8946, r: 0.7544, f: 0.8185
+	Ensemble Test: time: 9.24s, speed: 5223.12st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans5.score77123766605', 0.8946, 0.7544, 0.8185]
+********** ['base2.substr.wordlen6.ans5.score77842646150', 0.777, 0.8642, 0.8183]
+	Test: time: 18.77s, speed: 2570.30st/s; acc: 0.9765, p: 0.7770, r: 0.8642, f: 0.8183
+	Ensemble Test: time: 18.77s, speed: 2570.30st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans5.score77842646150', 0.777, 0.8642, 0.8183]
+********** ['base2.substr.wordlen6.ans5.score80097086879', 0.871, 0.8118, 0.8404]
+	Test: time: 27.97s, speed: 1725.14st/s; acc: 0.9811, p: 0.8710, r: 0.8118, f: 0.8404
+	Ensemble Test: time: 27.97s, speed: 1725.14st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans5.score80097086879', 0.871, 0.8118, 0.8404]
+********** ['base2.substr.wordlen6.ans5.score80097086879', 0.871, 0.8118, 0.8404]
+	Test: time: 37.04s, speed: 1302.62st/s; acc: 0.9811, p: 0.8710, r: 0.8118, f: 0.8404
+	Ensemble Test: time: 37.04s, speed: 1302.62st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans5.score80097086879', 0.871, 0.8118, 0.8404]
+********** ('word', 4, (3, 4, 5))
+********** ['base2.substr.wordlen4.ans4-3-5.score73779062822', 0.9355, 0.6351, 0.7566]
+	Test: time: 9.79s, speed: 5688.44st/s; acc: 0.9354, p: 0.9355, r: 0.6351, f: 0.7566
+	Ensemble Test: time: 9.79s, speed: 5688.44st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans4-3-5.score73779062822', 0.9355, 0.6351, 0.7566]
+********** ['base2.substr.wordlen4.ans4-3-5.score83325898331', 0.8076, 0.8559, 0.8311]
+	Test: time: 19.65s, speed: 2835.59st/s; acc: 0.9450, p: 0.8076, r: 0.8559, f: 0.8311
+	Ensemble Test: time: 19.65s, speed: 2835.59st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans4-3-5.score83325898331', 0.8076, 0.8559, 0.8311]
+********** ['base2.substr.wordlen4.ans4-3-5.score83487624665', 0.8627, 0.8219, 0.8418]
+	Test: time: 29.59s, speed: 1882.80st/s; acc: 0.9511, p: 0.8627, r: 0.8219, f: 0.8418
+	Ensemble Test: time: 29.59s, speed: 1882.80st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans4-3-5.score83487624665', 0.8627, 0.8219, 0.8418]
+********** ['base2.substr.wordlen4.ans4-3-5.score83487624665', 0.8627, 0.8219, 0.8418]
+	Test: time: 39.24s, speed: 1419.90st/s; acc: 0.9511, p: 0.8627, r: 0.8219, f: 0.8418
+	Ensemble Test: time: 39.24s, speed: 1419.90st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans4-3-5.score83487624665', 0.8627, 0.8219, 0.8418]
+********** ('word', 3, (2, 3, 4, 5))
+********** ['base2.substr.wordlen3.ans2-4-3-5.score81343816523', 0.9716, 0.7446, 0.8431]
+	Test: time: 10.43s, speed: 5713.75st/s; acc: 0.9541, p: 0.9716, r: 0.7446, f: 0.8431
+	Ensemble Test: time: 10.43s, speed: 5713.75st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-4-3-5.score81343816523', 0.9716, 0.7446, 0.8431]
+********** ['base2.substr.wordlen3.ans2-4-3-5.score8797840191', 0.8912, 0.873, 0.882]
+	Test: time: 20.64s, speed: 2887.16st/s; acc: 0.9613, p: 0.8912, r: 0.8730, f: 0.8820
+	Ensemble Test: time: 20.64s, speed: 2887.16st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-4-3-5.score8797840191', 0.8912, 0.873, 0.882]
+********** ['base2.substr.wordlen3.ans2-4-3-5.score87549471797', 0.9365, 0.8444, 0.888]
+	Test: time: 30.87s, speed: 1930.07st/s; acc: 0.9648, p: 0.9365, r: 0.8444, f: 0.8880
+	Ensemble Test: time: 30.87s, speed: 1930.07st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-4-3-5.score87549471797', 0.9365, 0.8444, 0.888]
+********** ['base2.substr.wordlen3.ans2-4-3-5.score87549471797', 0.9365, 0.8444, 0.888]
+	Test: time: 40.76s, speed: 1461.78st/s; acc: 0.9648, p: 0.9365, r: 0.8444, f: 0.8880
+	Ensemble Test: time: 40.76s, speed: 1461.78st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-4-3-5.score87549471797', 0.9365, 0.8444, 0.888]
+********** ('word', 1, (4,))
+********** ['base2.substr.wordlen1.ans4.score77925925431', 0.9257, 0.7654, 0.8379]
+	Test: time: 10.50s, speed: 6569.78st/s; acc: 0.9918, p: 0.9257, r: 0.7654, f: 0.8379
+	Ensemble Test: time: 10.50s, speed: 6569.78st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans4.score77925925431', 0.9257, 0.7654, 0.8379]
+********** ['base2.substr.wordlen1.ans4.score78249566224', 0.8055, 0.8651, 0.8342]
+	Test: time: 21.19s, speed: 3255.55st/s; acc: 0.9905, p: 0.8055, r: 0.8651, f: 0.8342
+	Ensemble Test: time: 21.19s, speed: 3255.55st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans4.score78249566224', 0.8055, 0.8651, 0.8342]
+********** ['base2.substr.wordlen1.ans4.score80206863628', 0.9011, 0.832, 0.8652]
+	Test: time: 31.95s, speed: 2159.65st/s; acc: 0.9928, p: 0.9011, r: 0.8320, f: 0.8652
+	Ensemble Test: time: 31.95s, speed: 2159.65st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans4.score80206863628', 0.9011, 0.832, 0.8652]
+********** ['base2.substr.wordlen1.ans4.score80206863628', 0.9011, 0.832, 0.8652]
+	Test: time: 42.27s, speed: 1632.28st/s; acc: 0.9928, p: 0.9011, r: 0.8320, f: 0.8652
+	Ensemble Test: time: 42.27s, speed: 1632.28st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans4.score80206863628', 0.9011, 0.832, 0.8652]
+********** ('word', 5, (3, 4, 5))
+********** ['base2.substr.wordlen5.ans4-3-5.score70236351760', 0.9426, 0.5871, 0.7235]
+	Test: time: 9.74s, speed: 5333.82st/s; acc: 0.9166, p: 0.9426, r: 0.5871, f: 0.7235
+	Ensemble Test: time: 9.74s, speed: 5333.82st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans4-3-5.score70236351760', 0.9426, 0.5871, 0.7235]
+********** ['base2.substr.wordlen5.ans4-3-5.score83331983633', 0.8044, 0.8435, 0.8235]
+	Test: time: 19.60s, speed: 2650.22st/s; acc: 0.9328, p: 0.8044, r: 0.8435, f: 0.8235
+	Ensemble Test: time: 19.60s, speed: 2650.22st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans4-3-5.score83331983633', 0.8044, 0.8435, 0.8235]
+********** ['base2.substr.wordlen5.ans4-3-5.score84338372185', 0.8624, 0.8244, 0.843]
+	Test: time: 29.25s, speed: 1775.57st/s; acc: 0.9429, p: 0.8624, r: 0.8244, f: 0.8430
+	Ensemble Test: time: 29.25s, speed: 1775.57st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans4-3-5.score84338372185', 0.8624, 0.8244, 0.843]
+********** ['base2.substr.wordlen5.ans4-3-5.score84338372185', 0.8624, 0.8244, 0.843]
+	Test: time: 38.67s, speed: 1343.06st/s; acc: 0.9429, p: 0.8624, r: 0.8244, f: 0.8430
+	Ensemble Test: time: 38.67s, speed: 1343.06st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans4-3-5.score84338372185', 0.8624, 0.8244, 0.843]
+********** ('word', 2, (2, 3, 4))
+********** ['base2.substr.wordlen2.ans2-4-3.score73834745282', 0.9315, 0.6525, 0.7675]
+	Test: time: 10.58s, speed: 6028.60st/s; acc: 0.9571, p: 0.9315, r: 0.6525, f: 0.7675
+	Ensemble Test: time: 10.58s, speed: 6028.60st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-4-3.score73834745282', 0.9315, 0.6525, 0.7675]
+********** ['base2.substr.wordlen2.ans2-4-3.score80969559815', 0.819, 0.8034, 0.8111]
+	Test: time: 21.05s, speed: 3030.31st/s; acc: 0.9594, p: 0.8190, r: 0.8034, f: 0.8111
+	Ensemble Test: time: 21.05s, speed: 3030.31st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-4-3.score80969559815', 0.819, 0.8034, 0.8111]
+********** ['base2.substr.wordlen2.ans2-4-3.score81743613281', 0.8686, 0.7908, 0.8279]
+	Test: time: 31.72s, speed: 2011.52st/s; acc: 0.9644, p: 0.8686, r: 0.7908, f: 0.8279
+	Ensemble Test: time: 31.72s, speed: 2011.52st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-4-3.score81743613281', 0.8686, 0.7908, 0.8279]
+********** ['base2.substr.wordlen2.ans2-4-3.score81743613281', 0.8686, 0.7908, 0.8279]
+	Test: time: 42.01s, speed: 1518.82st/s; acc: 0.9644, p: 0.8686, r: 0.7908, f: 0.8279
+	Ensemble Test: time: 42.01s, speed: 1518.82st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-4-3.score81743613281', 0.8686, 0.7908, 0.8279]
+********** ('word', 2, (2, 3, 5))
+********** ['base2.substr.wordlen2.ans2-3-5.score77956912047', 0.8794, 0.7065, 0.7835]
+	Test: time: 10.58s, speed: 6028.59st/s; acc: 0.9643, p: 0.8794, r: 0.7065, f: 0.7835
+	Ensemble Test: time: 10.58s, speed: 6028.59st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-3-5.score77956912047', 0.8794, 0.7065, 0.7835]
+********** ['base2.substr.wordlen2.ans2-3-5.score79678067911', 0.8281, 0.755, 0.7899]
+	Test: time: 21.03s, speed: 3033.57st/s; acc: 0.9632, p: 0.8281, r: 0.7550, f: 0.7899
+	Ensemble Test: time: 21.03s, speed: 3033.57st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-3-5.score79678067911', 0.8281, 0.755, 0.7899]
+********** ['base2.substr.wordlen2.ans2-3-5.score79235564695', 0.8408, 0.7509, 0.7933]
+	Test: time: 31.41s, speed: 2031.03st/s; acc: 0.9642, p: 0.8408, r: 0.7509, f: 0.7933
+	Ensemble Test: time: 31.41s, speed: 2031.03st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-3-5.score79235564695', 0.8408, 0.7509, 0.7933]
+********** ['base2.substr.wordlen2.ans2-3-5.score79235564695', 0.8408, 0.7509, 0.7933]
+	Test: time: 41.55s, speed: 1535.54st/s; acc: 0.9642, p: 0.8408, r: 0.7509, f: 0.7933
+	Ensemble Test: time: 41.55s, speed: 1535.54st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans2-3-5.score79235564695', 0.8408, 0.7509, 0.7933]
+********** ('word', 1, (2, 4, 5))
+********** ['base2.substr.wordlen1.ans2-4-5.score78282617267', 0.9286, 0.7037, 0.8007]
+	Test: time: 10.42s, speed: 6620.90st/s; acc: 0.9789, p: 0.9286, r: 0.7037, f: 0.8007
+	Ensemble Test: time: 10.42s, speed: 6620.90st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-4-5.score78282617267', 0.9286, 0.7037, 0.8007]
+********** ['base2.substr.wordlen1.ans2-4-5.score80851063331', 0.8583, 0.8063, 0.8315]
+	Test: time: 20.96s, speed: 3291.83st/s; acc: 0.9803, p: 0.8583, r: 0.8063, f: 0.8315
+	Ensemble Test: time: 20.96s, speed: 3291.83st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-4-5.score80851063331', 0.8583, 0.8063, 0.8315]
+********** ['base2.substr.wordlen1.ans2-4-5.score80600552644', 0.8866, 0.7907, 0.8359]
+	Test: time: 31.52s, speed: 2189.02st/s; acc: 0.9813, p: 0.8866, r: 0.7907, f: 0.8359
+	Ensemble Test: time: 31.52s, speed: 2189.02st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-4-5.score80600552644', 0.8866, 0.7907, 0.8359]
+********** ['base2.substr.wordlen1.ans2-4-5.score80600552644', 0.8866, 0.7907, 0.8359]
+	Test: time: 41.81s, speed: 1650.35st/s; acc: 0.9813, p: 0.8866, r: 0.7907, f: 0.8359
+	Ensemble Test: time: 41.81s, speed: 1650.35st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-4-5.score80600552644', 0.8866, 0.7907, 0.8359]
+********** ('word', 6, (2, 4, 5))
+********** ['base2.substr.wordlen6.ans2-4-5.score84438142007', 0.9333, 0.7985, 0.8607]
+	Test: time: 9.28s, speed: 5196.17st/s; acc: 0.9511, p: 0.9333, r: 0.7985, f: 0.8607
+	Ensemble Test: time: 9.28s, speed: 5196.17st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-4-5.score84438142007', 0.9333, 0.7985, 0.8607]
+********** ['base2.substr.wordlen6.ans2-4-5.score82869161094', 0.7535, 0.9358, 0.8348]
+	Test: time: 18.57s, speed: 2598.59st/s; acc: 0.9299, p: 0.7535, r: 0.9358, f: 0.8348
+	Ensemble Test: time: 18.57s, speed: 2598.59st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-4-5.score82869161094', 0.7535, 0.9358, 0.8348]
+********** ['base2.substr.wordlen6.ans2-4-5.score87446102319', 0.8899, 0.88, 0.8849]
+	Test: time: 27.77s, speed: 1737.05st/s; acc: 0.9567, p: 0.8899, r: 0.8800, f: 0.8849
+	Ensemble Test: time: 27.77s, speed: 1737.05st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-4-5.score87446102319', 0.8899, 0.88, 0.8849]
+********** ['base2.substr.wordlen6.ans2-4-5.score87446102319', 0.8899, 0.88, 0.8849]
+	Test: time: 36.74s, speed: 1313.13st/s; acc: 0.9567, p: 0.8899, r: 0.8800, f: 0.8849
+	Ensemble Test: time: 36.74s, speed: 1313.13st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-4-5.score87446102319', 0.8899, 0.88, 0.8849]
+********** ('word', 5, (3, 4))
+********** ['base2.substr.wordlen5.ans4-3.score70519932430', 0.894, 0.6267, 0.7369]
+	Test: time: 9.67s, speed: 5374.06st/s; acc: 0.9348, p: 0.8940, r: 0.6267, f: 0.7369
+	Ensemble Test: time: 9.67s, speed: 5374.06st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans4-3.score70519932430', 0.894, 0.6267, 0.7369]
+********** ['base2.substr.wordlen5.ans4-3.score76792725270', 0.7353, 0.8046, 0.7684]
+	Test: time: 19.41s, speed: 2675.48st/s; acc: 0.9294, p: 0.7353, r: 0.8046, f: 0.7684
+	Ensemble Test: time: 19.41s, speed: 2675.48st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans4-3.score76792725270', 0.7353, 0.8046, 0.7684]
+********** ['base2.substr.wordlen5.ans4-3.score76129031763', 0.8748, 0.7255, 0.7932]
+	Test: time: 29.11s, speed: 1784.26st/s; acc: 0.9449, p: 0.8748, r: 0.7255, f: 0.7932
+	Ensemble Test: time: 29.11s, speed: 1784.26st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans4-3.score76129031763', 0.8748, 0.7255, 0.7932]
+********** ['base2.substr.wordlen5.ans4-3.score76129031763', 0.8748, 0.7255, 0.7932]
+	Test: time: 38.48s, speed: 1349.82st/s; acc: 0.9449, p: 0.8748, r: 0.7255, f: 0.7932
+	Ensemble Test: time: 38.48s, speed: 1349.82st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans4-3.score76129031763', 0.8748, 0.7255, 0.7932]
+********** ('word', 7, (4, 5))
+********** ['base2.substr.wordlen7.ans4-5.score55173575590', 0.9566, 0.4643, 0.6251]
+	Test: time: 8.99s, speed: 4976.58st/s; acc: 0.9162, p: 0.9566, r: 0.4643, f: 0.6251
+	Ensemble Test: time: 8.99s, speed: 4976.58st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans4-5.score55173575590', 0.9566, 0.4643, 0.6251]
+********** ['base2.substr.wordlen7.ans4-5.score86418604151', 0.8514, 0.9215, 0.8851]
+	Test: time: 18.04s, speed: 2480.43st/s; acc: 0.9640, p: 0.8514, r: 0.9215, f: 0.8851
+	Ensemble Test: time: 18.04s, speed: 2480.43st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans4-5.score86418604151', 0.8514, 0.9215, 0.8851]
+********** ['base2.substr.wordlen7.ans4-5.score86691556768', 0.8898, 0.8934, 0.8916]
+	Test: time: 26.96s, speed: 1659.22st/s; acc: 0.9673, p: 0.8898, r: 0.8934, f: 0.8916
+	Ensemble Test: time: 26.96s, speed: 1659.22st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans4-5.score86691556768', 0.8898, 0.8934, 0.8916]
+********** ['base2.substr.wordlen7.ans4-5.score86691556768', 0.8898, 0.8934, 0.8916]
+	Test: time: 35.57s, speed: 1257.76st/s; acc: 0.9673, p: 0.8898, r: 0.8934, f: 0.8916
+	Ensemble Test: time: 35.57s, speed: 1257.76st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans4-5.score86691556768', 0.8898, 0.8934, 0.8916]
+********** ('word', 5, (2, 5))
+********** ['base2.substr.wordlen5.ans2-5.score77487836746', 0.8633, 0.7237, 0.7874]
+	Test: time: 9.59s, speed: 5414.93st/s; acc: 0.9584, p: 0.8633, r: 0.7237, f: 0.7874
+	Ensemble Test: time: 9.59s, speed: 5414.93st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-5.score77487836746', 0.8633, 0.7237, 0.7874]
+********** ['base2.substr.wordlen5.ans2-5.score6598211279', 0.5609, 0.8207, 0.6664]
+	Test: time: 19.24s, speed: 2699.96st/s; acc: 0.9126, p: 0.5609, r: 0.8207, f: 0.6664
+	Ensemble Test: time: 19.24s, speed: 2699.96st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-5.score6598211279', 0.5609, 0.8207, 0.6664]
+********** ['base2.substr.wordlen5.ans2-5.score7890494669', 0.8265, 0.7726, 0.7986]
+	Test: time: 28.83s, speed: 1801.43st/s; acc: 0.9586, p: 0.8265, r: 0.7726, f: 0.7986
+	Ensemble Test: time: 28.83s, speed: 1801.43st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-5.score7890494669', 0.8265, 0.7726, 0.7986]
+********** ['base2.substr.wordlen5.ans2-5.score7890494669', 0.8265, 0.7726, 0.7986]
+	Test: time: 38.50s, speed: 1349.30st/s; acc: 0.9586, p: 0.8265, r: 0.7726, f: 0.7986
+	Ensemble Test: time: 38.50s, speed: 1349.30st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-5.score7890494669', 0.8265, 0.7726, 0.7986]
+********** ('word', 1, (5,))
+********** ['base2.substr.wordlen1.ans5.score75443510236', 0.8121, 0.8299, 0.8209]
+	Test: time: 10.50s, speed: 6571.58st/s; acc: 0.9957, p: 0.8121, r: 0.8299, f: 0.8209
+	Ensemble Test: time: 10.50s, speed: 6571.58st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans5.score75443510236', 0.8121, 0.8299, 0.8209]
+********** ['base2.substr.wordlen1.ans5.score63478863008', 0.5245, 0.8712, 0.6548]
+	Test: time: 21.44s, speed: 3217.49st/s; acc: 0.9890, p: 0.5245, r: 0.8712, f: 0.6548
+	Ensemble Test: time: 21.44s, speed: 3217.49st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans5.score63478863008', 0.5245, 0.8712, 0.6548]
+********** ['base2.substr.wordlen1.ans5.score75443510236', 0.8121, 0.8299, 0.8209]
+	Test: time: 31.72s, speed: 2175.19st/s; acc: 0.9957, p: 0.8121, r: 0.8299, f: 0.8209
+	Ensemble Test: time: 31.72s, speed: 2175.19st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans5.score75443510236', 0.8121, 0.8299, 0.8209]
+********** ['base2.substr.wordlen1.ans5.score75443510236', 0.8121, 0.8299, 0.8209]
+	Test: time: 41.96s, speed: 1644.12st/s; acc: 0.9957, p: 0.8121, r: 0.8299, f: 0.8209
+	Ensemble Test: time: 41.96s, speed: 1644.12st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans5.score75443510236', 0.8121, 0.8299, 0.8209]
+********** ('word', 4, (3, 5))
+********** ['base2.substr.wordlen4.ans3-5.score67201954498', 0.8847, 0.5363, 0.6678]
+	Test: time: 9.99s, speed: 5578.83st/s; acc: 0.9433, p: 0.8847, r: 0.5363, f: 0.6678
+	Ensemble Test: time: 9.99s, speed: 5578.83st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans3-5.score67201954498', 0.8847, 0.5363, 0.6678]
+********** ['base2.substr.wordlen4.ans3-5.score76034457909', 0.7497, 0.7307, 0.74]
+	Test: time: 20.03s, speed: 2781.74st/s; acc: 0.9454, p: 0.7497, r: 0.7307, f: 0.7400
+	Ensemble Test: time: 20.03s, speed: 2781.74st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans3-5.score76034457909', 0.7497, 0.7307, 0.74]
+********** ['base2.substr.wordlen4.ans3-5.score75689524748', 0.8192, 0.7003, 0.7551]
+	Test: time: 30.09s, speed: 1851.19st/s; acc: 0.9517, p: 0.8192, r: 0.7003, f: 0.7551
+	Ensemble Test: time: 30.09s, speed: 1851.19st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans3-5.score75689524748', 0.8192, 0.7003, 0.7551]
+********** ['base2.substr.wordlen4.ans3-5.score75689524748', 0.8192, 0.7003, 0.7551]
+	Test: time: 39.79s, speed: 1400.09st/s; acc: 0.9517, p: 0.8192, r: 0.7003, f: 0.7551
+	Ensemble Test: time: 39.79s, speed: 1400.09st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans3-5.score75689524748', 0.8192, 0.7003, 0.7551]
+********** ('word', 5, (2, 3, 4, 5))
+********** ['base2.substr.wordlen5.ans2-4-3-5.score80920908800', 0.9737, 0.7502, 0.8475]
+	Test: time: 9.75s, speed: 5327.61st/s; acc: 0.9373, p: 0.9737, r: 0.7502, f: 0.8475
+	Ensemble Test: time: 9.75s, speed: 5327.61st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-4-3-5.score80920908800', 0.9737, 0.7502, 0.8475]
+********** ['base2.substr.wordlen5.ans2-4-3-5.score88388503477', 0.8945, 0.8817, 0.8881]
+	Test: time: 19.42s, speed: 2674.75st/s; acc: 0.9484, p: 0.8945, r: 0.8817, f: 0.8881
+	Ensemble Test: time: 19.42s, speed: 2674.75st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-4-3-5.score88388503477', 0.8945, 0.8817, 0.8881]
+********** ['base2.substr.wordlen5.ans2-4-3-5.score8798032126', 0.9321, 0.8576, 0.8933]
+	Test: time: 29.09s, speed: 1785.62st/s; acc: 0.9524, p: 0.9321, r: 0.8576, f: 0.8933
+	Ensemble Test: time: 29.09s, speed: 1785.62st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-4-3-5.score8798032126', 0.9321, 0.8576, 0.8933]
+********** ['base2.substr.wordlen5.ans2-4-3-5.score8798032126', 0.9321, 0.8576, 0.8933]
+	Test: time: 38.46s, speed: 1350.49st/s; acc: 0.9524, p: 0.9321, r: 0.8576, f: 0.8933
+	Ensemble Test: time: 38.46s, speed: 1350.49st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans2-4-3-5.score8798032126', 0.9321, 0.8576, 0.8933]
+********** ('word', 7, (3, 5))
+********** ['base2.substr.wordlen7.ans3-5.score71676454407', 0.9075, 0.5961, 0.7195]
+	Test: time: 9.14s, speed: 4894.80st/s; acc: 0.9214, p: 0.9075, r: 0.5961, f: 0.7195
+	Ensemble Test: time: 9.14s, speed: 4894.80st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans3-5.score71676454407', 0.9075, 0.5961, 0.7195]
+********** ['base2.substr.wordlen7.ans3-5.score55476935210', 0.3846, 0.8962, 0.5382]
+	Test: time: 18.08s, speed: 2473.85st/s; acc: 0.7398, p: 0.3846, r: 0.8962, f: 0.5382
+	Ensemble Test: time: 18.08s, speed: 2473.85st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans3-5.score55476935210', 0.3846, 0.8962, 0.5382]
+********** ['base2.substr.wordlen7.ans3-5.score77938921799', 0.8133, 0.7175, 0.7624]
+	Test: time: 27.19s, speed: 1645.57st/s; acc: 0.9243, p: 0.8133, r: 0.7175, f: 0.7624
+	Ensemble Test: time: 27.19s, speed: 1645.57st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans3-5.score77938921799', 0.8133, 0.7175, 0.7624]
+********** ['base2.substr.wordlen7.ans3-5.score77938921799', 0.8133, 0.7175, 0.7624]
+	Test: time: 35.81s, speed: 1249.28st/s; acc: 0.9243, p: 0.8133, r: 0.7175, f: 0.7624
+	Ensemble Test: time: 35.81s, speed: 1249.28st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen7.ans3-5.score77938921799', 0.8133, 0.7175, 0.7624]
+********** ('word', 3, (2, 4, 5))
+********** ['base2.substr.wordlen3.ans2-4-5.score84188674396', 0.9159, 0.8226, 0.8668]
+	Test: time: 10.29s, speed: 5790.17st/s; acc: 0.9703, p: 0.9159, r: 0.8226, f: 0.8668
+	Ensemble Test: time: 10.29s, speed: 5790.17st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-4-5.score84188674396', 0.9159, 0.8226, 0.8668]
+********** ['base2.substr.wordlen3.ans2-4-5.score84312679461', 0.8527, 0.8689, 0.8607]
+	Test: time: 20.53s, speed: 2902.92st/s; acc: 0.9670, p: 0.8527, r: 0.8689, f: 0.8607
+	Ensemble Test: time: 20.53s, speed: 2902.92st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-4-5.score84312679461', 0.8527, 0.8689, 0.8607]
+********** ['base2.substr.wordlen3.ans2-4-5.score84893229851', 0.9036, 0.8433, 0.8724]
+	Test: time: 30.74s, speed: 1938.51st/s; acc: 0.9710, p: 0.9036, r: 0.8433, f: 0.8724
+	Ensemble Test: time: 30.74s, speed: 1938.51st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-4-5.score84893229851', 0.9036, 0.8433, 0.8724]
+********** ['base2.substr.wordlen3.ans2-4-5.score84893229851', 0.9036, 0.8433, 0.8724]
+	Test: time: 40.79s, speed: 1460.79st/s; acc: 0.9710, p: 0.9036, r: 0.8433, f: 0.8724
+	Ensemble Test: time: 40.79s, speed: 1460.79st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans2-4-5.score84893229851', 0.9036, 0.8433, 0.8724]
+********** ('word', 3, (3, 4))
+********** ['base2.substr.wordlen3.ans4-3.score6789393636', 0.891, 0.5816, 0.7038]
+	Test: time: 10.93s, speed: 5450.93st/s; acc: 0.9508, p: 0.8910, r: 0.5816, f: 0.7038
+	Ensemble Test: time: 10.93s, speed: 5450.93st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans4-3.score6789393636', 0.891, 0.5816, 0.7038]
+********** ['base2.substr.wordlen3.ans4-3.score76709282434', 0.7708, 0.7609, 0.7658]
+	Test: time: 21.24s, speed: 2804.92st/s; acc: 0.9533, p: 0.7708, r: 0.7609, f: 0.7658
+	Ensemble Test: time: 21.24s, speed: 2804.92st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans4-3.score76709282434', 0.7708, 0.7609, 0.7658]
+********** ['base2.substr.wordlen3.ans4-3.score7615874805', 0.8159, 0.7444, 0.7785]
+	Test: time: 31.64s, speed: 1883.09st/s; acc: 0.9575, p: 0.8159, r: 0.7444, f: 0.7785
+	Ensemble Test: time: 31.64s, speed: 1883.09st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans4-3.score7615874805', 0.8159, 0.7444, 0.7785]
+********** ['base2.substr.wordlen3.ans4-3.score7615874805', 0.8159, 0.7444, 0.7785]
+	Test: time: 41.53s, speed: 1434.65st/s; acc: 0.9575, p: 0.8159, r: 0.7444, f: 0.7785
+	Ensemble Test: time: 41.53s, speed: 1434.65st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans4-3.score7615874805', 0.8159, 0.7444, 0.7785]
+********** ('word', 5, (4, 5))
+********** ['base2.substr.wordlen5.ans4-5.score75745864408', 0.9292, 0.6986, 0.7975]
+	Test: time: 9.72s, speed: 5346.31st/s; acc: 0.9587, p: 0.9292, r: 0.6986, f: 0.7975
+	Ensemble Test: time: 9.72s, speed: 5346.31st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans4-5.score75745864408', 0.9292, 0.6986, 0.7975]
+********** ['base2.substr.wordlen5.ans4-5.score85861182019', 0.846, 0.9132, 0.8783]
+	Test: time: 19.51s, speed: 2662.68st/s; acc: 0.9705, p: 0.8460, r: 0.9132, f: 0.8783
+	Ensemble Test: time: 19.51s, speed: 2662.68st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans4-5.score85861182019', 0.846, 0.9132, 0.8783]
+********** ['base2.substr.wordlen5.ans4-5.score86227544410', 0.8963, 0.8773, 0.8867]
+	Test: time: 29.28s, speed: 1773.72st/s; acc: 0.9739, p: 0.8963, r: 0.8773, f: 0.8867
+	Ensemble Test: time: 29.28s, speed: 1773.72st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans4-5.score86227544410', 0.8963, 0.8773, 0.8867]
+********** ['base2.substr.wordlen5.ans4-5.score86227544410', 0.8963, 0.8773, 0.8867]
+	Test: time: 38.69s, speed: 1342.53st/s; acc: 0.9739, p: 0.8963, r: 0.8773, f: 0.8867
+	Ensemble Test: time: 38.69s, speed: 1342.53st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen5.ans4-5.score86227544410', 0.8963, 0.8773, 0.8867]
+********** ('word', 2, (4,))
+********** ['base2.substr.wordlen2.ans4.score73640794415', 0.9425, 0.7287, 0.822]
+	Test: time: 10.50s, speed: 6074.35st/s; acc: 0.9871, p: 0.9425, r: 0.7287, f: 0.8220
+	Ensemble Test: time: 10.50s, speed: 6074.35st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans4.score73640794415', 0.9425, 0.7287, 0.822]
+********** ['base2.substr.wordlen2.ans4.score77222544535', 0.758, 0.9123, 0.828]
+	Test: time: 20.95s, speed: 3045.97st/s; acc: 0.9845, p: 0.7580, r: 0.9123, f: 0.8280
+	Ensemble Test: time: 20.95s, speed: 3045.97st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans4.score77222544535', 0.758, 0.9123, 0.828]
+********** ['base2.substr.wordlen2.ans4.score81291610685', 0.8926, 0.8663, 0.8793]
+	Test: time: 31.38s, speed: 2032.79st/s; acc: 0.9903, p: 0.8926, r: 0.8663, f: 0.8793
+	Ensemble Test: time: 31.38s, speed: 2032.79st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans4.score81291610685', 0.8926, 0.8663, 0.8793]
+********** ['base2.substr.wordlen2.ans4.score81291610685', 0.8926, 0.8663, 0.8793]
+	Test: time: 41.51s, speed: 1537.11st/s; acc: 0.9903, p: 0.8926, r: 0.8663, f: 0.8793
+	Ensemble Test: time: 41.51s, speed: 1537.11st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen2.ans4.score81291610685', 0.8926, 0.8663, 0.8793]
+********** ('word', 6, (3, 5))
+********** ['base2.substr.wordlen6.ans3-5.score73149021766', 0.8631, 0.6312, 0.7292]
+	Test: time: 9.30s, speed: 5186.77st/s; acc: 0.9299, p: 0.8631, r: 0.6312, f: 0.7292
+	Ensemble Test: time: 9.30s, speed: 5186.77st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans3-5.score73149021766', 0.8631, 0.6312, 0.7292]
+********** ['base2.substr.wordlen6.ans3-5.score62990770707', 0.4554, 0.9078, 0.6065]
+	Test: time: 18.66s, speed: 2585.77st/s; acc: 0.8240, p: 0.4554, r: 0.9078, f: 0.6065
+	Ensemble Test: time: 18.66s, speed: 2585.77st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans3-5.score62990770707', 0.4554, 0.9078, 0.6065]
+********** ['base2.substr.wordlen6.ans3-5.score77536584867', 0.7988, 0.7264, 0.7609]
+	Test: time: 28.01s, speed: 1722.51st/s; acc: 0.9318, p: 0.7988, r: 0.7264, f: 0.7609
+	Ensemble Test: time: 28.01s, speed: 1722.51st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans3-5.score77536584867', 0.7988, 0.7264, 0.7609]
+********** ['base2.substr.wordlen6.ans3-5.score77536584867', 0.7988, 0.7264, 0.7609]
+	Test: time: 37.01s, speed: 1303.47st/s; acc: 0.9318, p: 0.7988, r: 0.7264, f: 0.7609
+	Ensemble Test: time: 37.01s, speed: 1303.47st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans3-5.score77536584867', 0.7988, 0.7264, 0.7609]
+********** ('word', 6, (3, 4, 5))
+********** ['base2.substr.wordlen6.ans4-3-5.score80919781848', 0.9275, 0.7492, 0.8289]
+	Test: time: 9.34s, speed: 5166.59st/s; acc: 0.9343, p: 0.9275, r: 0.7492, f: 0.8289
+	Ensemble Test: time: 9.34s, speed: 5166.59st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans4-3-5.score80919781848', 0.9275, 0.7492, 0.8289]
+********** ['base2.substr.wordlen6.ans4-3-5.score83959459989', 0.8083, 0.861, 0.8338]
+	Test: time: 18.61s, speed: 2592.50st/s; acc: 0.9271, p: 0.8083, r: 0.8610, f: 0.8338
+	Ensemble Test: time: 18.61s, speed: 2592.50st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans4-3-5.score83959459989', 0.8083, 0.861, 0.8338]
+********** ['base2.substr.wordlen6.ans4-3-5.score84931725124', 0.8628, 0.8366, 0.8495]
+	Test: time: 27.88s, speed: 1730.26st/s; acc: 0.9370, p: 0.8628, r: 0.8366, f: 0.8495
+	Ensemble Test: time: 27.88s, speed: 1730.26st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans4-3-5.score84931725124', 0.8628, 0.8366, 0.8495]
+********** ['base2.substr.wordlen6.ans4-3-5.score84931725124', 0.8628, 0.8366, 0.8495]
+	Test: time: 36.97s, speed: 1304.94st/s; acc: 0.9370, p: 0.8628, r: 0.8366, f: 0.8495
+	Ensemble Test: time: 36.97s, speed: 1304.94st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans4-3-5.score84931725124', 0.8628, 0.8366, 0.8495]
+********** ('word', 3, (5,))
+********** ['base2.substr.wordlen3.ans5.score76866358950', 0.866, 0.7833, 0.8225]
+	Test: time: 10.30s, speed: 5782.86st/s; acc: 0.9890, p: 0.8660, r: 0.7833, f: 0.8225
+	Ensemble Test: time: 10.30s, speed: 5782.86st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans5.score76866358950', 0.866, 0.7833, 0.8225]
+********** ['base2.substr.wordlen3.ans5.score77557755275', 0.7829, 0.8336, 0.8075]
+	Test: time: 20.48s, speed: 2908.95st/s; acc: 0.9870, p: 0.7829, r: 0.8336, f: 0.8075
+	Ensemble Test: time: 20.48s, speed: 2908.95st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans5.score77557755275', 0.7829, 0.8336, 0.8075]
+********** ['base2.substr.wordlen3.ans5.score79148565963', 0.8346, 0.8213, 0.8279]
+	Test: time: 30.60s, speed: 1947.19st/s; acc: 0.9888, p: 0.8346, r: 0.8213, f: 0.8279
+	Ensemble Test: time: 30.60s, speed: 1947.19st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans5.score79148565963', 0.8346, 0.8213, 0.8279]
+********** ['base2.substr.wordlen3.ans5.score79148565963', 0.8346, 0.8213, 0.8279]
+	Test: time: 40.49s, speed: 1471.68st/s; acc: 0.9888, p: 0.8346, r: 0.8213, f: 0.8279
+	Ensemble Test: time: 40.49s, speed: 1471.68st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans5.score79148565963', 0.8346, 0.8213, 0.8279]
+********** ('word', 4, (4,))
+********** ['base2.substr.wordlen4.ans4.score8223216586', 0.9267, 0.8428, 0.8827]
+	Test: time: 9.88s, speed: 5639.32st/s; acc: 0.9863, p: 0.9267, r: 0.8428, f: 0.8827
+	Ensemble Test: time: 9.88s, speed: 5639.32st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans4.score8223216586', 0.9267, 0.8428, 0.8827]
+********** ['base2.substr.wordlen4.ans4.score80446926875', 0.8203, 0.9039, 0.8601]
+	Test: time: 19.77s, speed: 2817.29st/s; acc: 0.9820, p: 0.8203, r: 0.9039, f: 0.8601
+	Ensemble Test: time: 19.77s, speed: 2817.29st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans4.score80446926875', 0.8203, 0.9039, 0.8601]
+********** ['base2.substr.wordlen4.ans4.score83290750650', 0.8983, 0.8748, 0.8864]
+	Test: time: 29.62s, speed: 1880.90st/s; acc: 0.9863, p: 0.8983, r: 0.8748, f: 0.8864
+	Ensemble Test: time: 29.62s, speed: 1880.90st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans4.score83290750650', 0.8983, 0.8748, 0.8864]
+********** ['base2.substr.wordlen4.ans4.score83290750650', 0.8983, 0.8748, 0.8864]
+	Test: time: 39.20s, speed: 1421.31st/s; acc: 0.9863, p: 0.8983, r: 0.8748, f: 0.8864
+	Ensemble Test: time: 39.20s, speed: 1421.31st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen4.ans4.score83290750650', 0.8983, 0.8748, 0.8864]
+********** ('word', 3, (3, 4, 5))
+********** ['base2.substr.wordlen3.ans4-3-5.score82121279430', 0.8847, 0.7822, 0.8303]
+	Test: time: 10.25s, speed: 5813.98st/s; acc: 0.9584, p: 0.8847, r: 0.7822, f: 0.8303
+	Ensemble Test: time: 10.25s, speed: 5813.98st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans4-3-5.score82121279430', 0.8847, 0.7822, 0.8303]
+********** ['base2.substr.wordlen3.ans4-3-5.score83310547401', 0.8271, 0.8351, 0.8311]
+	Test: time: 20.77s, speed: 2869.05st/s; acc: 0.9559, p: 0.8271, r: 0.8351, f: 0.8311
+	Ensemble Test: time: 20.77s, speed: 2869.05st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans4-3-5.score83310547401', 0.8271, 0.8351, 0.8311]
+********** ['base2.substr.wordlen3.ans4-3-5.score82641177264', 0.8729, 0.8071, 0.8387]
+	Test: time: 30.91s, speed: 1927.77st/s; acc: 0.9597, p: 0.8729, r: 0.8071, f: 0.8387
+	Ensemble Test: time: 30.91s, speed: 1927.77st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans4-3-5.score82641177264', 0.8729, 0.8071, 0.8387]
+********** ['base2.substr.wordlen3.ans4-3-5.score82641177264', 0.8729, 0.8071, 0.8387]
+	Test: time: 40.80s, speed: 1460.38st/s; acc: 0.9597, p: 0.8729, r: 0.8071, f: 0.8387
+	Ensemble Test: time: 40.80s, speed: 1460.38st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans4-3-5.score82641177264', 0.8729, 0.8071, 0.8387]
+********** ('word', 6, (2, 3, 5))
+********** ['base2.substr.wordlen6.ans2-3-5.score69253495696', 0.9625, 0.5865, 0.7289]
+	Test: time: 9.44s, speed: 5111.85st/s; acc: 0.9097, p: 0.9625, r: 0.5865, f: 0.7289
+	Ensemble Test: time: 9.44s, speed: 5111.85st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-3-5.score69253495696', 0.9625, 0.5865, 0.7289]
+********** ['base2.substr.wordlen6.ans2-3-5.score82442274410', 0.8123, 0.8208, 0.8165]
+	Test: time: 18.71s, speed: 2578.88st/s; acc: 0.9237, p: 0.8123, r: 0.8208, f: 0.8165
+	Ensemble Test: time: 18.71s, speed: 2578.88st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-3-5.score82442274410', 0.8123, 0.8208, 0.8165]
+********** ['base2.substr.wordlen6.ans2-3-5.score82316526340', 0.8678, 0.7887, 0.8264]
+	Test: time: 28.04s, speed: 1720.56st/s; acc: 0.9314, p: 0.8678, r: 0.7887, f: 0.8264
+	Ensemble Test: time: 28.04s, speed: 1720.56st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-3-5.score82316526340', 0.8678, 0.7887, 0.8264]
+********** ['base2.substr.wordlen6.ans2-3-5.score82316526340', 0.8678, 0.7887, 0.8264]
+	Test: time: 37.11s, speed: 1299.96st/s; acc: 0.9314, p: 0.8678, r: 0.7887, f: 0.8264
+	Ensemble Test: time: 37.11s, speed: 1299.96st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans2-3-5.score82316526340', 0.8678, 0.7887, 0.8264]
+********** ('word', 1, (2, 3, 5))
+********** ['base2.substr.wordlen1.ans2-3-5.score72348308921', 0.9006, 0.6161, 0.7317]
+	Test: time: 10.52s, speed: 6558.71st/s; acc: 0.9748, p: 0.9006, r: 0.6161, f: 0.7317
+	Ensemble Test: time: 10.52s, speed: 6558.71st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-3-5.score72348308921', 0.9006, 0.6161, 0.7317]
+********** ['base2.substr.wordlen1.ans2-3-5.score66402911369', 0.4897, 0.8072, 0.6096]
+	Test: time: 21.01s, speed: 3283.13st/s; acc: 0.9423, p: 0.4897, r: 0.8072, f: 0.6096
+	Ensemble Test: time: 21.01s, speed: 3283.13st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-3-5.score66402911369', 0.4897, 0.8072, 0.6096]
+********** ['base2.substr.wordlen1.ans2-3-5.score74283153634', 0.8842, 0.6481, 0.7479]
+	Test: time: 31.56s, speed: 2186.32st/s; acc: 0.9756, p: 0.8842, r: 0.6481, f: 0.7479
+	Ensemble Test: time: 31.56s, speed: 2186.32st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-3-5.score74283153634', 0.8842, 0.6481, 0.7479]
+********** ['base2.substr.wordlen1.ans2-3-5.score74283153634', 0.8842, 0.6481, 0.7479]
+	Test: time: 41.81s, speed: 1650.03st/s; acc: 0.9756, p: 0.8842, r: 0.6481, f: 0.7479
+	Ensemble Test: time: 41.81s, speed: 1650.03st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans2-3-5.score74283153634', 0.8842, 0.6481, 0.7479]
+********** ('word', 3, (3,))
+********** ['base2.substr.wordlen3.ans3.score50148367543', 0.8355, 0.3456, 0.4889]
+	Test: time: 10.34s, speed: 5763.29st/s; acc: 0.9620, p: 0.8355, r: 0.3456, f: 0.4889
+	Ensemble Test: time: 10.34s, speed: 5763.29st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans3.score50148367543', 0.8355, 0.3456, 0.4889]
+********** ['base2.substr.wordlen3.ans3.score63908404391', 0.6123, 0.5861, 0.5989]
+	Test: time: 20.92s, speed: 2848.33st/s; acc: 0.9588, p: 0.6123, r: 0.5861, f: 0.5989
+	Ensemble Test: time: 20.92s, speed: 2848.33st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans3.score63908404391', 0.6123, 0.5861, 0.5989]
+********** ['base2.substr.wordlen3.ans3.score64814814320', 0.7008, 0.5394, 0.6096]
+	Test: time: 31.16s, speed: 1912.04st/s; acc: 0.9637, p: 0.7008, r: 0.5394, f: 0.6096
+	Ensemble Test: time: 31.16s, speed: 1912.04st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans3.score64814814320', 0.7008, 0.5394, 0.6096]
+********** ['base2.substr.wordlen3.ans3.score64814814320', 0.7008, 0.5394, 0.6096]
+	Test: time: 41.07s, speed: 1450.94st/s; acc: 0.9637, p: 0.7008, r: 0.5394, f: 0.6096
+	Ensemble Test: time: 41.07s, speed: 1450.94st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen3.ans3.score64814814320', 0.7008, 0.5394, 0.6096]
+********** ('word', 1, (3, 4))
+********** ['base2.substr.wordlen1.ans4-3.score69784580015', 0.883, 0.6336, 0.7378]
+	Test: time: 10.63s, speed: 6487.59st/s; acc: 0.9771, p: 0.8830, r: 0.6336, f: 0.7378
+	Ensemble Test: time: 10.63s, speed: 6487.59st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans4-3.score69784580015', 0.883, 0.6336, 0.7378]
+********** ['base2.substr.wordlen1.ans4-3.score66958999722', 0.6322, 0.7673, 0.6932]
+	Test: time: 21.24s, speed: 3247.98st/s; acc: 0.9655, p: 0.6322, r: 0.7673, f: 0.6932
+	Ensemble Test: time: 21.24s, speed: 3247.98st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans4-3.score66958999722', 0.6322, 0.7673, 0.6932]
+********** ['base2.substr.wordlen1.ans4-3.score7347044990', 0.8187, 0.7159, 0.7639]
+	Test: time: 31.86s, speed: 2165.87st/s; acc: 0.9775, p: 0.8187, r: 0.7159, f: 0.7639
+	Ensemble Test: time: 31.86s, speed: 2165.87st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans4-3.score7347044990', 0.8187, 0.7159, 0.7639]
+********** ['base2.substr.wordlen1.ans4-3.score7347044990', 0.8187, 0.7159, 0.7639]
+	Test: time: 42.19s, speed: 1635.25st/s; acc: 0.9775, p: 0.8187, r: 0.7159, f: 0.7639
+	Ensemble Test: time: 42.19s, speed: 1635.25st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen1.ans4-3.score7347044990', 0.8187, 0.7159, 0.7639]
+********** ('word', 6, (3, 4))
+********** ['base2.substr.wordlen6.ans4-3.score74863646656', 0.9187, 0.6562, 0.7656]
+	Test: time: 9.37s, speed: 5149.47st/s; acc: 0.9327, p: 0.9187, r: 0.6562, f: 0.7656
+	Ensemble Test: time: 9.37s, speed: 5149.47st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans4-3.score74863646656', 0.9187, 0.6562, 0.7656]
+********** ['base2.substr.wordlen6.ans4-3.score63961566425', 0.5008, 0.8685, 0.6353]
+	Test: time: 18.89s, speed: 2554.32st/s; acc: 0.8330, p: 0.5008, r: 0.8685, f: 0.6353
+	Ensemble Test: time: 18.89s, speed: 2554.32st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans4-3.score63961566425', 0.5008, 0.8685, 0.6353]
+********** ['base2.substr.wordlen6.ans4-3.score78457276296', 0.8431, 0.7565, 0.7974]
+	Test: time: 28.19s, speed: 1711.30st/s; acc: 0.9356, p: 0.8431, r: 0.7565, f: 0.7974
+	Ensemble Test: time: 28.19s, speed: 1711.30st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans4-3.score78457276296', 0.8431, 0.7565, 0.7974]
+********** ['base2.substr.wordlen6.ans4-3.score78457276296', 0.8431, 0.7565, 0.7974]
+	Test: time: 37.17s, speed: 1297.98st/s; acc: 0.9356, p: 0.8431, r: 0.7565, f: 0.7974
+	Ensemble Test: time: 37.17s, speed: 1297.98st/s; acc: 0.0000, p: 0.0000, r: 0.0000, f: 0.0000
+get ans of ['base2.substr.wordlen6.ans4-3.score78457276296', 0.8431, 0.7565, 0.7974]
+done

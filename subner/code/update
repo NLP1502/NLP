@@ -1,0 +1,29 @@
+base: lrner_new
+是作者在git更新后的代码
+
+base1: 对base的修改
+特征中默認包含了POS
+改写了initial_feature_alphabets的实现，使输入数据无需[name]标签
+剥离出预训练
+配置文件控制是否保存模型
+配置文件支持clip
+存储预测出的test集
+打印分数时同时输出当前最高分和其epoch
+评价时输出各类别的P\R\F1
+把会报警告的volatile=False改为了requires_grad=True
+添加了state_training_name用来管理模型文件的名字
+arg支持全部base可调参数
+
+注意：  在read_arg中加参数和移版本时要确保主arg中的参数的默认值和config文件中一致，
+        需要警惕config中允许是None，但config中不是None的变量的arg默认值，
+        如：seed_num、clip，目前版本这两个的config值都是None,无需处理该问题
+
+
+class的save目录没改
+目前使用的是，wiki在30个语种上对齐的单语词向量，而不是单语学习的，也许对齐的更合适，那么英语的应该也用对齐的
+目前的read_arg中只加入了config中未被注释的变量
+需要修改代碼，目前要懸著不使用某個特征很麻煩
+-DOCSTART- -DOCSTART- O 可以从三个集合中都删了，全是O,完全可以预处理熬了，不过赶紧可能没有影响
+
+动态学习率
+decode的代码还没有修改

@@ -1,0 +1,1197 @@
+GPU device:0
+Seed num: None
+Random Seed num: 95114
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Tag          scheme: BIO
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 34691
+     Char  alphabet size: 91
+     Label alphabet size: 10
+     Trans alphabet size: 82214
+     Word embedding  dir: data/wiki.nl.vec
+     Char embedding  dir: None
+     Tran embedding  dir: data/glove.6B.100d.txt
+     Word embedding size: 300
+     Char embedding size: 30
+     Tran embedding size: 100
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Norm   tran     emb: False
+     Data_bin   file directory: data/data.pickle
+     Train  file directory: data/ned.train
+     Dev    file directory: data/ned.testa
+     Test   file directory: data/ned.testb
+     Raw    file directory: None
+     Model  file directory: save/
+     Loadmodel   directory: None
+     Decode file directory: None
+     Train instance number: 15802
+     Dev   instance number: 2895
+     Test  instance number: 5194
+     Raw   instance number: 0
+     FEATURE num: 1
+         Fe: feature_1  alphabet  size: 15
+         Fe: feature_1  embedding  dir: None
+         Fe: feature_1  embedding size: 20
+         Fe: feature_1  norm       emb: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: LSTM
+     Model       use_char: True
+     Model char_seq_feature: LSTM
+     Model char_hidden_dim: 50
+     Model trans_hidden_dim: 200
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     show_loss_per_batch: 100
+     save_model: False
+     state_training_name: base1.a1-1.a2-1.10best
+     Optimizer: SGD
+     Iteration: 600
+     BatchSize: 16
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper     HP_seed_num: 95114
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 2
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+MODEL: train
+Training model...
+build network...
+use_char:  True
+char feature extractor:  LSTM
+use_trans:  True
+word feature extractor:  LSTM
+use crf:  True
+Build word sequence feature extractor: LSTM...
+Build word representation...
+Build translation sequence feature extractor: LSTM ...
+Build char sequence feature extractor: LSTM ...
+build CRF...
+model:SeqModel(
+  (word_hidden): WordSequence(
+    (droplstm): Dropout(p=0.5)
+    (wordrep): WordRep(
+      (trans_feature): TransBiLSTM(
+        (trans_drop): Dropout(p=0.5)
+        (trans_embeddings): Embedding(82214, 100)
+        (trans_lstm): LSTM(100, 100, batch_first=True, bidirectional=True)
+      )
+      (char_feature): CharBiLSTM(
+        (char_drop): Dropout(p=0.5)
+        (char_embeddings): Embedding(91, 30)
+        (char_lstm): LSTM(30, 25, batch_first=True, bidirectional=True)
+      )
+      (drop): Dropout(p=0.5)
+      (word_embedding): Embedding(34691, 300)
+      (feature_embeddings): ModuleList(
+        (0): Embedding(15, 20)
+      )
+    )
+    (lstm): LSTM(570, 100, num_layers=2, batch_first=True, bidirectional=True)
+    (hidden2tag): Linear(in_features=200, out_features=12, bias=True)
+  )
+  (crf): CRF()
+)
+Epoch: 1/600
+Learning rate is setted as: 0.015
+     Instance: 0; Time: 0.69s; loss: 490.5718;mapping_loss: 0.0000; acc: 46.0/228.0=0.2018
+     Instance: 100; Time: 34.12s; loss: 7481.2165;mapping_loss: 0.0000; acc: 18721.0/20630.0=0.9075
+     Instance: 200; Time: 32.12s; loss: 4455.6697;mapping_loss: 0.0000; acc: 37411.0/40855.0=0.9157
+     Instance: 300; Time: 32.49s; loss: 3425.9608;mapping_loss: 0.0000; acc: 56232.0/60988.0=0.9220
+     Instance: 400; Time: 29.54s; loss: 2850.6936;mapping_loss: 0.0000; acc: 75093.0/80893.0=0.9283
+     Instance: 500; Time: 32.49s; loss: 2630.1682;mapping_loss: 0.0000; acc: 94873.0/101662.0=0.9332
+     Instance: 600; Time: 30.86s; loss: 2147.6751;mapping_loss: 0.0000; acc: 114935.0/122554.0=0.9378
+     Instance: 700; Time: 27.33s; loss: 1847.4200;mapping_loss: 0.0000; acc: 134317.0/142717.0=0.9411
+     Instance: 800; Time: 38.24s; loss: 1582.7700;mapping_loss: 0.0000; acc: 154322.0/163386.0=0.9445
+     Instance: 900; Time: 32.35s; loss: 1666.1884;mapping_loss: 0.0000; acc: 173425.0/183181.0=0.9467
+     Instance: 987; Time: 30.40s; loss: 1336.1911;mapping_loss: 0.0000; acc: 189917.0/200256.0=0.9484
+Epoch: 1 training finished. Time: 320.63s, speed: 49.28st/s,  total loss: 29914.5252075
+------------------------------
+gold:       O,O,O,O,O
+0.99635750: O,O,O,O,O
+0.00203803: O,O,O,O,O
+0.00048991: O,O,O,O,B-MISC
+0.00027356: O,O,O,O,O
+0.00024779: O,O,O,O,O
+0.00014909: O,O,O,O,O
+0.00013111: O,O,B-MISC,O,O
+0.00012852: O,O,O,O,O
+0.00011278: O,O,O,O,O
+0.00007166: O,O,O,O,I-MISC
+------------------------------
+gold:       O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+------------------------------
+gold:       B-ORG,O,O
+0.73886150: B-ORG,O,O
+0.12787481: B-PER,O,O
+0.06537007: B-MISC,O,O
+0.01571522: B-LOC,O,O
+0.01336030: B-ORG,I-ORG,O
+0.01226475: O,O,O
+0.00828920: I-ORG,O,O
+0.00731754: I-PER,O,O
+0.00719701: I-LOC,O,O
+0.00374950: I-MISC,O,O
+------------------------------
+gold:       O,O,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.71321559: O,O,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.15788461: O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.06664681: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.02017626: O,O,O,O,O,B-ORG,I-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.01816581: O,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00875618: O,O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00704234: O,O,O,O,O,B-MISC,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00421854: O,O,O,O,O,I-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00209219: O,O,O,O,B-ORG,I-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00180165: O,O,O,O,B-MISC,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,B-MISC,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O
+0.71979618: O,O,B-MISC,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O
+0.13837270: O,O,B-MISC,O,O,B-PER,O,O,O,O,O,O,O,O,O,O,O
+0.03584310: O,O,B-MISC,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O
+0.02948463: O,O,B-MISC,I-MISC,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O
+0.02650659: O,O,B-ORG,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O
+0.01712700: B-MISC,O,B-MISC,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O
+0.01388257: O,O,B-MISC,O,O,B-ORG,I-ORG,O,O,O,O,O,O,O,O,O,O
+0.00822390: O,O,B-MISC,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O
+0.00566792: O,O,B-MISC,I-MISC,O,B-PER,O,O,O,O,O,O,O,O,O,O,O
+0.00509544: O,O,B-ORG,O,O,B-PER,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.89647341: B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.06584933: B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.01193109: I-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.01153089: B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00459199: B-PER,I-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00411366: B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00313955: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00094469: I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00079788: I-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00062748: I-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O
+0.77507305: O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O
+0.12429406: O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O
+0.05025154: O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O
+0.03493699: O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O
+0.00362995: O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,B-PER,I-PER,O,O,O,O,O,O,O,O
+0.00333540: O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O
+0.00265135: O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O
+0.00260953: O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,I-PER,O,O,O,O,O,O,O,O,O
+0.00177434: O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,B-MISC,I-MISC,O,O,O,O,O,O,O,O
+0.00144372: O,O,O,O,O,O,O,O,O,O,O,B-LOC,I-LOC,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O
+0.97980326: O,O,O,O,O,O
+0.00968875: B-MISC,O,O,O,O,O
+0.00332499: B-ORG,O,O,O,O,O
+0.00171876: B-PER,O,O,O,O,O
+0.00157445: I-MISC,O,O,O,O,O
+0.00131648: B-LOC,O,O,O,O,O
+0.00111068: I-ORG,O,O,O,O,O
+0.00108710: I-LOC,O,O,O,O,O
+0.00028244: I-PER,O,O,O,O,O
+0.00009323: B-MISC,I-MISC,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O
+0.86034006: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O
+0.07432593: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O
+0.03267736: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,O,O,O,O
+0.02430340: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,O,O,O,O,O
+0.00218334: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,I-LOC,O,O,O,O
+0.00214730: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,I-LOC,O,O,O,O,O
+0.00213974: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,I-MISC,O,O,O,O
+0.00100671: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00049287: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,I-MISC,O,O,O,O
+0.00038340: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,I-ORG,O,O,O,O
+------------------------------
+gold:       B-PER,I-PER,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O
+0.26000306: B-LOC,I-LOC,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O
+0.25691119: B-LOC,I-LOC,O,O,O,O,O,O,O,O,O,O,O,B-PER,O
+0.13568050: B-LOC,I-LOC,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O
+0.12007242: B-LOC,I-LOC,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O
+0.05596468: B-PER,I-PER,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O
+0.05529917: B-PER,I-PER,O,O,O,O,O,O,O,O,O,O,O,B-PER,O
+0.03056218: B-LOC,I-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.02920449: B-PER,I-PER,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O
+0.02831957: B-MISC,I-MISC,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O
+0.02798281: B-MISC,I-MISC,O,O,O,O,O,O,O,O,O,O,O,B-PER,O
+gold_num =  2616  pred_num =  2589  right_num =  1943
+	LOC: p: 0.7089, r: 0.8998, f: 0.7930, 479, 608, 431
+	MISC: p: 0.7285, r: 0.5989, f: 0.6574, 748, 615, 448
+	PER: p: 0.7852, r: 0.9047, f: 0.8407, 703, 810, 636
+	ORG: p: 0.7698, r: 0.6239, f: 0.6892, 686, 556, 428
+Dev: time: 43.01s, speed: 67.69st/s; acc: 0.9731, p: 0.7505, r: 0.7427, f: 0.7466
+Exceed previous best f score: -10
+------------------------------
+gold:       O,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O
+0.82620358: O,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O
+0.09017373: O,O,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O
+0.03252498: O,O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O
+0.02063348: O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O
+0.01030779: O,O,O,O,B-PER,I-PER,O,O,O,O,O,O,O,O,O
+0.00789940: B-MISC,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O
+0.00583381: O,O,O,O,O,I-PER,O,O,O,O,O,O,O,O,O
+0.00228804: O,O,O,O,O,B-PER,I-PER,O,O,O,O,O,O,O,O
+0.00211032: B-ORG,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O
+0.00202465: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+------------------------------
+gold:       O,O,O,B-LOC,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.89820254: O,O,O,B-LOC,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.05298599: O,O,O,B-LOC,O,O,B-LOC,I-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.01104377: B-MISC,O,O,B-LOC,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00820315: B-ORG,O,O,B-LOC,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00800579: O,O,O,B-LOC,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00731912: O,O,O,B-LOC,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00382333: O,O,O,B-LOC,I-LOC,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00362372: I-LOC,O,O,B-LOC,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00362278: O,O,O,B-LOC,O,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00316980: B-LOC,O,O,B-LOC,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O
+0.99005145: O,O,O,O,O,O,O,O,O,O
+0.00335591: B-MISC,O,O,O,O,O,O,O,O,O
+0.00264546: B-ORG,O,O,O,O,O,O,O,O,O
+0.00120467: B-PER,O,O,O,O,O,O,O,O,O
+0.00100226: I-MISC,O,O,O,O,O,O,O,O,O
+0.00073327: I-ORG,O,O,O,O,O,O,O,O,O
+0.00046051: I-LOC,O,O,O,O,O,O,O,O,O
+0.00023800: I-PER,O,O,O,O,O,O,O,O,O
+0.00021058: B-LOC,O,O,O,O,O,O,O,O,O
+0.00009780: B-MISC,I-MISC,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.99341631: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00337933: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O
+0.00116794: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O
+0.00051530: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,O,O
+0.00047954: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,O,O,O
+0.00031572: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,O,O
+0.00026400: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,I-MISC,O,O,O
+0.00017663: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O
+0.00015167: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,I-MISC,O,O
+0.00013369: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,B-LOC,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,B-PER,O
+0.28197321: O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,B-PER,O
+0.20079279: O,O,O,O,B-LOC,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,B-PER,O
+0.12670800: O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,B-ORG,O
+0.09059421: O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,I-MISC,I-MISC,O
+0.09022725: O,O,O,O,B-LOC,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,B-ORG,O
+0.06451105: O,O,O,O,B-LOC,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,I-MISC,I-MISC,O
+0.04355256: O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,I-MISC,B-PER,O
+0.03737546: O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,B-LOC,O
+0.03213766: O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,I-MISC,B-ORG,O
+0.03212786: O,O,O,O,B-LOC,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,B-PER,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.99862301: O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00037922: B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00034081: B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00023118: I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00022259: B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00008127: I-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00003681: I-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00003533: I-PER,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00002580: O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00002391: O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O
+0.98786747: O,O,O,O,O,O,O,O,O,O,O
+0.00286555: B-ORG,O,O,O,O,O,O,O,O,O,O
+0.00209466: O,O,O,O,O,O,O,O,B-MISC,O,O
+0.00181286: O,O,O,O,O,O,O,O,B-ORG,O,O
+0.00172718: B-MISC,O,O,O,O,O,O,O,O,O,O
+0.00157841: B-PER,O,O,O,O,O,O,O,O,O,O
+0.00093326: I-MISC,O,O,O,O,O,O,O,O,O,O
+0.00060130: I-ORG,O,O,O,O,O,O,O,O,O,O
+0.00031736: I-LOC,O,O,O,O,O,O,O,O,O,O
+0.00020198: O,O,O,O,O,O,O,B-MISC,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O
+0.96264523: O,O,O,O,O,O,O,O
+0.01324132: B-MISC,O,O,O,O,O,O,O
+0.00770212: B-MISC,I-MISC,O,O,O,O,O,O
+0.00453313: B-ORG,O,O,O,O,O,O,O
+0.00271500: I-LOC,O,O,O,O,O,O,O
+0.00229935: I-MISC,O,O,O,O,O,O,O
+0.00176748: B-PER,O,O,O,O,O,O,O
+0.00174978: B-LOC,O,O,O,O,O,O,O
+0.00167812: I-ORG,O,O,O,O,O,O,O
+0.00166861: B-ORG,I-ORG,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.78752977: O,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.11224562: O,O,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.07118671: O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00984780: O,O,O,O,O,O,B-ORG,I-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00804883: O,O,O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00644870: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00215031: O,O,O,O,O,O,B-MISC,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00105539: O,O,O,O,O,O,I-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00074861: O,O,O,O,O,O,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00073815: O,O,O,O,O,O,I-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+gold_num =  3867  pred_num =  3817  right_num =  2894
+	LOC: p: 0.7298, r: 0.9066, f: 0.8087, 739, 918, 670
+	MISC: p: 0.7675, r: 0.6091, f: 0.6792, 1187, 942, 723
+	PER: p: 0.7860, r: 0.8980, f: 0.8383, 1059, 1210, 951
+	ORG: p: 0.7363, r: 0.6236, f: 0.6753, 882, 747, 550
+Test: time: 76.63s, speed: 68.05st/s; acc: 0.9771, p: 0.7582, r: 0.7484, f: 0.7533
+best_dev_score: 0.7466, best_dev_epoch:0
+best_test_score: 0.7533, best_test_epoch:0
+Epoch: 2/600
+Learning rate is setted as: 0.0142857142857
+     Instance: 0; Time: 0.30s; loss: 15.8098;mapping_loss: 0.0000; acc: 207.0/212.0=0.9764
+     Instance: 100; Time: 33.45s; loss: 1252.3293;mapping_loss: 0.0000; acc: 20848.0/21350.0=0.9765
+     Instance: 200; Time: 32.38s; loss: 1173.5121;mapping_loss: 0.0000; acc: 40741.0/41729.0=0.9763
+     Instance: 300; Time: 41.35s; loss: 1182.0762;mapping_loss: 0.0000; acc: 60324.0/61818.0=0.9758
+     Instance: 400; Time: 32.16s; loss: 1057.4430;mapping_loss: 0.0000; acc: 79810.0/81780.0=0.9759
+     Instance: 500; Time: 29.17s; loss: 1175.4917;mapping_loss: 0.0000; acc: 100158.0/102624.0=0.9760
+     Instance: 600; Time: 29.98s; loss: 1219.7650;mapping_loss: 0.0000; acc: 119847.0/122861.0=0.9755
+     Instance: 700; Time: 28.28s; loss: 1063.3629;mapping_loss: 0.0000; acc: 139282.0/142782.0=0.9755
+     Instance: 800; Time: 34.18s; loss: 1216.8495;mapping_loss: 0.0000; acc: 160075.0/164122.0=0.9753
+     Instance: 900; Time: 29.71s; loss: 1049.4203;mapping_loss: 0.0000; acc: 179033.0/183548.0=0.9754
+     Instance: 987; Time: 29.20s; loss: 911.7663;mapping_loss: 0.0000; acc: 195368.0/200256.0=0.9756
+Epoch: 2 training finished. Time: 320.16s, speed: 49.36st/s,  total loss: 11317.8259888
+------------------------------
+gold:       O,O,O,B-ORG,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.49416035: O,O,O,B-ORG,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.30395132: O,O,O,B-ORG,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.05226244: O,O,O,B-ORG,O,O,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.04909452: O,O,O,B-MISC,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.03019737: O,O,O,B-MISC,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.02101052: O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.01946300: O,O,B-ORG,I-ORG,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.01197143: O,O,B-ORG,I-ORG,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.01107616: O,O,O,B-PER,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00681279: O,O,O,B-PER,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.99886715: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00029222: O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00022364: O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00014014: O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O
+0.00010641: B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00010058: O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O
+0.00008889: O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O
+0.00006180: O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00006101: O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00005810: O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O
+0.99961829: O,O,O,O,O,O,O,O,O,O,O,O
+0.00012635: O,O,B-MISC,O,O,O,O,O,O,O,O,O
+0.00009679: O,O,B-PER,O,O,O,O,O,O,O,O,O
+0.00004387: B-MISC,O,O,O,O,O,O,O,O,O,O,O
+0.00004349: O,O,I-MISC,O,O,O,O,O,O,O,O,O
+0.00002209: B-PER,O,O,O,O,O,O,O,O,O,O,O
+0.00001699: I-MISC,O,O,O,O,O,O,O,O,O,O,O
+0.00001583: O,O,B-ORG,O,O,O,O,O,O,O,O,O
+0.00000820: O,O,O,O,O,O,O,O,O,O,O,O
+0.00000814: O,O,O,O,O,O,O,O,O,O,O,B-MISC
+------------------------------
+gold:       B-ORG,I-ORG
+0.93769962: B-ORG,I-ORG
+0.03514843: B-ORG,I-ORG
+0.00841307: B-MISC,I-MISC
+0.00441287: B-ORG,I-ORG
+0.00400150: I-ORG,I-ORG
+0.00296664: B-ORG,I-ORG
+0.00278906: B-MISC,I-MISC
+0.00244390: I-ORG,I-ORG
+0.00132037: B-ORG,I-ORG
+0.00080458: B-MISC,I-MISC
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.99825841: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00090611: O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00037094: O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00019365: O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00005833: O,O,O,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00005610: O,O,B-MISC,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00004758: O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00004203: O,B-MISC,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00003784: O,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00002918: O,O,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,B-PER,O,O,O,O
+0.58704799: O,O,B-MISC,O,O,O,O
+0.22289819: O,O,B-PER,O,O,O,O
+0.08169463: O,O,O,O,O,O,O
+0.05355232: O,O,B-LOC,O,O,O,O
+0.04899600: O,O,B-ORG,O,O,O,O
+0.00191603: O,O,I-PER,O,O,O,O
+0.00141164: O,O,I-MISC,O,O,O,O
+0.00101142: O,O,I-LOC,O,O,O,O
+0.00089903: O,O,B-MISC,I-MISC,O,O,O
+0.00057270: O,O,I-ORG,O,O,O,O
+------------------------------
+gold:       O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+------------------------------
+gold:       B-MISC,I-MISC
+0.86468440: B-MISC,I-MISC
+0.03982925: B-MISC,I-MISC
+0.02515472: B-MISC,I-MISC
+0.01380572: B-MISC,I-MISC
+0.01185608: B-MISC,I-MISC
+0.01057021: O,B-MISC
+0.00966244: B-MISC,I-MISC
+0.00913583: O,B-MISC
+0.00871765: B-MISC,I-MISC
+0.00658361: O,B-MISC
+------------------------------
+gold:       O,O,O,O,O,B-MISC,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.97995740: O,O,O,O,O,B-MISC,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.01003111: O,O,O,O,O,B-MISC,O,O,B-MISC,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00208729: O,O,O,O,O,B-MISC,I-MISC,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00205550: O,O,O,O,O,B-ORG,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00203832: O,O,O,O,O,B-MISC,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00090693: O,O,O,O,O,B-LOC,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00086852: O,O,O,O,O,B-MISC,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00086239: B-MISC,O,O,O,O,B-MISC,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00076464: O,O,O,O,O,B-MISC,O,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00042799: O,O,O,O,O,B-MISC,O,B-MISC,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O
+0.99837339: O,O,O,O,O,O,O,O
+0.00108578: B-MISC,O,O,O,O,O,O,O
+0.00012104: I-MISC,O,O,O,O,O,O,O
+0.00010601: B-PER,O,O,O,O,O,O,O
+0.00009827: B-ORG,O,O,O,O,O,O,O
+0.00005809: O,O,O,O,B-MISC,O,O,O
+0.00005318: I-ORG,O,O,O,O,O,O,O
+0.00004243: O,O,O,O,O,B-MISC,O,O
+0.00003488: I-LOC,O,O,O,O,O,O,O
+0.00002679: O,O,B-MISC,O,O,O,O,O
+gold_num =  2616  pred_num =  2566  right_num =  2057
+	LOC: p: 0.8696, r: 0.8351, f: 0.8520, 479, 460, 400
+	MISC: p: 0.7419, r: 0.7380, f: 0.7399, 748, 744, 552
+	PER: p: 0.8005, r: 0.9132, f: 0.8532, 703, 802, 642
+	ORG: p: 0.8268, r: 0.6749, f: 0.7432, 686, 560, 463
+Dev: time: 44.52s, speed: 65.39st/s; acc: 0.9782, p: 0.8016, r: 0.7863, f: 0.7939
+Exceed previous best f score: 0.746589817483
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.97639185: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.01138863: B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00836969: B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00124116: I-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00111193: B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00051958: I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00043088: B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00035123: I-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00013987: I-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00005505: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O
+------------------------------
+gold:       O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+------------------------------
+gold:       O,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O
+0.87038654: O,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O
+0.08245587: O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O
+0.03871357: O,O,O,O,O,O,B-ORG,I-ORG,O,O,O,O,O,O,O,O,O,O
+0.00329216: O,O,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O,O,O
+0.00287568: O,O,O,O,O,O,B-MISC,I-MISC,O,O,O,O,O,O,O,O,O,O
+0.00057973: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00056106: O,O,O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O
+0.00042518: O,O,O,O,O,O,B-ORG,I-ORG,I-ORG,O,O,O,O,O,O,O,O,O
+0.00035676: O,O,O,O,O,O,B-ORG,I-MISC,O,O,O,O,O,O,O,O,O,O
+0.00035353: O,O,O,O,O,O,I-ORG,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.99791437: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00082275: O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00053649: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O
+0.00017965: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,O
+0.00016957: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O
+0.00010276: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O
+0.00009027: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,I-MISC,O
+0.00007157: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O
+0.00006214: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,O,O,O
+0.00005046: O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,O,O,O
+0.79014498: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,O,O,O,O
+0.13162804: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,O,O,O
+0.05187294: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O
+0.01746057: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,O,O,O
+0.00300306: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00237206: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,I-PER,O,O,O,O
+0.00094925: B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,O,O,O,O
+0.00091883: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,I-LOC,O,O,O,O
+0.00082962: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,O,O
+0.00082061: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,I-MISC,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O
+0.99910623: O,O,O,O,O,O,O
+0.00071701: O,O,O,O,B-MISC,O,O
+0.00006429: O,O,O,O,B-PER,O,O
+0.00003889: O,O,O,O,I-MISC,O,O
+0.00001953: O,B-MISC,O,O,O,O,O
+0.00001542: B-MISC,O,O,O,O,O,O
+0.00001289: O,O,O,O,B-ORG,O,O
+0.00001090: O,O,B-MISC,O,O,O,O
+0.00000752: I-MISC,O,O,O,O,O,O
+0.00000723: O,O,O,O,B-LOC,O,O
+------------------------------
+gold:       O,O,O,O,O,O
+0.99982435: O,O,O,O,O,O
+0.00006001: B-MISC,O,O,O,O,O
+0.00004862: O,O,O,O,B-MISC,O
+0.00001730: I-MISC,O,O,O,O,O
+0.00001297: B-PER,O,O,O,O,O
+0.00000845: O,O,O,O,O,O
+0.00000800: O,O,O,O,O,B-MISC
+0.00000754: O,B-MISC,O,O,O,O
+0.00000711: O,O,O,B-MISC,O,O
+0.00000564: O,O,O,O,I-MISC,O
+------------------------------
+gold:       B-PER,I-PER
+0.93025088: B-PER,I-PER
+0.05489964: B-PER,I-PER
+0.00464522: B-PER,I-PER
+0.00212486: B-MISC,I-MISC
+0.00206236: B-PER,I-PER
+0.00148649: B-PER,I-PER
+0.00141203: B-MISC,I-MISC
+0.00110824: B-ORG,I-ORG
+0.00105425: B-MISC,I-MISC
+0.00095591: B-PER,I-PER
+------------------------------
+gold:       O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+gold_num =  3867  pred_num =  3766  right_num =  3019
+	LOC: p: 0.8484, r: 0.8403, f: 0.8443, 739, 732, 621
+	MISC: p: 0.7842, r: 0.7102, f: 0.7454, 1187, 1075, 843
+	PER: p: 0.8025, r: 0.9245, f: 0.8591, 1059, 1220, 979
+	ORG: p: 0.7794, r: 0.6531, f: 0.7107, 882, 739, 576
+Test: time: 78.75s, speed: 66.34st/s; acc: 0.9805, p: 0.8016, r: 0.7807, f: 0.7910
+best_dev_score: 0.7939, best_dev_epoch:1
+best_test_score: 0.7910, best_test_epoch:1
+Epoch: 3/600
+Learning rate is setted as: 0.0136363636364
+     Instance: 0; Time: 0.33s; loss: 5.2114;mapping_loss: 0.0000; acc: 257.0/259.0=0.9923
+     Instance: 100; Time: 39.30s; loss: 860.3860;mapping_loss: 0.0000; acc: 21365.0/21726.0=0.9834
+     Instance: 200; Time: 31.72s; loss: 810.1413;mapping_loss: 0.0000; acc: 40837.0/41579.0=0.9822
+     Instance: 300; Time: 36.02s; loss: 835.0772;mapping_loss: 0.0000; acc: 59736.0/60866.0=0.9814
+     Instance: 400; Time: 35.23s; loss: 780.2917;mapping_loss: 0.0000; acc: 80204.0/81672.0=0.9820
+     Instance: 500; Time: 34.81s; loss: 956.0336;mapping_loss: 0.0000; acc: 100321.0/102190.0=0.9817
+     Instance: 600; Time: 36.82s; loss: 904.6750;mapping_loss: 0.0000; acc: 120001.0/122241.0=0.9817
+     Instance: 700; Time: 35.91s; loss: 870.9514;mapping_loss: 0.0000; acc: 139932.0/142555.0=0.9816
+     Instance: 800; Time: 32.25s; loss: 858.9417;mapping_loss: 0.0000; acc: 159317.0/162308.0=0.9816
+     Instance: 900; Time: 34.21s; loss: 769.0943;mapping_loss: 0.0000; acc: 178622.0/181973.0=0.9816
+     Instance: 987; Time: 27.62s; loss: 671.7634;mapping_loss: 0.0000; acc: 196614.0/200256.0=0.9818
+Epoch: 3 training finished. Time: 344.21s, speed: 45.91st/s,  total loss: 8322.56713867
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O
+0.99050963: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O
+0.00464005: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O
+0.00251207: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,O
+0.00136167: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O
+0.00034368: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,I-LOC,O
+0.00021952: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O
+0.00011551: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,I-LOC
+0.00011476: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,B-LOC,O
+0.00010460: O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O
+0.00007848: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O
+------------------------------
+gold:       O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+------------------------------
+gold:       O,O,O,O,B-PER,I-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.98719758: O,O,O,O,B-PER,I-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.01087180: O,O,O,O,B-PER,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00133771: O,O,O,O,B-MISC,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00016521: O,O,O,O,B-ORG,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00013648: O,O,O,O,B-MISC,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00006833: O,O,O,B-MISC,B-PER,I-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00006697: O,O,O,O,B-MISC,I-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00005994: O,O,O,O,B-PER,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00005855: O,O,O,O,B-PER,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00003735: O,O,O,O,B-PER,I-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O
+------------------------------
+gold:       O,O,O,O,B-PER,O,O,O,O,O,O,O
+0.98205286: O,O,O,O,B-PER,O,O,O,O,O,O,O
+0.00751066: O,O,O,O,B-MISC,O,O,O,O,O,O,O
+0.00342355: O,O,O,O,B-ORG,O,O,O,O,O,O,O
+0.00313560: O,O,O,B-PER,I-PER,O,O,O,O,O,O,O
+0.00144761: O,O,O,O,B-LOC,O,O,O,O,O,O,O
+0.00131823: O,O,O,O,I-PER,O,O,O,O,O,O,O
+0.00046009: O,O,O,O,B-PER,I-PER,O,O,O,O,O,O
+0.00035668: O,O,O,B-MISC,B-PER,O,O,O,O,O,O,O
+0.00016638: B-MISC,O,O,O,B-PER,O,O,O,O,O,O,O
+0.00012845: O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O
+0.66213745: O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O
+0.15136652: O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,I-ORG,O,O,O,O,O,O
+0.08914142: O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O
+0.04382891: O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,O,O,O,O,O,O,O
+0.03537802: O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,I-MISC,O,O,O,O,O,O
+0.00703235: O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,O,O
+0.00435969: O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O
+0.00309999: O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,I-PER,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O
+0.00199321: O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,I-MISC,O,O,O,O,O,O
+0.00166235: O,O,O,O,O,O,O,O,O,O,O,O,B-PER,B-PER,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.99930108: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00011359: O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00010926: O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O
+0.00009397: O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00008341: O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O,O
+0.00007451: O,O,O,O,O,O,O,O,O,O,O,O,O,I-MISC,O,O,O,O,O,O,O,O
+0.00006671: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O
+0.00005838: O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00005359: O,O,O,O,O,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00004552: O,O,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O
+0.99983954: O,O
+0.00006836: O,O
+0.00004801: O,B-MISC
+0.00000902: B-MISC,O
+0.00000887: B-ORG,O
+0.00000742: O,O
+0.00000618: I-MISC,O
+0.00000512: O,O
+0.00000387: O,O
+0.00000356: O,B-MISC
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O
+0.99972183: O,O,O,O,O,O,O,O,O
+0.00016670: O,B-MISC,O,O,O,O,O,O,O
+0.00003224: O,O,O,O,O,O,O,B-MISC,O
+0.00001668: B-MISC,O,O,O,O,O,O,O,O
+0.00001473: O,O,O,O,B-MISC,O,O,O,O
+0.00001252: O,I-MISC,O,O,O,O,O,O,O
+0.00000957: O,B-PER,O,O,O,O,O,O,O
+0.00000947: O,O,O,O,O,I-MISC,O,O,O
+0.00000888: O,O,O,O,I-MISC,O,O,O,O
+0.00000727: O,O,O,O,O,B-MISC,O,O,O
+------------------------------
+gold:       B-ORG,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O
+0.77408153: B-ORG,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O
+0.08392353: O,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O
+0.08218735: B-PER,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O
+0.02413786: B-MISC,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O
+0.01054344: B-ORG,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O
+0.00922820: B-ORG,O,O,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O
+0.00798878: I-ORG,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O
+0.00388274: B-ORG,O,O,O,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O,O,O
+0.00201754: B-LOC,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O
+0.00200900: I-PER,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+gold_num =  2616  pred_num =  2628  right_num =  2175
+	LOC: p: 0.8870, r: 0.8685, f: 0.8776, 479, 469, 416
+	MISC: p: 0.7892, r: 0.7807, f: 0.7849, 748, 740, 584
+	PER: p: 0.8370, r: 0.9275, f: 0.8799, 703, 779, 652
+	ORG: p: 0.8172, r: 0.7624, f: 0.7888, 686, 640, 523
+Dev: time: 42.08s, speed: 69.15st/s; acc: 0.9819, p: 0.8276, r: 0.8314, f: 0.8295
+Exceed previous best f score: 0.793901968352
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O
+0.99964070: O,O,O,O,O,O,O,O,O
+0.00011456: O,B-MISC,O,O,O,O,O,O,O
+0.00010610: B-MISC,O,O,O,O,O,O,O,O
+0.00003978: O,O,O,O,O,O,B-MISC,O,O
+0.00003492: O,B-ORG,O,O,O,O,O,O,O
+0.00002165: I-MISC,O,O,O,O,O,O,O,O
+0.00001106: B-ORG,O,O,O,O,O,O,O,O
+0.00001063: I-ORG,O,O,O,O,O,O,O,O
+0.00001058: B-MISC,I-MISC,O,O,O,O,O,O,O
+0.00000999: O,I-MISC,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.99909794: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00056517: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O
+0.00008817: O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00006128: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O
+0.00005271: O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O
+0.00003494: O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O
+0.00002786: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,O
+0.00002622: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,I-MISC,O,O
+0.00002284: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O
+0.00002283: O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,B-MISC,I-MISC
+0.50846916: O,O,O,O,O,B-MISC,I-MISC
+0.29076773: O,O,O,O,O,B-MISC,I-MISC
+0.18008643: O,O,O,O,O,B-MISC,I-MISC
+0.00531585: O,O,O,O,O,B-MISC,I-MISC
+0.00513296: O,O,O,O,O,B-PER,I-PER
+0.00238804: O,O,O,O,O,B-ORG,I-ORG
+0.00229694: O,O,O,O,O,B-MISC,I-MISC
+0.00211742: O,O,O,O,O,B-PER,I-PER
+0.00178777: O,O,O,O,O,B-MISC,I-MISC
+0.00163767: O,O,O,O,O,B-PER,I-PER
+------------------------------
+gold:       O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,B-MISC,O,O,O
+0.63350284: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,B-MISC,O,O,O
+0.24156116: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,B-MISC,O,O,O
+0.06803780: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,B-MISC,I-MISC,O,O
+0.02594351: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,B-MISC,I-MISC,O,O
+0.00920314: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,I-ORG,B-MISC,O,O,O
+0.00817146: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,B-ORG,O,O,O
+0.00388569: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,I-MISC,B-MISC,O,O,O
+0.00328940: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,B-ORG,I-ORG,O,O
+0.00328920: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,O,B-MISC,O,O,O
+0.00311586: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,B-ORG,O,O,O
+------------------------------
+gold:       B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,B-LOC,I-LOC,O,O,B-LOC,O
+0.39185977: B-PER,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,B-LOC,I-LOC,O,O,B-LOC,O
+0.30211344: B-PER,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,B-LOC,I-LOC,O,O,B-LOC,O
+0.07077413: B-PER,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,B-LOC,B-LOC,O,O,B-LOC,O
+0.05933737: B-PER,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,B-LOC,I-LOC,O,O,B-LOC,O
+0.05456498: B-PER,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,B-LOC,B-LOC,O,O,B-LOC,O
+0.03041218: B-PER,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,O,B-LOC,I-LOC,O,O,B-LOC,O
+0.02714839: B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,B-LOC,I-LOC,O,O,B-LOC,O
+0.02420087: B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,B-LOC,I-LOC,O,O,B-LOC,O
+0.02093069: B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,B-LOC,I-LOC,O,O,B-LOC,O
+0.01865823: B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,B-LOC,I-LOC,O,O,B-LOC,O
+------------------------------
+gold:       B-ORG,O,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O
+0.16228352: B-ORG,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O
+0.14914259: B-ORG,O,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O
+0.14218695: O,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O
+0.13067333: O,O,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O
+0.12763461: B-ORG,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O
+0.11183225: O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O
+0.06044877: B-MISC,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O
+0.05555392: B-MISC,O,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O
+0.04754389: B-MISC,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O
+0.01270017: B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,B-MISC,O,O,O,O,O
+0.90476644: O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,B-MISC,O,O,O,O,O
+0.05210977: O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,B-MISC,I-MISC,O,O,O,O
+0.01940822: O,O,O,O,O,O,O,B-ORG,O,O,O,O,O,B-MISC,O,O,O,O,O
+0.01591806: O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,B-MISC,O,O,O,O,O
+0.00323094: O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,B-MISC,B-MISC,O,O,O,O
+0.00111781: O,O,O,O,O,O,O,B-ORG,O,O,O,O,O,B-MISC,I-MISC,O,O,O,O
+0.00110474: O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,B-LOC,O,O,O,O,O
+0.00091680: O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,B-MISC,I-MISC,O,O,O,O
+0.00079147: O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,B-MISC,I-ORG,O,O,O,O
+0.00063574: O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,B-ORG,O,O,O,O,O
+------------------------------
+gold:       B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.98527467: B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00562305: I-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00351495: B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00259358: B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00061081: B-PER,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00056979: B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00056449: B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O
+0.00043793: I-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00043168: B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,O,O,O,O
+0.00037919: B-PER,I-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O
+0.99964309: O,O,O,O,O,O,O,O,O,O,O
+0.00014329: O,O,O,O,O,O,O,O,O,B-MISC,O
+0.00010986: O,O,O,B-MISC,O,O,O,O,O,O,O
+0.00002962: B-MISC,O,O,O,O,O,O,O,O,O,O
+0.00001548: O,O,O,O,O,O,O,O,O,B-ORG,O
+0.00001261: O,O,O,O,O,O,B-MISC,O,O,O,O
+0.00001236: O,O,O,O,O,O,O,O,B-MISC,O,O
+0.00001225: I-MISC,O,O,O,O,O,O,O,O,O,O
+0.00001178: O,O,O,I-MISC,O,O,O,O,O,O,O
+0.00000955: O,O,O,O,O,O,O,O,O,I-MISC,O
+------------------------------
+gold:       O,O,O,O,O
+0.99879092: O,O,O,O,O
+0.00064880: O,O,O,O,O
+0.00013472: O,O,O,O,O
+0.00012368: O,O,O,O,B-MISC
+0.00011473: O,O,O,O,O
+0.00006907: O,O,O,O,O
+0.00003840: O,O,O,O,B-PER
+0.00003372: O,O,O,O,O
+0.00002324: O,O,O,O,B-MISC
+0.00002258: O,O,O,O,O
+gold_num =  3867  pred_num =  3854  right_num =  3091
+	LOC: p: 0.8346, r: 0.8809, f: 0.8571, 739, 780, 651
+	MISC: p: 0.8047, r: 0.6976, f: 0.7473, 1187, 1029, 828
+	PER: p: 0.8271, r: 0.9169, f: 0.8697, 1059, 1174, 971
+	ORG: p: 0.7359, r: 0.7268, f: 0.7313, 882, 871, 641
+Test: time: 70.57s, speed: 74.09st/s; acc: 0.9813, p: 0.8020, r: 0.7993, f: 0.8007
+best_dev_score: 0.8295, best_dev_epoch:2
+best_test_score: 0.8007, best_test_epoch:2
+Epoch: 4/600
+Learning rate is setted as: 0.0130434782609
+     Instance: 0; Time: 0.36s; loss: 3.7017;mapping_loss: 0.0000; acc: 277.0/278.0=0.9964
+     Instance: 100; Time: 33.34s; loss: 751.5927;mapping_loss: 0.0000; acc: 21270.0/21613.0=0.9841
+     Instance: 200; Time: 33.00s; loss: 652.8077;mapping_loss: 0.0000; acc: 41754.0/42373.0=0.9854
+     Instance: 300; Time: 35.98s; loss: 703.9715;mapping_loss: 0.0000; acc: 61233.0/62168.0=0.9850
+     Instance: 400; Time: 32.72s; loss: 637.3003;mapping_loss: 0.0000; acc: 80803.0/82006.0=0.9853
+     Instance: 500; Time: 31.22s; loss: 584.1955;mapping_loss: 0.0000; acc: 100533.0/101980.0=0.9858
+     Instance: 600; Time: 36.93s; loss: 545.1543;mapping_loss: 0.0000; acc: 120863.0/122574.0=0.9860
+     Instance: 700; Time: 35.38s; loss: 566.2491;mapping_loss: 0.0000; acc: 140100.0/142066.0=0.9862
+     Instance: 800; Time: 39.03s; loss: 627.4691;mapping_loss: 0.0000; acc: 159946.0/162183.0=0.9862
+     Instance: 900; Time: 35.69s; loss: 704.6942;mapping_loss: 0.0000; acc: 179404.0/181952.0=0.9860
+     Instance: 987; Time: 34.41s; loss: 600.7842;mapping_loss: 0.0000; acc: 197456.0/200256.0=0.9860
+Epoch: 4 training finished. Time: 348.04s, speed: 45.40st/s,  total loss: 6377.92028809
+------------------------------
+gold:       B-PER,I-PER
+0.99890542: B-PER,I-PER
+0.00065068: B-PER,I-PER
+0.00017342: B-PER,B-PER
+0.00010487: B-PER,B-PER
+0.00006035: I-PER,I-PER
+0.00004447: B-PER,I-PER
+0.00001682: B-PER,I-PER
+0.00001561: B-PER,I-PER
+0.00001511: B-PER,I-PER
+0.00001331: B-PER,B-PER
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O
+0.99927765: O,O,O,O,O,O,O,O,O,O
+0.00030646: O,B-MISC,O,O,O,O,O,O,O,O
+0.00016458: O,B-MISC,I-MISC,O,O,O,O,O,O,O
+0.00012881: O,O,B-MISC,O,O,O,O,O,O,O
+0.00003581: O,I-MISC,O,O,O,O,O,O,O,O
+0.00003390: O,O,I-MISC,O,O,O,O,O,O,O
+0.00001537: O,O,O,O,O,O,O,O,B-MISC,O
+0.00001535: O,I-MISC,I-MISC,O,O,O,O,O,O,O
+0.00001171: O,B-ORG,O,O,O,O,O,O,O,O
+0.00001021: O,B-LOC,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.99964356: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00008241: O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00004944: B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00004766: O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O
+0.00004252: O,O,O,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00003893: O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00002709: O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00002691: O,O,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00002391: O,O,O,O,O,O,O,O,O,O,O,O,O,O,I-MISC,O,O,O,O,O,O,O,O,O,O
+0.00001741: I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,B-PER,O,O,O,O,B-PER,O,B-LOC,O
+0.89477235: O,O,O,O,O,O,O,O,B-PER,O,O,O,O,B-PER,O,B-LOC,O
+0.02862581: O,O,O,O,O,O,O,O,B-PER,O,O,O,O,B-ORG,O,B-LOC,O
+0.02097507: O,O,O,O,O,O,O,O,B-ORG,O,O,O,O,B-PER,O,B-LOC,O
+0.01281398: O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,B-PER,O,B-LOC,O
+0.01216206: O,O,O,O,O,O,O,O,B-LOC,O,O,O,O,B-PER,O,B-LOC,O
+0.01161823: O,O,O,O,O,O,O,O,B-PER,O,O,O,O,B-MISC,O,B-LOC,O
+0.00830140: O,O,O,O,O,O,O,O,B-PER,O,O,O,O,B-LOC,O,B-LOC,O
+0.00432356: O,O,O,O,O,O,O,O,B-PER,O,O,O,O,B-PER,O,B-ORG,O
+0.00404010: O,O,O,O,O,O,O,O,B-PER,O,O,O,O,B-PER,O,B-PER,O
+0.00236738: O,O,O,O,O,O,O,O,B-PER,O,O,O,O,B-PER,O,B-MISC,O
+------------------------------
+gold:       O,O,O,O,B-PER,I-PER,O,B-MISC
+0.77613252: O,O,O,O,B-PER,I-PER,O,B-MISC
+0.17622812: O,O,O,O,B-PER,I-PER,O,B-MISC
+0.02411721: O,O,O,O,B-PER,I-PER,O,B-MISC
+0.01774605: O,O,O,O,B-PER,I-PER,O,B-MISC
+0.00128503: O,O,O,O,B-PER,I-PER,O,B-MISC
+0.00120643: O,O,O,O,B-PER,I-PER,O,B-LOC
+0.00113949: O,O,O,O,B-PER,I-PER,O,B-LOC
+0.00112298: O,O,O,O,B-PER,I-PER,O,B-MISC
+0.00066838: O,O,O,O,B-PER,I-PER,O,B-ORG
+0.00035378: O,O,O,O,B-PER,I-PER,O,B-PER
+------------------------------
+gold:       B-MISC,O,O,O,B-ORG
+0.42804217: B-MISC,O,O,O,B-MISC
+0.13682771: B-PER,O,O,O,B-MISC
+0.13655761: O,O,O,O,B-MISC
+0.10149590: B-MISC,O,O,O,B-MISC
+0.06498278: B-MISC,O,O,O,B-ORG
+0.03244406: B-PER,O,O,O,B-MISC
+0.03238001: O,O,O,O,B-MISC
+0.02595235: B-MISC,O,O,O,B-MISC
+0.02097881: B-MISC,O,O,O,B-MISC
+0.02033859: B-LOC,O,O,O,B-MISC
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,B-MISC,O,O
+0.62165225: O,O,O,O,O,O,O,O,O,B-LOC,O,O
+0.27994633: O,O,O,O,O,O,O,O,O,B-MISC,O,O
+0.07871468: O,O,O,O,O,O,O,O,O,B-ORG,O,O
+0.00659074: O,O,O,O,O,O,O,O,O,B-PER,O,O
+0.00384177: O,O,O,O,O,O,O,O,O,I-LOC,O,O
+0.00301776: O,O,O,O,O,O,O,O,O,O,O,O
+0.00246209: O,O,O,O,O,O,O,O,O,I-ORG,O,O
+0.00136690: O,O,O,O,O,O,O,O,B-ORG,I-ORG,O,O
+0.00122002: O,O,O,O,O,O,O,O,B-LOC,I-LOC,O,O
+0.00118749: O,O,O,O,O,O,O,O,O,B-MISC,I-MISC,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O
+0.99848962: O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O
+0.00122171: O,O,O,O,O,O,O,O,O,O,O,O,B-PER,B-PER,O
+0.00008460: O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-LOC,O
+0.00003959: O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,B-PER,O
+0.00003794: O,O,O,O,O,O,O,O,O,O,O,B-MISC,B-PER,I-PER,O
+0.00002908: O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O
+0.00002832: O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,I-PER
+0.00002505: O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-MISC,O
+0.00002325: O,O,O,O,B-MISC,O,O,O,O,O,O,O,B-PER,I-PER,O
+0.00002088: O,O,O,O,O,O,O,O,O,O,O,O,B-PER,B-LOC,O
+------------------------------
+gold:       O,O,O,B-MISC,O,B-MISC,I-MISC,I-MISC,O,B-PER,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O
+0.27856466: O,O,O,B-MISC,O,B-MISC,I-MISC,I-MISC,O,B-PER,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O
+0.25498644: O,O,O,B-MISC,O,B-MISC,I-MISC,I-MISC,O,B-PER,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O
+0.24037972: O,O,O,B-MISC,O,B-MISC,I-MISC,I-MISC,O,B-PER,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,O,O,O,O,O,O,O
+0.08233602: O,O,O,B-MISC,O,B-MISC,I-MISC,I-MISC,O,B-PER,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,I-MISC,O,O,O,O,O,O
+0.02924157: O,O,O,B-MISC,O,B-MISC,I-MISC,I-MISC,O,B-PER,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,O,O,O,O,O,O
+0.02734863: O,O,O,B-MISC,O,B-MISC,I-MISC,I-MISC,O,B-PER,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.02568069: O,O,O,B-ORG,O,B-MISC,I-MISC,I-MISC,O,B-PER,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O
+0.02350702: O,O,O,B-ORG,O,B-MISC,I-MISC,I-MISC,O,B-PER,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O
+0.02216044: O,O,O,B-ORG,O,B-MISC,I-MISC,I-MISC,O,B-PER,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,O,O,O,O,O,O,O
+0.01579488: O,O,O,B-MISC,O,B-MISC,I-MISC,I-MISC,O,B-PER,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,I-ORG,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.99950540: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00037579: O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00004313: O,O,O,O,O,O,O,O,O,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00002667: O,O,O,O,O,O,O,O,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00001428: O,O,O,O,O,O,O,O,O,I-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00000757: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O
+0.00000749: O,O,O,O,O,O,O,O,O,B-MISC,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00000690: O,O,O,O,O,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00000645: O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00000618: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,I-MISC,O,O,O
+gold_num =  2616  pred_num =  2579  right_num =  2128
+	LOC: p: 0.8458, r: 0.8935, f: 0.8690, 479, 506, 428
+	MISC: p: 0.7353, r: 0.8021, f: 0.7673, 748, 816, 600
+	PER: p: 0.8717, r: 0.8890, f: 0.8803, 703, 717, 625
+	ORG: p: 0.8796, r: 0.6924, f: 0.7749, 686, 540, 475
+Dev: time: 47.23s, speed: 61.62st/s; acc: 0.9811, p: 0.8251, r: 0.8135, f: 0.8192
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.99901867: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00030487: B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00017421: O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00011312: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O
+0.00009519: O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00008898: B-MISC,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00007669: O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00004955: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,I-MISC,O
+0.00004399: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O
+0.00003479: I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+------------------------------
+gold:       O,O
+0.99163049: O,O
+0.00498037: B-MISC,O
+0.00247590: O,O
+0.00027338: B-MISC,I-MISC
+0.00020225: I-MISC,O
+0.00010895: B-ORG,O
+0.00010845: B-MISC,O
+0.00009214: O,O
+0.00008492: B-PER,O
+0.00004309: I-MISC,I-MISC
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.99868017: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00029902: O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00024166: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,O,O,O,O,O,O,O,O,O
+0.00023995: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O
+0.00013883: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,I-MISC,O,O,O,O,O,O,O,O,O
+0.00012554: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O
+0.00010447: O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00006653: O,O,O,O,O,O,O,O,O,O,O,O,O,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00005252: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,I-MISC,O,O,O,O,O,O
+0.00005120: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.99874616: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00045060: O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00019672: B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00016743: B-MISC,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00014476: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O
+0.00008212: O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00006189: O,B-MISC,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00005691: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O
+0.00005370: O,I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00003959: I-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       B-LOC,O,O,O,O,O,O,O
+0.28277665: B-ORG,I-ORG,O,O,O,O,O,O
+0.26811796: B-LOC,I-LOC,O,O,O,O,O,O
+0.15076934: B-LOC,O,O,O,O,O,O,O
+0.12062640: B-ORG,I-ORG,I-ORG,O,O,O,O,O
+0.07386187: B-MISC,I-MISC,O,O,O,O,O,O
+0.04080005: B-MISC,I-MISC,I-MISC,O,O,O,O,O
+0.01793841: B-MISC,O,O,O,O,O,O,O
+0.01681677: B-ORG,O,O,O,O,O,O,O
+0.01560610: B-LOC,I-ORG,O,O,O,O,O,O
+0.01268641: B-ORG,I-ORG,I-ORG,I-ORG,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O
+0.99760473: O,O,O,O,O,O,O
+0.00079468: O,O,B-MISC,O,O,O,O
+0.00034947: B-MISC,O,O,O,O,O,O
+0.00024765: O,O,O,O,O,B-MISC,O
+0.00021795: O,B-MISC,I-MISC,O,O,O,O
+0.00021718: B-MISC,I-MISC,I-MISC,O,O,O,O
+0.00016916: O,O,B-MISC,I-MISC,O,O,O
+0.00016343: B-MISC,I-MISC,O,O,O,O,O
+0.00013087: O,B-MISC,O,O,O,O,O
+0.00010496: O,O,I-MISC,O,O,O,O
+------------------------------
+gold:       O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.92152852: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.07143027: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O
+0.00396674: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,O,O
+0.00081753: O,O,O,O,O,O,O,O,O,O,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00056034: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,I-MISC,O,O
+0.00038399: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,I-LOC,O,O
+0.00037376: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,I-ORG,O,O
+0.00036932: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,I-MISC,O
+0.00032198: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-ORG,O,O
+0.00024751: O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-MISC,I-MISC,O,O
+------------------------------
+gold:       B-PER,I-PER,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.76473016: B-PER,I-PER,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.05384345: B-PER,I-PER,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-PER,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.02969890: B-PER,I-PER,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-LOC,I-LOC,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.02757786: B-PER,I-PER,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.02611657: B-PER,I-PER,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-ORG,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.02595765: B-PER,I-PER,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-MISC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.02581545: B-PER,I-PER,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-LOC,I-LOC,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.01894703: B-PER,I-PER,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.01752528: B-PER,I-PER,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-LOC,I-LOC,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+0.00978768: B-PER,I-PER,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-PER,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,B-PER,I-PER,O,B-LOC,O,O,B-PER,I-PER,O,B-LOC,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O
+------------------------------
+gold:       O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+0.10000000: O
+gold_num =  3867  pred_num =  3768  right_num =  3117
+	LOC: p: 0.8245, r: 0.9093, f: 0.8649, 739, 815, 672
+	MISC: p: 0.7711, r: 0.7548, f: 0.7629, 1187, 1162, 896
+	PER: p: 0.8773, r: 0.9178, f: 0.8971, 1059, 1108, 972
+	ORG: p: 0.8448, r: 0.6542, f: 0.7374, 882, 683, 577
+Test: time: 87.48s, speed: 59.74st/s; acc: 0.9820, p: 0.8272, r: 0.8061, f: 0.8165
+best_dev_score: 0.8295, best_dev_epoch:2
+best_test_score: 0.8165, best_test_epoch:3
+Epoch: 5/600
+Learning rate is setted as: 0.0125
+     Instance: 0; Time: 0.28s; loss: 5.7158;mapping_loss: 0.0000; acc: 222.0/223.0=0.9955
+     Instance: 100; Time: 38.81s; loss: 525.4467;mapping_loss: 0.0000; acc: 20711.0/20938.0=0.9892
+     Instance: 200; Time: 37.25s; loss: 515.5242;mapping_loss: 0.0000; acc: 40753.0/41207.0=0.9890
+     Instance: 300; Time: 39.10s; loss: 475.1096;mapping_loss: 0.0000; acc: 60500.0/61168.0=0.9891
+     Instance: 400; Time: 42.50s; loss: 457.0750;mapping_loss: 0.0000; acc: 80497.0/81359.0=0.9894
+     Instance: 500; Time: 38.13s; loss: 595.8560;mapping_loss: 0.0000; acc: 99850.0/100991.0=0.9887
+     Instance: 600; Time: 47.51s; loss: 522.0311;mapping_loss: 0.0000; acc: 120722.0/122094.0=0.9888
+     Instance: 700; Time: 36.83s; loss: 482.3365;mapping_loss: 0.0000; acc: 141257.0/142847.0=0.9889
+     Instance: 800; Time: 28.95s; loss: 522.5513;mapping_loss: 0.0000; acc: 161253.0/163102.0=0.9887
+     Instance: 900; Time: 20.04s; loss: 431.8192;mapping_loss: 0.0000; acc: 180878.0/182945.0=0.9887

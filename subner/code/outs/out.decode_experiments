@@ -1,0 +1,936 @@
+]0;IPython: xiangyuejia/lrner-baseSeed num: None
+Random Seed num: 64151
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Tag          scheme: BIO
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 34691
+     Char  alphabet size: 91
+     Label alphabet size: 10
+     Trans alphabet size: 82214
+     Word embedding  dir: data/wiki.nl.vec
+     Char embedding  dir: None
+     Tran embedding  dir: data/glove.6B.100d.txt
+     Word embedding size: 300
+     Char embedding size: 30
+     Tran embedding size: 100
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Norm   tran     emb: False
+   Data bin file directory: data/data.base2.substring.pickle
+     Train  file directory: data/ned.train
+     Dev    file directory: data/ned.testa
+     Test   file directory: data/ned.testb
+     Raw    file directory: None
+     Model  file directory: save-substring/
+     Loadmodel   directory: None
+     Decode file directory: None
+     Train instance number: 15802
+     Dev   instance number: 2895
+     Test  instance number: 5194
+     Raw   instance number: 0
+     FEATURE num: 1
+         Fe: feature_1  alphabet  size: 15
+         Fe: feature_1  embedding  dir: data/ned_pos.vector30
+         Fe: feature_1  embedding size: 30
+         Fe: feature_1  norm       emb: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: LSTM
+     Model       use_char: True
+     Model char_seq_feature: LSTM
+     Model char_hidden_dim: 50
+     Model trans_hidden_dim: 200
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     show_loss_per_batch: 100
+     save_model: False
+     state_training_name: default
+     Optimizer: SGD
+     Iteration: 600
+     BatchSize: 16
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper        seed_num: 64151
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper            clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 2
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      substring dir : data/substring/
+    bpe_emb_dir dir : None
+    pos_emb_dir dir : None
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      circul time   : 4
+      circul deepth : 2
+ gather output mode : concat
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ decode prepare mode : inturn_small
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+MODEL: decode_prepare
+decode prepare ...
+build network...
+use_char:  True
+char feature extractor:  LSTM
+use_trans:  True
+word feature extractor:  LSTM
+use crf:  True
+Build word sequence feature extractor: LSTM...
+Build word representation...
+Build translation sequence feature extractor: LSTM ...
+Build char sequence feature extractor: LSTM ...
+build CRF...
+model:SeqModel(
+  (word_hidden): WordSequence(
+    (droplstm): Dropout(p=0.5)
+    (wordrep): WordRep(
+      (trans_feature): TransBiLSTM(
+        (trans_drop): Dropout(p=0.5)
+        (trans_embeddings): Embedding(82214, 100)
+        (trans_lstm): LSTM(100, 100, batch_first=True, bidirectional=True)
+      )
+      (char_feature): CharBiLSTM(
+        (char_drop): Dropout(p=0.5)
+        (char_embeddings): Embedding(91, 30)
+        (char_lstm): LSTM(30, 25, batch_first=True, bidirectional=True)
+      )
+      (drop): Dropout(p=0.5)
+      (word_embedding): Embedding(34691, 300)
+      (feature_embeddings): ModuleList(
+        (0): Embedding(15, 30)
+      )
+    )
+    (lstm): LSTM(580, 100, num_layers=2, batch_first=True, bidirectional=True)
+    (hidden2tag): Linear(in_features=200, out_features=12, bias=True)
+  )
+  (crf): CRF()
+)
+get middle Time: 49.85s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+get_init_score
+1000
+2000
+3000
+4000
+5000
+dynamic_planning Time: 4.54s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+checked: ('word', 2, (3, 5)) len is 63391
+checked: ('word', 7, (2, 3)) len is 44336
+checked: ('word', 1, (2,)) len is 68585
+checked: ('word', 5, (5,)) len is 51537
+checked: ('word', 1, (3, 4, 5)) len is 68585
+checked: ('word', 5, (2, 4, 5)) len is 51537
+checked: ('word', 3, (4, 5)) len is 59181
+checked: ('word', 7, (2, 3, 4)) len is 44336
+checked: ('word', 5, (2, 3)) len is 51537
+checked: ('word', 7, (5,)) len is 44336
+checked: ('word', 3, (2, 3, 5)) len is 59181
+checked: ('word', 1, (2, 5)) len is 68585
+checked: ('word', 5, (3,)) len is 51537
+checked: ('word', 6, (2, 3, 4, 5)) len is 47842
+checked: ('word', 1, (2, 3, 4, 5)) len is 68585
+checked: ('word', 6, (2, 5)) len is 47842
+checked: ('word', 5, (2, 3, 5)) len is 51537
+checked: ('word', 7, (2, 4, 5)) len is 44336
+checked: ('word', 4, (2, 4)) len is 55305
+checked: ('word', 2, (3, 4)) len is 63391
+checked: ('word', 1, (4, 5)) len is 68585
+checked: ('word', 7, (2, 4)) len is 44336
+checked: ('word', 1, (3, 5)) len is 68585
+checked: ('word', 3, (2, 3)) len is 59181
+checked: ('word', 5, (2,)) len is 51537
+checked: ('word', 4, (2, 3, 4)) len is 55305
+checked: ('word', 2, (3, 4, 5)) len is 63391
+checked: ('word', 5, (2, 3, 4)) len is 51537
+checked: ('word', 4, (2,)) len is 55305
+checked: ('word', 5, (2, 4)) len is 51537
+checked: ('word', 1, (2, 3)) len is 68585
+checked: ('word', 4, (2, 3, 5)) len is 55305
+checked: ('word', 7, (2, 3, 5)) len is 44336
+checked: ('word', 1, (3,)) len is 68585
+checked: ('word', 6, (3,)) len is 47842
+checked: ('word', 4, (3,)) len is 55305
+checked: ('word', 6, (2,)) len is 47842
+checked: ('word', 4, (2, 3)) len is 55305
+checked: ('word', 7, (4,)) len is 44336
+checked: ('word', 3, (2, 4)) len is 59181
+checked: ('word', 4, (2, 4, 5)) len is 55305
+checked: ('word', 3, (2, 3, 4)) len is 59181
+checked: ('word', 7, (2, 5)) len is 44336
+checked: ('word', 3, (2,)) len is 59181
+checked: ('word', 7, (2, 3, 4, 5)) len is 44336
+checked: ('word', 2, (2, 3, 4, 5)) len is 63391
+checked: ('word', 6, (2, 3)) len is 47842
+checked: ('word', 2, (2, 5)) len is 63391
+checked: ('word', 4, (5,)) len is 55305
+checked: ('word', 6, (2, 3, 4)) len is 47842
+checked: ('word', 6, (2, 4)) len is 47842
+checked: ('word', 2, (2, 4, 5)) len is 63391
+checked: ('word', 1, (2, 4)) len is 68585
+checked: ('word', 5, (3, 5)) len is 51537
+checked: ('word', 2, (4, 5)) len is 63391
+checked: ('word', 2, (3,)) len is 63391
+checked: ('word', 2, (5,)) len is 63391
+checked: ('word', 5, (4,)) len is 51537
+checked: ('word', 3, (3, 5)) len is 59181
+checked: ('word', 1, (2, 3, 4)) len is 68585
+checked: ('word', 3, (4,)) len is 59181
+checked: ('word', 4, (4, 5)) len is 55305
+checked: ('word', 7, (2,)) len is 44336
+checked: ('word', 6, (4, 5)) len is 47842
+checked: ('word', 2, (2, 3)) len is 63391
+checked: ('word', 4, (2, 3, 4, 5)) len is 55305
+checked: ('word', 7, (3, 4, 5)) len is 44336
+checked: ('word', 4, (2, 5)) len is 55305
+checked: ('word', 2, (2, 4)) len is 63391
+checked: ('word', 7, (3, 4)) len is 44336
+checked: ('word', 2, (2,)) len is 63391
+checked: ('word', 4, (3, 4)) len is 55305
+checked: ('word', 6, (4,)) len is 47842
+checked: ('word', 3, (2, 5)) len is 59181
+checked: ('word', 6, (5,)) len is 47842
+checked: ('word', 4, (3, 4, 5)) len is 55305
+checked: ('word', 3, (2, 3, 4, 5)) len is 59181
+checked: ('word', 1, (4,)) len is 68585
+checked: ('word', 5, (3, 4, 5)) len is 51537
+checked: ('word', 2, (2, 3, 4)) len is 63391
+checked: ('word', 2, (2, 3, 5)) len is 63391
+checked: ('word', 1, (2, 4, 5)) len is 68585
+checked: ('word', 6, (2, 4, 5)) len is 47842
+checked: ('word', 5, (3, 4)) len is 51537
+checked: ('word', 7, (4, 5)) len is 44336
+checked: ('word', 5, (2, 5)) len is 51537
+checked: ('word', 1, (5,)) len is 68585
+checked: ('word', 4, (3, 5)) len is 55305
+checked: ('word', 5, (2, 3, 4, 5)) len is 51537
+checked: ('word', 7, (3, 5)) len is 44336
+checked: ('word', 3, (2, 4, 5)) len is 59181
+checked: ('word', 3, (3, 4)) len is 59181
+checked: ('word', 5, (4, 5)) len is 51537
+checked: ('word', 2, (4,)) len is 63391
+checked: ('word', 6, (3, 5)) len is 47842
+checked: ('word', 6, (3, 4, 5)) len is 47842
+checked: ('word', 3, (5,)) len is 59181
+checked: ('word', 4, (4,)) len is 55305
+checked: ('word', 3, (3, 4, 5)) len is 59181
+checked: ('word', 6, (2, 3, 5)) len is 47842
+checked: ('word', 1, (2, 3, 5)) len is 68585
+checked: ('word', 3, (3,)) len is 59181
+checked: ('word', 1, (3, 4)) len is 68585
+checked: ('word', 6, (3, 4)) len is 47842
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0.03333333333333333, 0, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 534.96s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0.03333333333333333, 0, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0.025, 0, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 593.87s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0.025, 0, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0.06666666666666667, 0, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 631.02s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0.06666666666666667, 0, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0.001, 0, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 610.96s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0.001, 0, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0.01, 0, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 647.44s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0.01, 0, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0.0125, 0, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 729.42s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0.0125, 0, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0.016666666666666666, 0, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 796.83s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0.016666666666666666, 0, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0.1, 0, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 782.50s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0.1, 0, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0.2, 0, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 752.39s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0.2, 0, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0.03333333333333333, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 1428.06s
+gold_num =  3867  pred_num =  3796  right_num =  3335
+	LOC: p: 0.9187, r: 0.9175, f: 0.9181, 739, 738, 678
+	MISC: p: 0.8660, r: 0.7734, f: 0.8171, 1187, 1060, 918
+	PER: p: 0.9092, r: 0.9358, f: 0.9223, 1059, 1090, 991
+	ORG: p: 0.8238, r: 0.8481, f: 0.8358, 882, 908, 748
+p:0.878556375132, r:0.862425652961, f:0.87041628605
+add: 0.00164508855442; ad_len_weight [0, 0, 0.03333333333333333, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0.025, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 1230.64s
+gold_num =  3867  pred_num =  3797  right_num =  3333
+	LOC: p: 0.9186, r: 0.9161, f: 0.9173, 739, 737, 677
+	MISC: p: 0.8643, r: 0.7725, f: 0.8158, 1187, 1061, 917
+	PER: p: 0.9075, r: 0.9358, f: 0.9214, 1059, 1092, 991
+	ORG: p: 0.8247, r: 0.8481, f: 0.8362, 882, 907, 748
+p:0.877798261786, r:0.861908456168, f:0.869780793319
+add: 0.00100959582398; ad_len_weight [0, 0, 0.025, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0.06666666666666667, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 982.11s
+gold_num =  3867  pred_num =  3790  right_num =  3339
+	LOC: p: 0.9187, r: 0.9175, f: 0.9181, 739, 738, 678
+	MISC: p: 0.8663, r: 0.7751, f: 0.8181, 1187, 1062, 920
+	PER: p: 0.9108, r: 0.9358, f: 0.9231, 1059, 1088, 991
+	ORG: p: 0.8315, r: 0.8503, f: 0.8408, 882, 902, 750
+p:0.881002638522, r:0.863460046548, f:0.872143136999
+add: 0.00337193950339; ad_len_weight [0, 0, 0.06666666666666667, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0.001, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 942.98s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0.001, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0.01, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 970.23s
+gold_num =  3867  pred_num =  3799  right_num =  3332
+	LOC: p: 0.9173, r: 0.9161, f: 0.9167, 739, 738, 677
+	MISC: p: 0.8643, r: 0.7725, f: 0.8158, 1187, 1061, 917
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.877072913925, r:0.861649857771, f:0.869292981998
+add: 0.000521784503; ad_len_weight [0, 0, 0.01, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0.0125, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 950.44s
+gold_num =  3867  pred_num =  3799  right_num =  3332
+	LOC: p: 0.9173, r: 0.9161, f: 0.9167, 739, 738, 677
+	MISC: p: 0.8643, r: 0.7725, f: 0.8158, 1187, 1061, 917
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.877072913925, r:0.861649857771, f:0.869292981998
+add: 0.000521784503; ad_len_weight [0, 0, 0.0125, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0.016666666666666666, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 952.83s
+gold_num =  3867  pred_num =  3799  right_num =  3334
+	LOC: p: 0.9186, r: 0.9161, f: 0.9173, 739, 737, 677
+	MISC: p: 0.8636, r: 0.7734, f: 0.8160, 1187, 1063, 918
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8256, r: 0.8481, f: 0.8367, 882, 906, 748
+p:0.877599368255, r:0.862167054564, f:0.869814766501
+add: 0.001043569006; ad_len_weight [0, 0, 0.016666666666666666, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0.1, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 984.23s
+gold_num =  3867  pred_num =  3782  right_num =  3337
+	LOC: p: 0.9201, r: 0.9188, f: 0.9194, 739, 738, 679
+	MISC: p: 0.8677, r: 0.7734, f: 0.8178, 1187, 1058, 918
+	PER: p: 0.9117, r: 0.9358, f: 0.9236, 1059, 1087, 991
+	ORG: p: 0.8331, r: 0.8492, f: 0.8411, 882, 899, 749
+p:0.882337387626, r:0.862942849754, f:0.872532357171
+add: 0.00376115967544; ad_len_weight [0, 0, 0.1, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0.2, 0, 0, 0, 0, 0]
+dynamic_planning_plus Time: 1008.93s
+gold_num =  3867  pred_num =  3766  right_num =  3326
+	LOC: p: 0.9260, r: 0.9147, f: 0.9204, 739, 730, 676
+	MISC: p: 0.8688, r: 0.7700, f: 0.8164, 1187, 1052, 914
+	PER: p: 0.9140, r: 0.9330, f: 0.9234, 1059, 1081, 988
+	ORG: p: 0.8283, r: 0.8481, f: 0.8381, 882, 903, 748
+p:0.883165161976, r:0.860098267391, f:0.871479103891
+add: 0.00270790639557; ad_len_weight [0, 0, 0.2, 0, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0.03333333333333333, 0, 0, 0, 0]
+dynamic_planning_plus Time: 506.32s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0.03333333333333333, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0.025, 0, 0, 0, 0]
+dynamic_planning_plus Time: 507.70s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0.025, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0.06666666666666667, 0, 0, 0, 0]
+dynamic_planning_plus Time: 528.90s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0.06666666666666667, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0.001, 0, 0, 0, 0]
+dynamic_planning_plus Time: 530.42s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0.001, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0.01, 0, 0, 0, 0]
+dynamic_planning_plus Time: 501.15s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0.01, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0.0125, 0, 0, 0, 0]
+dynamic_planning_plus Time: 502.80s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0.0125, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0.016666666666666666, 0, 0, 0, 0]
+dynamic_planning_plus Time: 516.57s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0.016666666666666666, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0.1, 0, 0, 0, 0]
+dynamic_planning_plus Time: 516.73s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0.1, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0.2, 0, 0, 0, 0]
+dynamic_planning_plus Time: 491.93s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0.2, 0, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0.03333333333333333, 0, 0, 0]
+dynamic_planning_plus Time: 506.01s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0.03333333333333333, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0.025, 0, 0, 0]
+dynamic_planning_plus Time: 507.24s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0.025, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0.06666666666666667, 0, 0, 0]
+dynamic_planning_plus Time: 504.55s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0.06666666666666667, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0.001, 0, 0, 0]
+dynamic_planning_plus Time: 497.69s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0.001, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0.01, 0, 0, 0]
+dynamic_planning_plus Time: 524.29s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0.01, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0.0125, 0, 0, 0]
+dynamic_planning_plus Time: 507.66s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0.0125, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0.016666666666666666, 0, 0, 0]
+dynamic_planning_plus Time: 489.09s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0.016666666666666666, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0.1, 0, 0, 0]
+dynamic_planning_plus Time: 495.73s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0.1, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0.2, 0, 0, 0]
+dynamic_planning_plus Time: 524.41s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0.2, 0, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0.03333333333333333, 0, 0]
+dynamic_planning_plus Time: 500.26s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0.03333333333333333, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0.025, 0, 0]
+dynamic_planning_plus Time: 499.78s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0.025, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0.06666666666666667, 0, 0]
+dynamic_planning_plus Time: 519.60s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0.06666666666666667, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0.001, 0, 0]
+dynamic_planning_plus Time: 506.23s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0.001, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0.01, 0, 0]
+dynamic_planning_plus Time: 509.78s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0.01, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0.0125, 0, 0]
+dynamic_planning_plus Time: 500.63s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0.0125, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0.016666666666666666, 0, 0]
+dynamic_planning_plus Time: 496.71s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0.016666666666666666, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0.1, 0, 0]
+dynamic_planning_plus Time: 508.31s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0.1, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0.2, 0, 0]
+dynamic_planning_plus Time: 505.68s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0.2, 0, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0.03333333333333333, 0]
+dynamic_planning_plus Time: 530.62s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0.03333333333333333, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0.025, 0]
+dynamic_planning_plus Time: 529.91s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0.025, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0.06666666666666667, 0]
+dynamic_planning_plus Time: 510.45s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0.06666666666666667, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0.001, 0]
+dynamic_planning_plus Time: 510.72s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0.001, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0.01, 0]
+dynamic_planning_plus Time: 505.91s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0.01, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0.0125, 0]
+dynamic_planning_plus Time: 537.21s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0.0125, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0.016666666666666666, 0]
+dynamic_planning_plus Time: 490.09s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0.016666666666666666, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0.1, 0]
+dynamic_planning_plus Time: 514.76s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0.1, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0.2, 0]
+dynamic_planning_plus Time: 498.68s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0.2, 0]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.03333333333333333]
+dynamic_planning_plus Time: 535.77s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.03333333333333333]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.025]
+dynamic_planning_plus Time: 501.35s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.025]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.06666666666666667]
+dynamic_planning_plus Time: 516.67s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.06666666666666667]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.001]
+dynamic_planning_plus Time: 507.49s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.001]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.01]
+dynamic_planning_plus Time: 503.78s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.01]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.0125]
+dynamic_planning_plus Time: 523.42s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.0125]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.016666666666666666]
+dynamic_planning_plus Time: 520.29s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.016666666666666666]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.1]
+dynamic_planning_plus Time: 495.82s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.1]
+**********
+finally num is [63391, 68585, 59181, 55305, 51537, 47842, 44336, 40953]
+## experiment: ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.2]
+dynamic_planning_plus Time: 509.57s
+gold_num =  3867  pred_num =  3799  right_num =  3330
+	LOC: p: 0.9149, r: 0.9161, f: 0.9155, 739, 740, 677
+	MISC: p: 0.8640, r: 0.7709, f: 0.8148, 1187, 1059, 915
+	PER: p: 0.9067, r: 0.9358, f: 0.9210, 1059, 1093, 991
+	ORG: p: 0.8236, r: 0.8469, f: 0.8351, 882, 907, 747
+p:0.876546459595, r:0.861132660978, f:0.868771197495
+add: 0.0; ad_len_weight [0, 0, 0, 0, 0, 0, 0, 0.2]
+**********

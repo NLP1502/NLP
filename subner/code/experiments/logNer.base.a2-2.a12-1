@@ -1,0 +1,697 @@
+GPU device:0
+Seed num: 42
+MODEL: train
+Creating translation alphabet......
+Creating Id to Id translation dictionary......
+Load pretrained word embedding, norm: False, dir: ../lrner_new_ori/data/wiki.nl.vec
+embedd_dim:300
+Embedding:
+     pretrain word:871022, prefect match:20746, case_match:8346,delete_punc_match:133, oov:5465, oov%:0.157533654262
+Load pretrained trans embedding, norm: False, dir: ../lrner_new_ori/data/glove.6B.100d.txt
+embedd_dim:100
+Embedding:
+     pretrain word:400000, prefect match:0, case_match:0, oov:1, oov%:0.5
+Training model...
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DATA SUMMARY START:
+ I/O:
+     Tag          scheme: BIO
+     MAX SENTENCE LENGTH: 250
+     MAX   WORD   LENGTH: -1
+     Number   normalized: True
+     Word  alphabet size: 34691
+     Char  alphabet size: 91
+     Label alphabet size: 10
+     Trans alphabet size: 2
+     Word embedding  dir: ../lrner_new_ori/data/wiki.nl.vec
+     Char embedding  dir: None
+     Tran embedding  dir: ../lrner_new_ori/data/glove.6B.100d.txt
+     Word embedding size: 300
+     Char embedding size: 30
+     Tran embedding size: 100
+     Norm   word     emb: False
+     Norm   char     emb: False
+     Norm   tran     emb: False
+     Train  file directory: ../lrner_new_ori/data/ned.train
+     Dev    file directory: ../lrner_new_ori/data/ned.testa
+     Test   file directory: ../lrner_new_ori/data/ned.testb
+     Raw    file directory: None
+     Dset   file directory: None
+     Model  file directory: data/lstmcrf
+     Loadmodel   directory: None
+     Decode file directory: None
+     Train instance number: 15802
+     Dev   instance number: 2895
+     Test  instance number: 5194
+     Raw   instance number: 0
+     FEATURE num: 0
+ ++++++++++++++++++++++++++++++++++++++++
+ Model Network:
+     Model        use_crf: True
+     Model word extractor: LSTM
+     Model       use_char: True
+     Model char_seq_feature: LSTM
+     Model char_hidden_dim: 50
+     Model trans_hidden_dim: 200
+ ++++++++++++++++++++++++++++++++++++++++
+ Training:
+     Optimizer: SGD
+     Iteration: 300
+     BatchSize: 16
+     Average  batch   loss: False
+ ++++++++++++++++++++++++++++++++++++++++
+ Hyperparameters:
+     Hyper              lr: 0.015
+     Hyper        lr_decay: 0.05
+     Hyper         HP_clip: None
+     Hyper        momentum: 0.0
+     Hyper              l2: 1e-08
+     Hyper      hidden_dim: 200
+     Hyper         dropout: 0.5
+     Hyper      lstm_layer: 4
+     Hyper          bilstm: True
+     Hyper             GPU: True
+DATA SUMMARY END.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+build network...
+use_char:  True
+char feature extractor:  LSTM
+use_trans:  True
+word feature extractor:  LSTM
+use crf:  True
+Build word sequence feature extractor: LSTM...
+Build word representation...
+Build translation sequence feature extractor: LSTM ...
+Build char sequence feature extractor: LSTM ...
+build CRF...
+model:SeqModel(
+  (word_hidden): WordSequence(
+    (droplstm): Dropout(p=0.5)
+    (wordrep): WordRep(
+      (trans_feature): TransBiLSTM(
+        (trans_drop): Dropout(p=0.5)
+        (trans_embeddings): Embedding(2, 100)
+        (trans_lstm): LSTM(100, 100, batch_first=True, bidirectional=True)
+      )
+      (char_feature): CharBiLSTM(
+        (char_drop): Dropout(p=0.5)
+        (char_embeddings): Embedding(91, 30)
+        (char_lstm): LSTM(30, 25, batch_first=True, bidirectional=True)
+      )
+      (drop): Dropout(p=0.5)
+      (word_embedding): Embedding(34691, 300)
+      (feature_embeddings): ModuleList()
+    )
+    (lstm): LSTM(550, 100, num_layers=4, batch_first=True, bidirectional=True)
+    (hidden2tag): Linear(in_features=200, out_features=12, bias=True)
+  )
+  (crf): CRF()
+)
+Epoch: 1/300
+Learning rate is setted as: 0.015
+     Instance: 2000; Time: 44.88s; loss: 11335.9758;mapping_loss: 0.0000; acc: 21894.0/24308.0=0.9007
+     Instance: 4000; Time: 51.91s; loss: 10330.0221;mapping_loss: 0.0000; acc: 45607.0/50440.0=0.9042
+     Instance: 6000; Time: 60.04s; loss: 10089.4352;mapping_loss: 0.0000; acc: 68885.0/76282.0=0.9030
+     Instance: 8000; Time: 50.41s; loss: 6056.1560;mapping_loss: 0.0000; acc: 91430.0/100859.0=0.9065
+     Instance: 10000; Time: 46.87s; loss: 4820.1418;mapping_loss: 0.0000; acc: 114921.0/126119.0=0.9112
+     Instance: 12000; Time: 51.72s; loss: 4337.1141;mapping_loss: 0.0000; acc: 139426.0/152256.0=0.9157
+     Instance: 14000; Time: 45.52s; loss: 3461.6049;mapping_loss: 0.0000; acc: 163299.0/177620.0=0.9194
+main.py:224: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  word_seq_tensor = autograd.Variable(torch.zeros((batch_size, max_seq_len)), volatile=volatile_flag).long()
+main.py:225: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  label_seq_tensor = autograd.Variable(torch.zeros((batch_size, max_seq_len)), volatile=volatile_flag).long()
+main.py:230: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  mask = autograd.Variable(torch.zeros((batch_size, max_seq_len)), volatile=volatile_flag).byte()
+main.py:251: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  volatile=volatile_flag).long()
+main.py:269: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  volatile=volatile_flag).long()
+     Instance: 15802; Time: 43.88s; loss: 2639.6601;mapping_loss: 0.0000; acc: 184764.0/200256.0=0.9226
+Epoch: 1 training finished. Time: 395.25s, speed: 39.98st/s,  total loss: 53070.1100006
+gold_num =  2616  pred_num =  2344  right_num =  1113
+Dev: time: 27.30s, speed: 106.85st/s; acc: 0.9451, p: 0.4748, r: 0.4255, f: 0.4488
+Exceed previous best f score: -10
+Save current best model in file: data/lstmcrf.0.model
+gold_num =  3867  pred_num =  3496  right_num =  1855
+Test: time: 48.07s, speed: 109.18st/s; acc: 0.9575, p: 0.5306, r: 0.4797, f: 0.5039
+Epoch: 2/300
+Learning rate is setted as: 0.0142857142857
+     Instance: 2000; Time: 47.80s; loss: 2705.8182;mapping_loss: 0.0000; acc: 23621.0/24823.0=0.9516
+     Instance: 4000; Time: 49.00s; loss: 2726.0464;mapping_loss: 0.0000; acc: 47105.0/49589.0=0.9499
+     Instance: 6000; Time: 49.34s; loss: 2515.2571;mapping_loss: 0.0000; acc: 71655.0/75290.0=0.9517
+     Instance: 8000; Time: 47.24s; loss: 2444.5856;mapping_loss: 0.0000; acc: 96088.0/100833.0=0.9529
+     Instance: 10000; Time: 53.30s; loss: 2245.1665;mapping_loss: 0.0000; acc: 120708.0/126485.0=0.9543
+     Instance: 12000; Time: 52.86s; loss: 2307.6127;mapping_loss: 0.0000; acc: 145345.0/152280.0=0.9545
+     Instance: 14000; Time: 51.39s; loss: 2121.7453;mapping_loss: 0.0000; acc: 169529.0/177457.0=0.9553
+     Instance: 15802; Time: 44.56s; loss: 1745.7830;mapping_loss: 0.0000; acc: 191515.0/200256.0=0.9564
+Epoch: 2 training finished. Time: 395.49s, speed: 39.96st/s,  total loss: 18812.0148315
+gold_num =  2616  pred_num =  2446  right_num =  1308
+Dev: time: 24.64s, speed: 118.27st/s; acc: 0.9536, p: 0.5348, r: 0.5000, f: 0.5168
+Exceed previous best f score: 0.448790322581
+Save current best model in file: data/lstmcrf.1.model
+gold_num =  3867  pred_num =  3658  right_num =  2136
+Test: time: 52.45s, speed: 100.07st/s; acc: 0.9646, p: 0.5839, r: 0.5524, f: 0.5677
+Epoch: 3/300
+Learning rate is setted as: 0.0136363636364
+     Instance: 2000; Time: 42.81s; loss: 1769.2726;mapping_loss: 0.0000; acc: 25145.0/25963.0=0.9685
+     Instance: 4000; Time: 52.51s; loss: 1833.1270;mapping_loss: 0.0000; acc: 49886.0/51576.0=0.9672
+     Instance: 6000; Time: 45.04s; loss: 1545.3868;mapping_loss: 0.0000; acc: 73988.0/76433.0=0.9680
+     Instance: 8000; Time: 49.86s; loss: 1774.2527;mapping_loss: 0.0000; acc: 99027.0/102308.0=0.9679
+     Instance: 10000; Time: 48.24s; loss: 1694.4321;mapping_loss: 0.0000; acc: 124179.0/128260.0=0.9682
+     Instance: 12000; Time: 53.26s; loss: 1598.4381;mapping_loss: 0.0000; acc: 148097.0/152951.0=0.9683
+     Instance: 14000; Time: 51.02s; loss: 1377.1464;mapping_loss: 0.0000; acc: 172719.0/178235.0=0.9691
+     Instance: 15802; Time: 42.18s; loss: 1304.8223;mapping_loss: 0.0000; acc: 194135.0/200256.0=0.9694
+Epoch: 3 training finished. Time: 384.92s, speed: 41.05st/s,  total loss: 12896.8780518
+gold_num =  2616  pred_num =  2436  right_num =  1681
+Dev: time: 29.47s, speed: 98.69st/s; acc: 0.9649, p: 0.6901, r: 0.6426, f: 0.6655
+Exceed previous best f score: 0.516791781904
+Save current best model in file: data/lstmcrf.2.model
+gold_num =  3867  pred_num =  3652  right_num =  2563
+Test: time: 47.68s, speed: 109.81st/s; acc: 0.9722, p: 0.7018, r: 0.6628, f: 0.6817
+Epoch: 4/300
+Learning rate is setted as: 0.0130434782609
+     Instance: 2000; Time: 54.39s; loss: 1300.5294;mapping_loss: 0.0000; acc: 24787.0/25441.0=0.9743
+     Instance: 4000; Time: 48.01s; loss: 1386.9899;mapping_loss: 0.0000; acc: 50284.0/51646.0=0.9736
+     Instance: 6000; Time: 45.47s; loss: 1241.6606;mapping_loss: 0.0000; acc: 75006.0/76932.0=0.9750
+     Instance: 8000; Time: 47.15s; loss: 1304.7150;mapping_loss: 0.0000; acc: 99206.0/101713.0=0.9754
+     Instance: 10000; Time: 49.45s; loss: 1311.3667;mapping_loss: 0.0000; acc: 124846.0/127988.0=0.9755
+     Instance: 12000; Time: 48.77s; loss: 1108.6602;mapping_loss: 0.0000; acc: 148824.0/152457.0=0.9762
+     Instance: 14000; Time: 48.77s; loss: 1205.2043;mapping_loss: 0.0000; acc: 173766.0/178006.0=0.9762
+     Instance: 15802; Time: 44.63s; loss: 968.5128;mapping_loss: 0.0000; acc: 195524.0/200256.0=0.9764
+Epoch: 4 training finished. Time: 386.63s, speed: 40.87st/s,  total loss: 9827.63891602
+gold_num =  2616  pred_num =  2507  right_num =  1979
+Dev: time: 31.63s, speed: 92.28st/s; acc: 0.9755, p: 0.7894, r: 0.7565, f: 0.7726
+Exceed previous best f score: 0.665479018211
+Save current best model in file: data/lstmcrf.3.model
+gold_num =  3867  pred_num =  3727  right_num =  2936
+Test: time: 51.29s, speed: 102.37st/s; acc: 0.9790, p: 0.7878, r: 0.7592, f: 0.7732
+Epoch: 5/300
+Learning rate is setted as: 0.0125
+     Instance: 2000; Time: 48.97s; loss: 979.5411;mapping_loss: 0.0000; acc: 24590.0/25105.0=0.9795
+     Instance: 4000; Time: 47.03s; loss: 1034.2802;mapping_loss: 0.0000; acc: 50012.0/51024.0=0.9802
+     Instance: 6000; Time: 50.71s; loss: 954.6085;mapping_loss: 0.0000; acc: 74404.0/75861.0=0.9808
+     Instance: 8000; Time: 49.82s; loss: 943.1611;mapping_loss: 0.0000; acc: 100126.0/102045.0=0.9812
+     Instance: 10000; Time: 48.56s; loss: 914.5298;mapping_loss: 0.0000; acc: 124609.0/126963.0=0.9815
+     Instance: 12000; Time: 49.19s; loss: 924.7993;mapping_loss: 0.0000; acc: 149331.0/152149.0=0.9815
+     Instance: 14000; Time: 49.55s; loss: 971.3624;mapping_loss: 0.0000; acc: 174718.0/177999.0=0.9816
+     Instance: 15802; Time: 46.70s; loss: 845.1558;mapping_loss: 0.0000; acc: 196527.0/200256.0=0.9814
+Epoch: 5 training finished. Time: 390.53s, speed: 40.46st/s,  total loss: 7567.43823242
+gold_num =  2616  pred_num =  2542  right_num =  2015
+Dev: time: 26.06s, speed: 111.73st/s; acc: 0.9765, p: 0.7927, r: 0.7703, f: 0.7813
+Exceed previous best f score: 0.772594183096
+Save current best model in file: data/lstmcrf.4.model
+gold_num =  3867  pred_num =  3754  right_num =  3000
+Test: time: 47.77s, speed: 109.54st/s; acc: 0.9803, p: 0.7991, r: 0.7758, f: 0.7873
+Epoch: 6/300
+Learning rate is setted as: 0.012
+     Instance: 2000; Time: 50.03s; loss: 614.1863;mapping_loss: 0.0000; acc: 25118.0/25424.0=0.9880
+     Instance: 4000; Time: 52.54s; loss: 758.9994;mapping_loss: 0.0000; acc: 49737.0/50408.0=0.9867
+     Instance: 6000; Time: 57.13s; loss: 758.3557;mapping_loss: 0.0000; acc: 74391.0/75409.0=0.9865
+     Instance: 8000; Time: 51.36s; loss: 808.6271;mapping_loss: 0.0000; acc: 99014.0/100397.0=0.9862
+     Instance: 10000; Time: 50.17s; loss: 777.1549;mapping_loss: 0.0000; acc: 124423.0/126205.0=0.9859
+     Instance: 12000; Time: 58.17s; loss: 715.7526;mapping_loss: 0.0000; acc: 149459.0/151591.0=0.9859
+     Instance: 14000; Time: 51.26s; loss: 772.4159;mapping_loss: 0.0000; acc: 174023.0/176565.0=0.9856
+     Instance: 15802; Time: 46.36s; loss: 682.3489;mapping_loss: 0.0000; acc: 197390.0/200256.0=0.9857
+Epoch: 6 training finished. Time: 417.03s, speed: 37.89st/s,  total loss: 5887.84075928
+gold_num =  2616  pred_num =  2514  right_num =  2073
+Dev: time: 28.00s, speed: 103.95st/s; acc: 0.9789, p: 0.8246, r: 0.7924, f: 0.8082
+Exceed previous best f score: 0.781310585498
+Save current best model in file: data/lstmcrf.5.model
+gold_num =  3867  pred_num =  3721  right_num =  3050
+Test: time: 52.00s, speed: 100.82st/s; acc: 0.9815, p: 0.8197, r: 0.7887, f: 0.8039
+Epoch: 7/300
+Learning rate is setted as: 0.0115384615385
+     Instance: 2000; Time: 51.67s; loss: 603.0314;mapping_loss: 0.0000; acc: 25166.0/25417.0=0.9901
+     Instance: 4000; Time: 51.94s; loss: 631.7014;mapping_loss: 0.0000; acc: 50222.0/50791.0=0.9888
+     Instance: 6000; Time: 48.91s; loss: 646.9911;mapping_loss: 0.0000; acc: 75412.0/76322.0=0.9881
+     Instance: 8000; Time: 51.23s; loss: 573.2019;mapping_loss: 0.0000; acc: 100346.0/101531.0=0.9883
+     Instance: 10000; Time: 54.66s; loss: 677.5417;mapping_loss: 0.0000; acc: 125713.0/127236.0=0.9880
+     Instance: 12000; Time: 60.62s; loss: 590.6228;mapping_loss: 0.0000; acc: 151496.0/153303.0=0.9882
+     Instance: 14000; Time: 52.36s; loss: 587.2822;mapping_loss: 0.0000; acc: 175199.0/177288.0=0.9882
+     Instance: 15802; Time: 49.36s; loss: 548.5081;mapping_loss: 0.0000; acc: 197927.0/200256.0=0.9884
+Epoch: 7 training finished. Time: 420.75s, speed: 37.56st/s,  total loss: 4858.88067627
+gold_num =  2616  pred_num =  2578  right_num =  2158
+Dev: time: 30.10s, speed: 96.83st/s; acc: 0.9818, p: 0.8371, r: 0.8249, f: 0.8310
+Exceed previous best f score: 0.808187134503
+Save current best model in file: data/lstmcrf.6.model
+gold_num =  3867  pred_num =  3803  right_num =  3183
+Test: time: 59.31s, speed: 88.58st/s; acc: 0.9836, p: 0.8370, r: 0.8231, f: 0.8300
+Epoch: 8/300
+Learning rate is setted as: 0.0111111111111
+     Instance: 2000; Time: 58.01s; loss: 443.3295;mapping_loss: 0.0000; acc: 25872.0/26087.0=0.9918
+     Instance: 4000; Time: 48.42s; loss: 486.4458;mapping_loss: 0.0000; acc: 49739.0/50204.0=0.9907
+     Instance: 6000; Time: 50.12s; loss: 580.6166;mapping_loss: 0.0000; acc: 75011.0/75739.0=0.9904
+     Instance: 8000; Time: 50.25s; loss: 522.1917;mapping_loss: 0.0000; acc: 100339.0/101344.0=0.9901
+     Instance: 10000; Time: 50.91s; loss: 672.6072;mapping_loss: 0.0000; acc: 125939.0/127280.0=0.9895
+     Instance: 12000; Time: 52.59s; loss: 537.6102;mapping_loss: 0.0000; acc: 151102.0/152720.0=0.9894
+     Instance: 14000; Time: 55.04s; loss: 531.9219;mapping_loss: 0.0000; acc: 176234.0/178113.0=0.9895
+     Instance: 15802; Time: 52.86s; loss: 398.6338;mapping_loss: 0.0000; acc: 198196.0/200256.0=0.9897
+Epoch: 8 training finished. Time: 418.21s, speed: 37.78st/s,  total loss: 4173.35656738
+gold_num =  2616  pred_num =  2590  right_num =  2153
+Dev: time: 32.22s, speed: 90.38st/s; acc: 0.9813, p: 0.8313, r: 0.8230, f: 0.8271
+gold_num =  3867  pred_num =  3825  right_num =  3212
+Test: time: 59.64s, speed: 87.92st/s; acc: 0.9842, p: 0.8397, r: 0.8306, f: 0.8352
+Epoch: 9/300
+Learning rate is setted as: 0.0107142857143
+     Instance: 2000; Time: 52.21s; loss: 486.2294;mapping_loss: 0.0000; acc: 25097.0/25353.0=0.9899
+     Instance: 4000; Time: 49.59s; loss: 369.9871;mapping_loss: 0.0000; acc: 50460.0/50894.0=0.9915
+     Instance: 6000; Time: 51.78s; loss: 527.5343;mapping_loss: 0.0000; acc: 75790.0/76486.0=0.9909
+     Instance: 8000; Time: 54.28s; loss: 428.5729;mapping_loss: 0.0000; acc: 101020.0/101949.0=0.9909
+     Instance: 10000; Time: 52.50s; loss: 353.6564;mapping_loss: 0.0000; acc: 126032.0/127109.0=0.9915
+     Instance: 12000; Time: 56.73s; loss: 493.0375;mapping_loss: 0.0000; acc: 151883.0/153199.0=0.9914
+     Instance: 14000; Time: 51.01s; loss: 427.1603;mapping_loss: 0.0000; acc: 176367.0/177904.0=0.9914
+     Instance: 15802; Time: 50.20s; loss: 397.6848;mapping_loss: 0.0000; acc: 198490.0/200256.0=0.9912
+Epoch: 9 training finished. Time: 418.29s, speed: 37.78st/s,  total loss: 3483.86260986
+gold_num =  2616  pred_num =  2588  right_num =  2156
+Dev: time: 32.76s, speed: 88.87st/s; acc: 0.9816, p: 0.8331, r: 0.8242, f: 0.8286
+gold_num =  3867  pred_num =  3843  right_num =  3214
+Test: time: 52.66s, speed: 99.23st/s; acc: 0.9836, p: 0.8363, r: 0.8311, f: 0.8337
+Epoch: 10/300
+Learning rate is setted as: 0.0103448275862
+     Instance: 2000; Time: 56.33s; loss: 353.3770;mapping_loss: 0.0000; acc: 26000.0/26178.0=0.9932
+     Instance: 4000; Time: 51.26s; loss: 402.3828;mapping_loss: 0.0000; acc: 50903.0/51310.0=0.9921
+     Instance: 6000; Time: 56.95s; loss: 339.7095;mapping_loss: 0.0000; acc: 75422.0/75986.0=0.9926
+     Instance: 8000; Time: 53.48s; loss: 410.7417;mapping_loss: 0.0000; acc: 100898.0/101659.0=0.9925
+     Instance: 10000; Time: 50.46s; loss: 353.2277;mapping_loss: 0.0000; acc: 125888.0/126817.0=0.9927
+     Instance: 12000; Time: 55.48s; loss: 415.0466;mapping_loss: 0.0000; acc: 151106.0/152230.0=0.9926
+     Instance: 14000; Time: 53.86s; loss: 322.6873;mapping_loss: 0.0000; acc: 176071.0/177373.0=0.9927
+     Instance: 15802; Time: 48.29s; loss: 359.9934;mapping_loss: 0.0000; acc: 198796.0/200256.0=0.9927
+Epoch: 10 training finished. Time: 426.12s, speed: 37.08st/s,  total loss: 2957.16583252
+gold_num =  2616  pred_num =  2616  right_num =  2166
+Dev: time: 32.10s, speed: 90.71st/s; acc: 0.9815, p: 0.8280, r: 0.8280, f: 0.8280
+gold_num =  3867  pred_num =  3868  right_num =  3225
+Test: time: 54.38s, speed: 96.07st/s; acc: 0.9838, p: 0.8338, r: 0.8340, f: 0.8339
+Epoch: 11/300
+Learning rate is setted as: 0.01
+     Instance: 2000; Time: 56.10s; loss: 348.4952;mapping_loss: 0.0000; acc: 25782.0/25925.0=0.9945
+     Instance: 4000; Time: 53.87s; loss: 352.1154;mapping_loss: 0.0000; acc: 50378.0/50688.0=0.9939
+     Instance: 6000; Time: 58.62s; loss: 300.4392;mapping_loss: 0.0000; acc: 75631.0/76082.0=0.9941
+     Instance: 8000; Time: 56.39s; loss: 340.6078;mapping_loss: 0.0000; acc: 101421.0/102026.0=0.9941
+     Instance: 10000; Time: 56.62s; loss: 322.8136;mapping_loss: 0.0000; acc: 126507.0/127296.0=0.9938
+     Instance: 12000; Time: 54.03s; loss: 387.7776;mapping_loss: 0.0000; acc: 152244.0/153218.0=0.9936
+     Instance: 14000; Time: 48.00s; loss: 282.2227;mapping_loss: 0.0000; acc: 176911.0/178034.0=0.9937
+     Instance: 15802; Time: 44.81s; loss: 298.1976;mapping_loss: 0.0000; acc: 198992.0/200256.0=0.9937
+Epoch: 11 training finished. Time: 428.44s, speed: 36.88st/s,  total loss: 2632.66906738
+gold_num =  2616  pred_num =  2550  right_num =  2171
+Dev: time: 33.39s, speed: 87.20st/s; acc: 0.9827, p: 0.8514, r: 0.8299, f: 0.8405
+Exceed previous best f score: 0.830958798614
+Save current best model in file: data/lstmcrf.10.model
+gold_num =  3867  pred_num =  3780  right_num =  3199
+Test: time: 57.28s, speed: 91.17st/s; acc: 0.9843, p: 0.8463, r: 0.8273, f: 0.8367
+Epoch: 12/300
+Learning rate is setted as: 0.00967741935484
+     Instance: 2000; Time: 52.46s; loss: 281.4150;mapping_loss: 0.0000; acc: 25537.0/25670.0=0.9948
+     Instance: 4000; Time: 59.98s; loss: 296.8654;mapping_loss: 0.0000; acc: 50969.0/51254.0=0.9944
+     Instance: 6000; Time: 52.54s; loss: 264.1558;mapping_loss: 0.0000; acc: 76232.0/76648.0=0.9946
+     Instance: 8000; Time: 48.46s; loss: 268.3940;mapping_loss: 0.0000; acc: 101482.0/102030.0=0.9946
+     Instance: 10000; Time: 52.49s; loss: 333.0580;mapping_loss: 0.0000; acc: 126842.0/127579.0=0.9942
+     Instance: 12000; Time: 54.22s; loss: 309.1576;mapping_loss: 0.0000; acc: 151609.0/152481.0=0.9943
+     Instance: 14000; Time: 56.60s; loss: 313.5897;mapping_loss: 0.0000; acc: 177159.0/178202.0=0.9941
+     Instance: 15802; Time: 50.05s; loss: 268.3383;mapping_loss: 0.0000; acc: 199083.0/200256.0=0.9941
+Epoch: 12 training finished. Time: 426.87s, speed: 37.02st/s,  total loss: 2334.97375488
+gold_num =  2616  pred_num =  2584  right_num =  2183
+Dev: time: 30.83s, speed: 94.44st/s; acc: 0.9825, p: 0.8448, r: 0.8345, f: 0.8396
+gold_num =  3867  pred_num =  3815  right_num =  3248
+Test: time: 52.79s, speed: 98.95st/s; acc: 0.9852, p: 0.8514, r: 0.8399, f: 0.8456
+Epoch: 13/300
+Learning rate is setted as: 0.009375
+     Instance: 2000; Time: 54.71s; loss: 202.7491;mapping_loss: 0.0000; acc: 25170.0/25269.0=0.9961
+     Instance: 4000; Time: 42.45s; loss: 262.8776;mapping_loss: 0.0000; acc: 50958.0/51181.0=0.9956
+     Instance: 6000; Time: 44.38s; loss: 284.5016;mapping_loss: 0.0000; acc: 76155.0/76498.0=0.9955
+     Instance: 8000; Time: 47.04s; loss: 261.4800;mapping_loss: 0.0000; acc: 100750.0/101213.0=0.9954
+     Instance: 10000; Time: 48.40s; loss: 236.7087;mapping_loss: 0.0000; acc: 125999.0/126588.0=0.9953
+     Instance: 12000; Time: 49.61s; loss: 214.6514;mapping_loss: 0.0000; acc: 150743.0/151420.0=0.9955
+     Instance: 14000; Time: 53.32s; loss: 215.4667;mapping_loss: 0.0000; acc: 176180.0/176960.0=0.9956
+     Instance: 15802; Time: 52.26s; loss: 253.2902;mapping_loss: 0.0000; acc: 199327.0/200256.0=0.9954
+Epoch: 13 training finished. Time: 392.18s, speed: 40.29st/s,  total loss: 1931.72515869
+gold_num =  2616  pred_num =  2597  right_num =  2198
+Dev: time: 32.62s, speed: 89.48st/s; acc: 0.9832, p: 0.8464, r: 0.8402, f: 0.8433
+Exceed previous best f score: 0.840495547813
+Save current best model in file: data/lstmcrf.12.model
+gold_num =  3867  pred_num =  3850  right_num =  3251
+Test: time: 61.75s, speed: 84.80st/s; acc: 0.9844, p: 0.8444, r: 0.8407, f: 0.8426
+Epoch: 14/300
+Learning rate is setted as: 0.00909090909091
+     Instance: 2000; Time: 57.19s; loss: 227.1322;mapping_loss: 0.0000; acc: 25400.0/25499.0=0.9961
+     Instance: 4000; Time: 55.91s; loss: 209.1525;mapping_loss: 0.0000; acc: 51665.0/51863.0=0.9962
+     Instance: 6000; Time: 55.72s; loss: 241.1403;mapping_loss: 0.0000; acc: 77032.0/77336.0=0.9961
+     Instance: 8000; Time: 52.09s; loss: 205.6665;mapping_loss: 0.0000; acc: 102351.0/102774.0=0.9959
+     Instance: 10000; Time: 57.19s; loss: 234.4260;mapping_loss: 0.0000; acc: 128241.0/128787.0=0.9958
+     Instance: 12000; Time: 57.81s; loss: 252.4872;mapping_loss: 0.0000; acc: 152979.0/153649.0=0.9956
+     Instance: 14000; Time: 55.67s; loss: 247.7509;mapping_loss: 0.0000; acc: 177511.0/178307.0=0.9955
+     Instance: 15802; Time: 46.12s; loss: 204.7577;mapping_loss: 0.0000; acc: 199354.0/200256.0=0.9955
+Epoch: 14 training finished. Time: 437.72s, speed: 36.10st/s,  total loss: 1822.51318359
+gold_num =  2616  pred_num =  2569  right_num =  2155
+Dev: time: 30.38s, speed: 95.86st/s; acc: 0.9810, p: 0.8388, r: 0.8238, f: 0.8312
+gold_num =  3867  pred_num =  3789  right_num =  3247
+Test: time: 57.38s, speed: 91.00st/s; acc: 0.9853, p: 0.8570, r: 0.8397, f: 0.8482
+Epoch: 15/300
+Learning rate is setted as: 0.00882352941176
+     Instance: 2000; Time: 55.35s; loss: 181.3241;mapping_loss: 0.0000; acc: 24819.0/24897.0=0.9969
+     Instance: 4000; Time: 54.82s; loss: 207.8931;mapping_loss: 0.0000; acc: 50280.0/50460.0=0.9964
+     Instance: 6000; Time: 55.57s; loss: 187.9603;mapping_loss: 0.0000; acc: 75152.0/75450.0=0.9961
+     Instance: 8000; Time: 60.31s; loss: 221.2141;mapping_loss: 0.0000; acc: 100525.0/100948.0=0.9958
+     Instance: 10000; Time: 56.89s; loss: 191.3169;mapping_loss: 0.0000; acc: 125922.0/126440.0=0.9959
+     Instance: 12000; Time: 59.13s; loss: 217.8497;mapping_loss: 0.0000; acc: 151530.0/152163.0=0.9958
+     Instance: 14000; Time: 59.60s; loss: 247.7889;mapping_loss: 0.0000; acc: 176811.0/177553.0=0.9958
+     Instance: 15802; Time: 49.05s; loss: 144.2360;mapping_loss: 0.0000; acc: 199444.0/200256.0=0.9959
+Epoch: 15 training finished. Time: 450.72s, speed: 35.06st/s,  total loss: 1599.58312988
+gold_num =  2616  pred_num =  2611  right_num =  2204
+Dev: time: 31.41s, speed: 92.97st/s; acc: 0.9833, p: 0.8441, r: 0.8425, f: 0.8433
+Exceed previous best f score: 0.843276424324
+Save current best model in file: data/lstmcrf.14.model
+gold_num =  3867  pred_num =  3872  right_num =  3303
+Test: time: 57.33s, speed: 91.37st/s; acc: 0.9859, p: 0.8530, r: 0.8542, f: 0.8536
+Epoch: 16/300
+Learning rate is setted as: 0.00857142857143
+     Instance: 2000; Time: 51.76s; loss: 149.9342;mapping_loss: 0.0000; acc: 25371.0/25435.0=0.9975
+     Instance: 4000; Time: 55.28s; loss: 205.2289;mapping_loss: 0.0000; acc: 50468.0/50648.0=0.9964
+     Instance: 6000; Time: 60.67s; loss: 223.0511;mapping_loss: 0.0000; acc: 76960.0/77264.0=0.9961
+     Instance: 8000; Time: 53.41s; loss: 170.8555;mapping_loss: 0.0000; acc: 101816.0/102212.0=0.9961
+     Instance: 10000; Time: 57.62s; loss: 229.8171;mapping_loss: 0.0000; acc: 126341.0/126843.0=0.9960
+     Instance: 12000; Time: 56.89s; loss: 158.9789;mapping_loss: 0.0000; acc: 151798.0/152380.0=0.9962
+     Instance: 14000; Time: 55.16s; loss: 204.2371;mapping_loss: 0.0000; acc: 176915.0/177598.0=0.9962
+     Instance: 15802; Time: 47.49s; loss: 155.8876;mapping_loss: 0.0000; acc: 199496.0/200256.0=0.9962
+Epoch: 16 training finished. Time: 438.29s, speed: 36.05st/s,  total loss: 1497.99035645
+gold_num =  2616  pred_num =  2598  right_num =  2225
+Dev: time: 30.71s, speed: 94.77st/s; acc: 0.9842, p: 0.8564, r: 0.8505, f: 0.8535
+Exceed previous best f score: 0.843313564186
+Save current best model in file: data/lstmcrf.15.model
+gold_num =  3867  pred_num =  3850  right_num =  3299
+Test: time: 56.85s, speed: 92.03st/s; acc: 0.9857, p: 0.8569, r: 0.8531, f: 0.8550
+Epoch: 17/300
+Learning rate is setted as: 0.00833333333333
+     Instance: 2000; Time: 53.80s; loss: 159.3042;mapping_loss: 0.0000; acc: 25584.0/25664.0=0.9969
+     Instance: 4000; Time: 54.10s; loss: 165.9504;mapping_loss: 0.0000; acc: 50606.0/50768.0=0.9968
+     Instance: 6000; Time: 51.31s; loss: 185.8698;mapping_loss: 0.0000; acc: 76038.0/76302.0=0.9965
+     Instance: 8000; Time: 55.88s; loss: 203.9714;mapping_loss: 0.0000; acc: 101483.0/101847.0=0.9964
+     Instance: 10000; Time: 55.92s; loss: 153.8756;mapping_loss: 0.0000; acc: 126723.0/127159.0=0.9966
+     Instance: 12000; Time: 53.15s; loss: 143.3171;mapping_loss: 0.0000; acc: 151538.0/152041.0=0.9967
+     Instance: 14000; Time: 51.72s; loss: 168.2974;mapping_loss: 0.0000; acc: 177206.0/177794.0=0.9967
+     Instance: 15802; Time: 45.88s; loss: 142.4622;mapping_loss: 0.0000; acc: 199605.0/200256.0=0.9967
+Epoch: 17 training finished. Time: 421.76s, speed: 37.47st/s,  total loss: 1323.04803467
+gold_num =  2616  pred_num =  2591  right_num =  2189
+Dev: time: 34.57s, speed: 84.24st/s; acc: 0.9827, p: 0.8448, r: 0.8368, f: 0.8408
+gold_num =  3867  pred_num =  3835  right_num =  3305
+Test: time: 58.75s, speed: 88.85st/s; acc: 0.9864, p: 0.8618, r: 0.8547, f: 0.8582
+Epoch: 18/300
+Learning rate is setted as: 0.00810810810811
+     Instance: 2000; Time: 58.07s; loss: 182.2147;mapping_loss: 0.0000; acc: 26102.0/26197.0=0.9964
+     Instance: 4000; Time: 49.75s; loss: 197.1566;mapping_loss: 0.0000; acc: 51357.0/51527.0=0.9967
+     Instance: 6000; Time: 52.99s; loss: 158.6393;mapping_loss: 0.0000; acc: 76345.0/76605.0=0.9966
+     Instance: 8000; Time: 57.41s; loss: 156.3674;mapping_loss: 0.0000; acc: 102216.0/102563.0=0.9966
+     Instance: 10000; Time: 54.15s; loss: 147.4469;mapping_loss: 0.0000; acc: 127694.0/128118.0=0.9967
+     Instance: 12000; Time: 52.88s; loss: 147.8289;mapping_loss: 0.0000; acc: 152409.0/152919.0=0.9967
+     Instance: 14000; Time: 51.69s; loss: 144.2726;mapping_loss: 0.0000; acc: 176977.0/177535.0=0.9969
+     Instance: 15802; Time: 49.34s; loss: 117.2089;mapping_loss: 0.0000; acc: 199639.0/200256.0=0.9969
+Epoch: 18 training finished. Time: 426.28s, speed: 37.07st/s,  total loss: 1251.13531494
+gold_num =  2616  pred_num =  2551  right_num =  2188
+Dev: time: 29.33s, speed: 99.47st/s; acc: 0.9834, p: 0.8577, r: 0.8364, f: 0.8469
+gold_num =  3867  pred_num =  3781  right_num =  3269
+Test: time: 54.99s, speed: 94.85st/s; acc: 0.9858, p: 0.8646, r: 0.8454, f: 0.8549
+Epoch: 19/300
+Learning rate is setted as: 0.00789473684211
+     Instance: 2000; Time: 53.81s; loss: 145.8639;mapping_loss: 0.0000; acc: 25051.0/25122.0=0.9972
+     Instance: 4000; Time: 57.87s; loss: 138.0492;mapping_loss: 0.0000; acc: 50407.0/50551.0=0.9972
+     Instance: 6000; Time: 56.52s; loss: 177.7281;mapping_loss: 0.0000; acc: 75337.0/75559.0=0.9971
+     Instance: 8000; Time: 57.75s; loss: 140.7145;mapping_loss: 0.0000; acc: 100445.0/100738.0=0.9971
+     Instance: 10000; Time: 56.42s; loss: 148.0509;mapping_loss: 0.0000; acc: 125688.0/126066.0=0.9970
+     Instance: 12000; Time: 57.57s; loss: 151.6615;mapping_loss: 0.0000; acc: 151058.0/151499.0=0.9971
+     Instance: 14000; Time: 54.98s; loss: 154.1212;mapping_loss: 0.0000; acc: 176529.0/177066.0=0.9970
+     Instance: 15802; Time: 52.93s; loss: 132.8174;mapping_loss: 0.0000; acc: 199655.0/200256.0=0.9970
+Epoch: 19 training finished. Time: 447.85s, speed: 35.28st/s,  total loss: 1189.00665283
+gold_num =  2616  pred_num =  2589  right_num =  2237
+Dev: time: 31.85s, speed: 91.32st/s; acc: 0.9848, p: 0.8640, r: 0.8551, f: 0.8596
+Exceed previous best f score: 0.853471423092
+Save current best model in file: data/lstmcrf.18.model
+gold_num =  3867  pred_num =  3825  right_num =  3280
+Test: time: 57.87s, speed: 90.48st/s; acc: 0.9859, p: 0.8575, r: 0.8482, f: 0.8528
+Epoch: 20/300
+Learning rate is setted as: 0.00769230769231
+     Instance: 2000; Time: 59.13s; loss: 126.3156;mapping_loss: 0.0000; acc: 25407.0/25459.0=0.9980
+     Instance: 4000; Time: 47.64s; loss: 131.3419;mapping_loss: 0.0000; acc: 49617.0/49730.0=0.9977
+     Instance: 6000; Time: 55.93s; loss: 130.5330;mapping_loss: 0.0000; acc: 74793.0/74973.0=0.9976
+     Instance: 8000; Time: 57.51s; loss: 125.8380;mapping_loss: 0.0000; acc: 100585.0/100820.0=0.9977
+     Instance: 10000; Time: 55.14s; loss: 162.2421;mapping_loss: 0.0000; acc: 126227.0/126539.0=0.9975
+     Instance: 12000; Time: 51.78s; loss: 128.0544;mapping_loss: 0.0000; acc: 151153.0/151537.0=0.9975
+     Instance: 14000; Time: 57.50s; loss: 163.3861;mapping_loss: 0.0000; acc: 176604.0/177071.0=0.9974
+     Instance: 15802; Time: 49.17s; loss: 114.9244;mapping_loss: 0.0000; acc: 199736.0/200256.0=0.9974
+Epoch: 20 training finished. Time: 433.79s, speed: 36.43st/s,  total loss: 1082.63549805
+gold_num =  2616  pred_num =  2590  right_num =  2219
+Dev: time: 35.53s, speed: 81.99st/s; acc: 0.9842, p: 0.8568, r: 0.8482, f: 0.8525
+gold_num =  3867  pred_num =  3840  right_num =  3281
+Test: time: 55.38s, speed: 94.41st/s; acc: 0.9859, p: 0.8544, r: 0.8485, f: 0.8514
+Epoch: 21/300
+Learning rate is setted as: 0.0075
+     Instance: 2000; Time: 61.34s; loss: 132.9867;mapping_loss: 0.0000; acc: 26214.0/26270.0=0.9979
+     Instance: 4000; Time: 54.66s; loss: 120.0909;mapping_loss: 0.0000; acc: 50666.0/50768.0=0.9980
+     Instance: 6000; Time: 55.53s; loss: 150.6880;mapping_loss: 0.0000; acc: 76083.0/76249.0=0.9978
+     Instance: 8000; Time: 57.06s; loss: 133.3356;mapping_loss: 0.0000; acc: 100924.0/101164.0=0.9976
+     Instance: 10000; Time: 54.70s; loss: 97.9469;mapping_loss: 0.0000; acc: 127060.0/127343.0=0.9978
+     Instance: 12000; Time: 56.09s; loss: 117.8225;mapping_loss: 0.0000; acc: 151518.0/151858.0=0.9978
+     Instance: 14000; Time: 55.79s; loss: 107.1265;mapping_loss: 0.0000; acc: 176751.0/177149.0=0.9978
+     Instance: 15802; Time: 50.03s; loss: 98.6016;mapping_loss: 0.0000; acc: 199814.0/200256.0=0.9978
+Epoch: 21 training finished. Time: 445.23s, speed: 35.49st/s,  total loss: 958.598632812
+gold_num =  2616  pred_num =  2589  right_num =  2210
+Dev: time: 34.43s, speed: 85.03st/s; acc: 0.9833, p: 0.8536, r: 0.8448, f: 0.8492
+gold_num =  3867  pred_num =  3835  right_num =  3283
+Test: time: 53.51s, speed: 97.72st/s; acc: 0.9855, p: 0.8561, r: 0.8490, f: 0.8525
+Epoch: 22/300
+Learning rate is setted as: 0.00731707317073
+     Instance: 2000; Time: 53.22s; loss: 79.9894;mapping_loss: 0.0000; acc: 25974.0/26010.0=0.9986
+     Instance: 4000; Time: 52.19s; loss: 149.0924;mapping_loss: 0.0000; acc: 51291.0/51418.0=0.9975
+     Instance: 6000; Time: 57.86s; loss: 107.6561;mapping_loss: 0.0000; acc: 75895.0/76068.0=0.9977
+     Instance: 8000; Time: 50.42s; loss: 123.5988;mapping_loss: 0.0000; acc: 101003.0/101248.0=0.9976
+     Instance: 10000; Time: 53.24s; loss: 124.9558;mapping_loss: 0.0000; acc: 126455.0/126751.0=0.9977
+     Instance: 12000; Time: 51.03s; loss: 115.4691;mapping_loss: 0.0000; acc: 152095.0/152455.0=0.9976
+     Instance: 14000; Time: 49.33s; loss: 97.8319;mapping_loss: 0.0000; acc: 176165.0/176577.0=0.9977
+     Instance: 15802; Time: 50.18s; loss: 90.3684;mapping_loss: 0.0000; acc: 199796.0/200256.0=0.9977
+Epoch: 22 training finished. Time: 417.46s, speed: 37.85st/s,  total loss: 888.961914062
+gold_num =  2616  pred_num =  2596  right_num =  2211
+Dev: time: 31.31s, speed: 93.03st/s; acc: 0.9835, p: 0.8517, r: 0.8452, f: 0.8484
+gold_num =  3867  pred_num =  3849  right_num =  3314
+Test: time: 51.67s, speed: 101.16st/s; acc: 0.9864, p: 0.8610, r: 0.8570, f: 0.8590
+Epoch: 23/300
+Learning rate is setted as: 0.00714285714286
+     Instance: 2000; Time: 53.95s; loss: 104.8050;mapping_loss: 0.0000; acc: 24726.0/24772.0=0.9981
+     Instance: 4000; Time: 55.60s; loss: 127.9139;mapping_loss: 0.0000; acc: 50192.0/50322.0=0.9974
+     Instance: 6000; Time: 52.87s; loss: 112.0730;mapping_loss: 0.0000; acc: 75872.0/76067.0=0.9974
+     Instance: 8000; Time: 55.22s; loss: 120.7533;mapping_loss: 0.0000; acc: 101276.0/101548.0=0.9973
+     Instance: 10000; Time: 52.70s; loss: 92.8647;mapping_loss: 0.0000; acc: 126134.0/126459.0=0.9974
+     Instance: 12000; Time: 54.22s; loss: 76.2598;mapping_loss: 0.0000; acc: 151482.0/151847.0=0.9976
+     Instance: 14000; Time: 54.40s; loss: 120.0566;mapping_loss: 0.0000; acc: 177186.0/177607.0=0.9976
+     Instance: 15802; Time: 48.28s; loss: 89.5377;mapping_loss: 0.0000; acc: 199789.0/200256.0=0.9977
+Epoch: 23 training finished. Time: 427.24s, speed: 36.99st/s,  total loss: 844.264099121
+gold_num =  2616  pred_num =  2559  right_num =  2169
+Dev: time: 28.73s, speed: 101.26st/s; acc: 0.9819, p: 0.8476, r: 0.8291, f: 0.8383
+gold_num =  3867  pred_num =  3793  right_num =  3276
+Test: time: 55.13s, speed: 94.82st/s; acc: 0.9858, p: 0.8637, r: 0.8472, f: 0.8554
+Epoch: 24/300
+Learning rate is setted as: 0.00697674418605
+     Instance: 2000; Time: 53.69s; loss: 104.9991;mapping_loss: 0.0000; acc: 25325.0/25366.0=0.9984
+     Instance: 4000; Time: 48.95s; loss: 95.2946;mapping_loss: 0.0000; acc: 51024.0/51112.0=0.9983
+     Instance: 6000; Time: 53.45s; loss: 97.8093;mapping_loss: 0.0000; acc: 76913.0/77052.0=0.9982
+     Instance: 8000; Time: 53.05s; loss: 112.2665;mapping_loss: 0.0000; acc: 102442.0/102625.0=0.9982
+     Instance: 10000; Time: 52.78s; loss: 105.0317;mapping_loss: 0.0000; acc: 127293.0/127525.0=0.9982
+     Instance: 12000; Time: 53.71s; loss: 109.0281;mapping_loss: 0.0000; acc: 152233.0/152508.0=0.9982
+     Instance: 14000; Time: 51.70s; loss: 100.7416;mapping_loss: 0.0000; acc: 177306.0/177641.0=0.9981
+     Instance: 15802; Time: 50.23s; loss: 70.1251;mapping_loss: 0.0000; acc: 199877.0/200256.0=0.9981
+Epoch: 24 training finished. Time: 417.55s, speed: 37.84st/s,  total loss: 795.296020508
+gold_num =  2616  pred_num =  2593  right_num =  2229
+Dev: time: 33.67s, speed: 86.22st/s; acc: 0.9843, p: 0.8596, r: 0.8521, f: 0.8558
+gold_num =  3867  pred_num =  3837  right_num =  3307
+Test: time: 54.95s, speed: 95.05st/s; acc: 0.9863, p: 0.8619, r: 0.8552, f: 0.8585
+Epoch: 25/300
+Learning rate is setted as: 0.00681818181818
+     Instance: 2000; Time: 60.65s; loss: 108.0989;mapping_loss: 0.0000; acc: 25410.0/25452.0=0.9983
+     Instance: 4000; Time: 59.74s; loss: 91.5072;mapping_loss: 0.0000; acc: 50883.0/50974.0=0.9982
+     Instance: 6000; Time: 62.54s; loss: 100.3845;mapping_loss: 0.0000; acc: 76089.0/76225.0=0.9982
+     Instance: 8000; Time: 60.84s; loss: 83.6987;mapping_loss: 0.0000; acc: 101055.0/101245.0=0.9981
+     Instance: 10000; Time: 61.97s; loss: 69.1766;mapping_loss: 0.0000; acc: 127403.0/127630.0=0.9982
+     Instance: 12000; Time: 68.34s; loss: 72.7589;mapping_loss: 0.0000; acc: 152004.0/152269.0=0.9983
+     Instance: 14000; Time: 67.39s; loss: 85.3785;mapping_loss: 0.0000; acc: 176388.0/176699.0=0.9982
+     Instance: 15802; Time: 61.00s; loss: 120.8688;mapping_loss: 0.0000; acc: 199889.0/200256.0=0.9982
+Epoch: 25 training finished. Time: 502.47s, speed: 31.45st/s,  total loss: 731.872192383
+gold_num =  2616  pred_num =  2571  right_num =  2201
+Dev: time: 33.78s, speed: 86.26st/s; acc: 0.9833, p: 0.8561, r: 0.8414, f: 0.8487
+gold_num =  3867  pred_num =  3794  right_num =  3285
+Test: time: 55.28s, speed: 94.41st/s; acc: 0.9859, p: 0.8658, r: 0.8495, f: 0.8576
+Epoch: 26/300
+Learning rate is setted as: 0.00666666666667
+     Instance: 2000; Time: 53.38s; loss: 95.8220;mapping_loss: 0.0000; acc: 25537.0/25593.0=0.9978
+     Instance: 4000; Time: 67.00s; loss: 94.0161;mapping_loss: 0.0000; acc: 50775.0/50876.0=0.9980
+     Instance: 6000; Time: 57.11s; loss: 107.2158;mapping_loss: 0.0000; acc: 76963.0/77113.0=0.9981
+     Instance: 8000; Time: 63.61s; loss: 90.7645;mapping_loss: 0.0000; acc: 101394.0/101578.0=0.9982
+     Instance: 10000; Time: 61.39s; loss: 77.5564;mapping_loss: 0.0000; acc: 126885.0/127099.0=0.9983
+     Instance: 12000; Time: 50.60s; loss: 92.3951;mapping_loss: 0.0000; acc: 151566.0/151835.0=0.9982
+     Instance: 14000; Time: 60.44s; loss: 64.2198;mapping_loss: 0.0000; acc: 176760.0/177067.0=0.9983
+     Instance: 15802; Time: 49.63s; loss: 107.1008;mapping_loss: 0.0000; acc: 199886.0/200256.0=0.9982
+Epoch: 26 training finished. Time: 463.15s, speed: 34.12st/s,  total loss: 729.090698242
+gold_num =  2616  pred_num =  2582  right_num =  2218
+Dev: time: 36.88s, speed: 78.98st/s; acc: 0.9838, p: 0.8590, r: 0.8479, f: 0.8534
+gold_num =  3867  pred_num =  3828  right_num =  3302
+Test: time: 61.14s, speed: 85.40st/s; acc: 0.9861, p: 0.8626, r: 0.8539, f: 0.8582
+Epoch: 27/300
+Learning rate is setted as: 0.00652173913043
+     Instance: 2000; Time: 65.12s; loss: 89.8058;mapping_loss: 0.0000; acc: 24999.0/25038.0=0.9984
+     Instance: 4000; Time: 66.72s; loss: 112.1949;mapping_loss: 0.0000; acc: 50635.0/50735.0=0.9980
+     Instance: 6000; Time: 60.55s; loss: 88.8878;mapping_loss: 0.0000; acc: 76021.0/76165.0=0.9981
+     Instance: 8000; Time: 58.15s; loss: 67.3013;mapping_loss: 0.0000; acc: 100865.0/101038.0=0.9983
+     Instance: 10000; Time: 65.66s; loss: 107.1255;mapping_loss: 0.0000; acc: 126162.0/126386.0=0.9982
+     Instance: 12000; Time: 61.21s; loss: 85.6193;mapping_loss: 0.0000; acc: 152414.0/152678.0=0.9983
+     Instance: 14000; Time: 58.31s; loss: 107.2982;mapping_loss: 0.0000; acc: 177186.0/177496.0=0.9983
+     Instance: 15802; Time: 53.13s; loss: 58.1245;mapping_loss: 0.0000; acc: 199917.0/200256.0=0.9983
+Epoch: 27 training finished. Time: 488.84s, speed: 32.33st/s,  total loss: 716.357299805
+gold_num =  2616  pred_num =  2607  right_num =  2219
+Dev: time: 33.44s, speed: 87.16st/s; acc: 0.9840, p: 0.8512, r: 0.8482, f: 0.8497
+gold_num =  3867  pred_num =  3853  right_num =  3291
+Test: time: 56.86s, speed: 91.85st/s; acc: 0.9858, p: 0.8541, r: 0.8510, f: 0.8526
+Epoch: 28/300
+Learning rate is setted as: 0.0063829787234
+     Instance: 2000; Time: 58.60s; loss: 93.4852;mapping_loss: 0.0000; acc: 24864.0/24911.0=0.9981
+     Instance: 4000; Time: 62.12s; loss: 63.4100;mapping_loss: 0.0000; acc: 50459.0/50541.0=0.9984
+     Instance: 6000; Time: 64.50s; loss: 80.2406;mapping_loss: 0.0000; acc: 76087.0/76209.0=0.9984
+     Instance: 8000; Time: 67.54s; loss: 99.0499;mapping_loss: 0.0000; acc: 101313.0/101483.0=0.9983
+     Instance: 10000; Time: 65.50s; loss: 93.0100;mapping_loss: 0.0000; acc: 126921.0/127147.0=0.9982
+     Instance: 12000; Time: 65.75s; loss: 81.0061;mapping_loss: 0.0000; acc: 152684.0/152958.0=0.9982
+     Instance: 14000; Time: 62.45s; loss: 63.7924;mapping_loss: 0.0000; acc: 177791.0/178093.0=0.9983
+     Instance: 15802; Time: 49.96s; loss: 71.5178;mapping_loss: 0.0000; acc: 199911.0/200256.0=0.9983
+Epoch: 28 training finished. Time: 496.42s, speed: 31.83st/s,  total loss: 645.512084961
+gold_num =  2616  pred_num =  2559  right_num =  2197
+Dev: time: 34.00s, speed: 85.72st/s; acc: 0.9831, p: 0.8585, r: 0.8398, f: 0.8491
+gold_num =  3867  pred_num =  3807  right_num =  3272
+Test: time: 62.40s, speed: 83.49st/s; acc: 0.9858, p: 0.8595, r: 0.8461, f: 0.8527
+Epoch: 29/300
+Learning rate is setted as: 0.00625
+     Instance: 2000; Time: 64.33s; loss: 84.4098;mapping_loss: 0.0000; acc: 25475.0/25508.0=0.9987
+     Instance: 4000; Time: 66.11s; loss: 64.6365;mapping_loss: 0.0000; acc: 51217.0/51288.0=0.9986
+     Instance: 6000; Time: 59.55s; loss: 86.5098;mapping_loss: 0.0000; acc: 76341.0/76453.0=0.9985
+     Instance: 8000; Time: 59.17s; loss: 70.0229;mapping_loss: 0.0000; acc: 100717.0/100869.0=0.9985
+     Instance: 10000; Time: 58.29s; loss: 70.1597;mapping_loss: 0.0000; acc: 126023.0/126210.0=0.9985
+     Instance: 12000; Time: 57.33s; loss: 83.6809;mapping_loss: 0.0000; acc: 150923.0/151155.0=0.9985
+     Instance: 14000; Time: 55.53s; loss: 65.4756;mapping_loss: 0.0000; acc: 176349.0/176613.0=0.9985
+     Instance: 15802; Time: 57.06s; loss: 49.6458;mapping_loss: 0.0000; acc: 199965.0/200256.0=0.9985
+Epoch: 29 training finished. Time: 477.38s, speed: 33.10st/s,  total loss: 574.540893555
+gold_num =  2616  pred_num =  2583  right_num =  2210
+Dev: time: 30.45s, speed: 95.58st/s; acc: 0.9833, p: 0.8556, r: 0.8448, f: 0.8502
+gold_num =  3867  pred_num =  3825  right_num =  3299
+Test: time: 55.38s, speed: 94.43st/s; acc: 0.9859, p: 0.8625, r: 0.8531, f: 0.8578
+Epoch: 30/300
+Learning rate is setted as: 0.00612244897959
+     Instance: 2000; Time: 59.19s; loss: 67.0945;mapping_loss: 0.0000; acc: 25553.0/25585.0=0.9987
+     Instance: 4000; Time: 59.55s; loss: 72.4310;mapping_loss: 0.0000; acc: 50875.0/50945.0=0.9986
+     Instance: 6000; Time: 59.30s; loss: 87.8132;mapping_loss: 0.0000; acc: 76247.0/76353.0=0.9986
+     Instance: 8000; Time: 59.08s; loss: 79.1071;mapping_loss: 0.0000; acc: 101531.0/101674.0=0.9986
+     Instance: 10000; Time: 62.56s; loss: 62.5731;mapping_loss: 0.0000; acc: 126942.0/127101.0=0.9987
+     Instance: 12000; Time: 55.16s; loss: 51.0074;mapping_loss: 0.0000; acc: 151221.0/151406.0=0.9988
+     Instance: 14000; Time: 57.92s; loss: 49.4594;mapping_loss: 0.0000; acc: 177102.0/177315.0=0.9988
+     Instance: 15802; Time: 52.08s; loss: 70.2177;mapping_loss: 0.0000; acc: 200012.0/200256.0=0.9988
+Epoch: 30 training finished. Time: 464.83s, speed: 34.00st/s,  total loss: 539.703369141
+gold_num =  2616  pred_num =  2599  right_num =  2222
+Dev: time: 32.04s, speed: 90.79st/s; acc: 0.9838, p: 0.8549, r: 0.8494, f: 0.8522
+gold_num =  3867  pred_num =  3855  right_num =  3291
+Test: time: 52.75s, speed: 99.04st/s; acc: 0.9858, p: 0.8537, r: 0.8510, f: 0.8524
+Epoch: 31/300
+Learning rate is setted as: 0.006
+     Instance: 2000; Time: 58.08s; loss: 73.5834;mapping_loss: 0.0000; acc: 25306.0/25346.0=0.9984
+     Instance: 4000; Time: 58.33s; loss: 72.5070;mapping_loss: 0.0000; acc: 49904.0/49980.0=0.9985
+     Instance: 6000; Time: 59.60s; loss: 93.4254;mapping_loss: 0.0000; acc: 75660.0/75787.0=0.9983
+     Instance: 8000; Time: 58.64s; loss: 62.6324;mapping_loss: 0.0000; acc: 100637.0/100794.0=0.9984
+     Instance: 10000; Time: 61.19s; loss: 54.6571;mapping_loss: 0.0000; acc: 126494.0/126686.0=0.9985
+     Instance: 12000; Time: 58.90s; loss: 58.8993;mapping_loss: 0.0000; acc: 152164.0/152381.0=0.9986
+     Instance: 14000; Time: 63.01s; loss: 41.3247;mapping_loss: 0.0000; acc: 177379.0/177615.0=0.9987
+     Instance: 15802; Time: 49.33s; loss: 67.9155;mapping_loss: 0.0000; acc: 199988.0/200256.0=0.9987
+Epoch: 31 training finished. Time: 467.06s, speed: 33.83st/s,  total loss: 524.944885254
+gold_num =  2616  pred_num =  2597  right_num =  2218
+Dev: time: 34.15s, speed: 85.34st/s; acc: 0.9835, p: 0.8541, r: 0.8479, f: 0.8509
+gold_num =  3867  pred_num =  3852  right_num =  3295
+Test: time: 45.98s, speed: 113.40st/s; acc: 0.9857, p: 0.8554, r: 0.8521, f: 0.8537
+Epoch: 32/300
+Learning rate is setted as: 0.00588235294118
+     Instance: 2000; Time: 54.46s; loss: 42.6205;mapping_loss: 0.0000; acc: 25347.0/25368.0=0.9992
+     Instance: 4000; Time: 58.23s; loss: 73.8931;mapping_loss: 0.0000; acc: 50776.0/50848.0=0.9986
+     Instance: 6000; Time: 61.93s; loss: 54.7930;mapping_loss: 0.0000; acc: 75940.0/76040.0=0.9987
+     Instance: 8000; Time: 57.99s; loss: 77.8094;mapping_loss: 0.0000; acc: 101205.0/101347.0=0.9986
+     Instance: 10000; Time: 51.89s; loss: 41.4380;mapping_loss: 0.0000; acc: 126057.0/126224.0=0.9987
+     Instance: 12000; Time: 58.27s; loss: 49.8276;mapping_loss: 0.0000; acc: 151606.0/151793.0=0.9988
+     Instance: 14000; Time: 56.99s; loss: 83.5570;mapping_loss: 0.0000; acc: 177306.0/177534.0=0.9987
+     Instance: 15802; Time: 53.20s; loss: 61.5615;mapping_loss: 0.0000; acc: 199997.0/200256.0=0.9987
+Epoch: 32 training finished. Time: 452.97s, speed: 34.89st/s,  total loss: 485.50012207
+gold_num =  2616  pred_num =  2565  right_num =  2216
+Dev: time: 29.70s, speed: 97.89st/s; acc: 0.9839, p: 0.8639, r: 0.8471, f: 0.8554
+gold_num =  3867  pred_num =  3804  right_num =  3296
+Test: time: 54.52s, speed: 95.74st/s; acc: 0.9859, p: 0.8665, r: 0.8523, f: 0.8593
+Epoch: 33/300
+Learning rate is setted as: 0.00576923076923
+     Instance: 2000; Time: 60.96s; loss: 73.9921;mapping_loss: 0.0000; acc: 25012.0/25041.0=0.9988
+     Instance: 4000; Time: 60.67s; loss: 47.6080;mapping_loss: 0.0000; acc: 50480.0/50523.0=0.9991
+     Instance: 6000; Time: 60.37s; loss: 75.5248;mapping_loss: 0.0000; acc: 76642.0/76713.0=0.9991
+     Instance: 8000; Time: 62.52s; loss: 54.0575;mapping_loss: 0.0000; acc: 102235.0/102327.0=0.9991
+     Instance: 10000; Time: 60.43s; loss: 56.8318;mapping_loss: 0.0000; acc: 127356.0/127471.0=0.9991
+     Instance: 12000; Time: 56.58s; loss: 57.8656;mapping_loss: 0.0000; acc: 152225.0/152363.0=0.9991
+     Instance: 14000; Time: 57.34s; loss: 62.8894;mapping_loss: 0.0000; acc: 176989.0/177156.0=0.9991
+     Instance: 15802; Time: 51.21s; loss: 77.7606;mapping_loss: 0.0000; acc: 200062.0/200256.0=0.9990
+Epoch: 33 training finished. Time: 470.08s, speed: 33.62st/s,  total loss: 506.529785156
+gold_num =  2616  pred_num =  2589  right_num =  2223
+Dev: time: 32.87s, speed: 88.47st/s; acc: 0.9839, p: 0.8586, r: 0.8498, f: 0.8542
+gold_num =  3867  pred_num =  3846  right_num =  3307
+Test: time: 50.78s, speed: 102.92st/s; acc: 0.9860, p: 0.8599, r: 0.8552, f: 0.8575
+Epoch: 34/300
+Learning rate is setted as: 0.00566037735849
+     Instance: 2000; Time: 57.22s; loss: 45.5515;mapping_loss: 0.0000; acc: 24574.0/24595.0=0.9991
+     Instance: 4000; Time: 56.74s; loss: 61.8698;mapping_loss: 0.0000; acc: 49317.0/49371.0=0.9989
+     Instance: 6000; Time: 61.28s; loss: 74.8490;mapping_loss: 0.0000; acc: 74457.0/74543.0=0.9988
+     Instance: 8000; Time: 60.74s; loss: 82.2330;mapping_loss: 0.0000; acc: 100006.0/100121.0=0.9989
+     Instance: 10000; Time: 59.29s; loss: 52.4396;mapping_loss: 0.0000; acc: 125169.0/125301.0=0.9989
+     Instance: 12000; Time: 64.92s; loss: 60.0131;mapping_loss: 0.0000; acc: 150580.0/150734.0=0.9990
+     Instance: 14000; Time: 57.71s; loss: 66.2195;mapping_loss: 0.0000; acc: 176403.0/176586.0=0.9990
+     Instance: 15802; Time: 56.59s; loss: 58.4500;mapping_loss: 0.0000; acc: 200042.0/200256.0=0.9989
+Epoch: 34 training finished. Time: 474.50s, speed: 33.30st/s,  total loss: 501.625366211
+gold_num =  2616  pred_num =  2584  right_num =  2215
+Dev: time: 31.51s, speed: 92.47st/s; acc: 0.9836, p: 0.8572, r: 0.8467, f: 0.8519
+gold_num =  3867  pred_num =  3821  right_num =  3320
+Test: time: 59.63s, speed: 87.53st/s; acc: 0.9867, p: 0.8689, r: 0.8585, f: 0.8637
+Epoch: 35/300
+Learning rate is setted as: 0.00555555555556
+     Instance: 2000; Time: 61.29s; loss: 58.4370;mapping_loss: 0.0000; acc: 26250.0/26281.0=0.9988
+     Instance: 4000; Time: 51.33s; loss: 66.2063;mapping_loss: 0.0000; acc: 51286.0/51341.0=0.9989
+     Instance: 6000; Time: 59.39s; loss: 62.3365;mapping_loss: 0.0000; acc: 76782.0/76863.0=0.9989
+     Instance: 8000; Time: 55.08s; loss: 51.8939;mapping_loss: 0.0000; acc: 101985.0/102098.0=0.9989
+     Instance: 10000; Time: 52.33s; loss: 60.9115;mapping_loss: 0.0000; acc: 127010.0/127151.0=0.9989
+     Instance: 12000; Time: 59.69s; loss: 95.8402;mapping_loss: 0.0000; acc: 152747.0/152922.0=0.9989
+     Instance: 14000; Time: 58.72s; loss: 51.7360;mapping_loss: 0.0000; acc: 177896.0/178094.0=0.9989
+     Instance: 15802; Time: 50.90s; loss: 43.7897;mapping_loss: 0.0000; acc: 200030.0/200256.0=0.9989
+Epoch: 35 training finished. Time: 448.73s, speed: 35.21st/s,  total loss: 491.151123047
+gold_num =  2616  pred_num =  2598  right_num =  2223
+Dev: time: 30.62s, speed: 95.14st/s; acc: 0.9837, p: 0.8557, r: 0.8498, f: 0.8527
+gold_num =  3867  pred_num =  3850  right_num =  3310
+Test: time: 56.50s, speed: 92.43st/s; acc: 0.9862, p: 0.8597, r: 0.8560, f: 0.8578
+Epoch: 36/300
+Learning rate is setted as: 0.00545454545455
+     Instance: 2000; Time: 58.76s; loss: 52.8326;mapping_loss: 0.0000; acc: 25841.0/25877.0=0.9986
+     Instance: 4000; Time: 61.89s; loss: 46.3789;mapping_loss: 0.0000; acc: 51287.0/51342.0=0.9989
+     Instance: 6000; Time: 59.69s; loss: 36.5535;mapping_loss: 0.0000; acc: 76517.0/76585.0=0.9991
+     Instance: 8000; Time: 59.39s; loss: 54.0494;mapping_loss: 0.0000; acc: 101641.0/101732.0=0.9991
+     Instance: 10000; Time: 61.93s; loss: 86.8931;mapping_loss: 0.0000; acc: 126796.0/126931.0=0.9989
+     Instance: 12000; Time: 54.83s; loss: 55.0161;mapping_loss: 0.0000; acc: 152066.0/152232.0=0.9989
+     Instance: 14000; Time: 60.58s; loss: 63.6439;mapping_loss: 0.0000; acc: 177015.0/177218.0=0.9989
+     Instance: 15802; Time: 53.27s; loss: 74.6826;mapping_loss: 0.0000; acc: 200019.0/200256.0=0.9988
+Epoch: 36 training finished. Time: 470.34s, speed: 33.60st/s,  total loss: 470.050170898
+gold_num =  2616  pred_num =  2557  right_num =  2227
+Dev: time: 28.11s, speed: 103.56st/s; acc: 0.9845, p: 0.8709, r: 0.8513, f: 0.8610
+Exceed previous best f score: 0.859558117195
+Save current best model in file: data/lstmcrf.35.model
+Traceback (most recent call last):
+  File "main.py", line 533, in <module>
+    train(data)
+  File "main.py", line 457, in train
+    torch.save(model.state_dict(), model_name)
+  File "/home/xiangyuejia/anaconda3/envs/test27/lib/python2.7/site-packages/torch/serialization.py", line 218, in save
+    return _with_file_like(f, "wb", lambda f: _save(obj, f, pickle_module, pickle_protocol))
+  File "/home/xiangyuejia/anaconda3/envs/test27/lib/python2.7/site-packages/torch/serialization.py", line 143, in _with_file_like
+    return body(f)
+  File "/home/xiangyuejia/anaconda3/envs/test27/lib/python2.7/site-packages/torch/serialization.py", line 218, in <lambda>
+    return _with_file_like(f, "wb", lambda f: _save(obj, f, pickle_module, pickle_protocol))
+  File "/home/xiangyuejia/anaconda3/envs/test27/lib/python2.7/site-packages/torch/serialization.py", line 291, in _save
+    pickler.dump(obj)
+IOError: [Errno 28] No space left on device
